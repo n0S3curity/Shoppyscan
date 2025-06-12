@@ -33,7 +33,7 @@ def tracking_page():
         return render_template('tracking.html', show_details=True, product_name=product_name, barcode=barcode)
     else:
         # If no barcode, redirect to the products list page
-        return redirect(url_for('products_page'))
+        return render_template('tracking.html', show_details=False)
 
 
 @app.route('/scan', methods=['POST']) # New endpoint for logging scanned barcodes
@@ -107,6 +107,7 @@ def update_product():
             barcode_for_tracking = product_in_shopping['barcode']
             if done_status and price is not None and price != "":  # Only record if done and price is provided
                 data_manager.record_product_price_entry(name, barcode_for_tracking, price)  # Pass name here
+                print("Product marked as done with price recorded:", name, barcode_for_tracking, price)
                 return jsonify({"success": True, "message": "Product status and price updated"})
             elif done_status:  # If done but no price, just update status
                 return jsonify({"success": True, "message": "Product status updated"})
@@ -237,6 +238,60 @@ def update_master_product():
     if success:
         return jsonify({"success": True, "message": "Product updated in master successfully"})
     return jsonify({"error": "Product not found or failed to update in master"}), 404
+
+
+
+# --- NEW: Endpoint to process scanned barcodes and handle product addition/update ---
+@app.route('/api/process_scanned_barcode', methods=['POST'])
+def process_scanned_barcode():
+    payload = request.json
+    scanned_barcode = payload.get('barcode')
+    product_name = payload.get('product_name') # This will be optional, used only for new products
+
+    if not scanned_barcode:
+        return jsonify({"success": False, "error": "Barcode is missing"}), 400
+
+    existing_product_name = data_manager.get_product_from_master_by_barcode(scanned_barcode)
+
+    if existing_product_name:
+
+        # Barcode already exists, return its name
+        product = {
+            "success": True,
+            "exists": True,
+            "product_name": existing_product_name[0],
+            "barcode": scanned_barcode,
+            "message": "Barcode already associated with an existing product."
+        }
+        print("Existing product found:", product)
+        return jsonify(product)
+    else:
+        # Barcode does not exist, add it if product_name is provided
+        if not product_name:
+            # If product_name is not provided, this is just a check from the frontend
+            # The frontend will then prompt the user for a name.
+            return jsonify({
+                "success": True,
+                "exists": False,
+                "barcode": scanned_barcode,
+                "message": "Barcode is new. A product name is required to add it."
+            })
+        else:
+            # Add the new product
+            success = data_manager.add_product_to_master(product_name, scanned_barcode)
+            if success:
+                return jsonify({
+                    "success": True,
+                    "exists": False, # Still false, as it was new before addition
+                    "product_name": product_name,
+                    "barcode": scanned_barcode,
+                    "message": "New product added successfully."
+                })
+            else:
+                return jsonify({"success": False, "error": "Failed to add new product."}), 500
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)

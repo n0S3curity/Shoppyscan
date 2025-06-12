@@ -117,14 +117,14 @@ def clear_done_shopping_items():
 
 
 # --- Products Master DB Operations ---
-
+# Renamed from get_product_from_master_by_barcode for clarity,
+# and simplified to return just the name if found, None otherwise.
 def get_product_from_master_by_barcode(barcode):
     products_master_data = _load_db(PRODUCTS_MASTER_DB)
     for name, details in products_master_data['products'].items():
         if details.get('barcode') == barcode and barcode:
             return name, details  # Return name and details (which contains barcode)
-    return None, None  # Return None if not found or barcode is empty/invalid
-
+    return None  # Return None if not found or barcode is empty/invalid
 
 def get_product_from_master_by_name(name_to_find):
     products_master_data = _load_db(PRODUCTS_MASTER_DB)
@@ -141,6 +141,24 @@ def get_all_products_from_master():
     for name, details in products_master_data['products'].items():
         all_products.append({"name": name, "barcode": details.get("barcode", "")})
     return {"products": all_products}
+
+
+# NEW: Function to add or update a product in the master list
+def add_product_to_master(product_name, barcode):
+    products_master_data = _load_db(PRODUCTS_MASTER_DB)
+
+    # Check if a product with the exact name already exists (case-sensitive as keys)
+    if product_name in products_master_data['products']:
+        # If it exists, just update its barcode.
+        products_master_data['products'][product_name]['barcode'] = barcode
+        _save_db(PRODUCTS_MASTER_DB, products_master_data)
+        return True
+    else:
+        # If the product name doesn't exist, add it as a new product.
+        products_master_data['products'][product_name] = {"barcode": barcode}
+        _save_db(PRODUCTS_MASTER_DB, products_master_data)
+        return True
+    return False # Should ideally not be reached
 
 
 # --- Tracking Data DB Operations ---
@@ -173,7 +191,7 @@ def get_tracking_history_by_barcode(barcode):
     return [], 'שם לא ידוע'  # Return empty list and default name if not found
 
 
-# --- Products Master DB Operations (New/Modified) ---
+# --- Products Master DB Operations (Existing functions) ---
 
 def delete_product_from_master(name):
     products_master_data = _load_db(PRODUCTS_MASTER_DB)
