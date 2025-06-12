@@ -18,10 +18,9 @@ def test():
 
 
 
-@app.route('/products')
+@app.route('/products') # This will be the new barcode scanning and product management page
 def products_page():
-    # This route will always show the list of all products
-    return render_template('tracking.html', show_details=False)
+    return render_template('products.html') # Use the new template directly
 
 
 @app.route('/tracking')
@@ -35,6 +34,17 @@ def tracking_page():
     else:
         # If no barcode, redirect to the products list page
         return redirect(url_for('products_page'))
+
+
+@app.route('/scan', methods=['POST']) # New endpoint for logging scanned barcodes
+def scan_barcode():
+    payload = request.json
+    barcode = payload.get('barcode')
+    if barcode:
+        print(f"Scanned barcode: {barcode}") # Log to server console for debugging
+        return jsonify({"success": True, "message": "Barcode logged"}), 200
+    return jsonify({"error": "No barcode provided"}), 400
+
 
 
 # --- API Endpoints ---
@@ -199,6 +209,34 @@ def get_all_products():
     products_data = data_manager.get_all_products_from_master()
     return jsonify(products_data)
 
+
+@app.route('/api/delete_master_product', methods=['POST'])
+def delete_master_product():
+    payload = request.json
+    name = payload.get('name')
+    if not name:
+        return jsonify({"error": "Missing product name"}), 400
+
+    success = data_manager.delete_product_from_master(name)
+    if success:
+        return jsonify({"success": True, "message": "Product deleted from master successfully"})
+    return jsonify({"error": "Product not found in master list"}), 404
+
+
+@app.route('/api/update_master_product', methods=['POST'])
+def update_master_product():
+    payload = request.json
+    old_name = payload.get('old_name')
+    new_name = payload.get('new_name')
+    new_barcode = payload.get('new_barcode', '').strip()
+
+    if not old_name or not new_name:
+        return jsonify({"error": "Missing old or new product name"}), 400
+
+    success = data_manager.update_product_in_master(old_name, new_name, new_barcode)
+    if success:
+        return jsonify({"success": True, "message": "Product updated in master successfully"})
+    return jsonify({"error": "Product not found or failed to update in master"}), 404
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)

@@ -172,3 +172,32 @@ def get_tracking_history_by_barcode(barcode):
         return sorted_tracking, product_tracking_info.get('name', 'שם לא ידוע')  # Return name from tracking DB
     return [], 'שם לא ידוע'  # Return empty list and default name if not found
 
+
+# --- Products Master DB Operations (New/Modified) ---
+
+def delete_product_from_master(name):
+    products_master_data = _load_db(PRODUCTS_MASTER_DB)
+    if name in products_master_data['products']:
+        del products_master_data['products'][name]
+        _save_db(PRODUCTS_MASTER_DB, products_master_data)
+        return True
+    return False
+
+
+def update_product_in_master(old_name, new_name, new_barcode):
+    products_master_data = _load_db(PRODUCTS_MASTER_DB)
+
+    if old_name not in products_master_data['products']:
+        return False  # Product not found
+
+    # If the name itself is changing, delete old entry and add new
+    if old_name != new_name:
+        del products_master_data['products'][old_name]
+        products_master_data['products'][new_name] = {'barcode': new_barcode}
+    else:
+        # Only update barcode if name is the same
+        products_master_data['products'][new_name]['barcode'] = new_barcode
+
+    _save_db(PRODUCTS_MASTER_DB, products_master_data)
+    return True
+
