@@ -12,6 +12,12 @@ def index():
     return render_template('dash.html')
 
 
+@app.route('/test')
+def test():
+    return jsonify({"response":"success!"})
+
+
+
 @app.route('/products')
 def products_page():
     # This route will always show the list of all products

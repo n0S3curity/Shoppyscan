@@ -1,0 +1,12 @@
+services:
+  shoppyscan:
+    build: .
+    image: shoppyscan-app:latest
+    container_name: shoppyscan-app
+    ports:
+      - "8184:5000"  # Host:Container
+    restart: always
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
