@@ -1,0 +1,40 @@
+{
+    "products": {
+        "חלב": {
+            "quantity": 1,
+            "category": "מוצרי חלב",
+            "barcode": "1",
+            "done": false
+        },
+        "פסטה תלתלים": {
+            "quantity": 3,
+            "category": "קטניות",
+            "barcode": "2",
+            "done": true
+        },
+        "חציל": {
+            "quantity": 2,
+            "category": "ירקות",
+            "barcode": "3",
+            "done": false
+        },
+        "עגבניה": {
+            "quantity": 1,
+            "category": "ירקות",
+            "barcode": "4",
+            "done": false
+        },
+        "מרכך כביסה": {
+            "quantity": 1,
+            "category": "חומרי ניקוי",
+            "barcode": "5",
+            "done": false
+        },
+        "סמרטוטים למטבח": {
+            "quantity": 5,
+            "category": "חומרי ניקוי",
+            "barcode": "",
+            "done": false
+        }
+    }
+}
