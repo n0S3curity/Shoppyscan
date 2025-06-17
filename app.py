@@ -1,9 +1,14 @@
+import pytesseract
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import data_manager  # Import the new data_manager module
 import json
 import logging
 import os  # Import os module to create directories
 from datetime import datetime, timedelta  # Import datetime and timedelta for log parsing and initial log generation
+from PIL import Image
+import pytesseract
+import re
+import io
 
 app = Flask(__name__)
 
@@ -135,6 +140,8 @@ def test():
 def products_page():
     server_logger.info('Accessed products page.')
     return render_template('products.html')
+
+
 
 
 @app.route('/tracking')
@@ -472,11 +479,12 @@ def update_master_product():
     new_barcode = payload.get('new_barcode', '').strip()
 
     if not old_name or not new_name or not new_category:
-        server_logger.error(f"Failed to update master product: Missing old name ({old_name}) or new name ({new_name}) or new category ({new_category}).")
+        server_logger.error(
+            f"Failed to update master product: Missing old name ({old_name}) or new name ({new_name}) or new category ({new_category}).")
         return jsonify({"error": "Missing old or new product name"}), 400
 
     try:
-        success = data_manager.update_product_in_master(old_name, new_name,new_category, new_barcode)
+        success = data_manager.update_product_in_master(old_name, new_name, new_category, new_barcode)
         if success:
             server_logger.info(f"Product '{old_name}' updated in master to '{new_name}' (Barcode: {new_barcode}).")
             return jsonify({"success": True, "message": "Product updated in master successfully"})
@@ -529,7 +537,7 @@ def process_scanned_barcode():
                     "message": "Barcode is new. A product name is required to add it."
                 })
             else:
-                success = data_manager.add_product_to_master(product_name, scanned_barcode,category=category)
+                success = data_manager.add_product_to_master(product_name, scanned_barcode, category=category)
                 if success:
                     server_logger.info(
                         f"Processed scanned barcode '{scanned_barcode}': New product '{product_name}' added to master.")

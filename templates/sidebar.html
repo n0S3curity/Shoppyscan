@@ -1,10 +1,12 @@
 <!-- Hamburger menu button -->
-<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
 
 <!-- Offcanvas Navbar -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-scroll="true">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+     data-bs-scroll="true">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">תפריט</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -21,25 +23,26 @@
                 <a class="nav-link" href="/tracking"><i class="fas fa-chart-line"></i> סטטיסטיקה</a>
             </li>
 
-<!--            add logs foldable dropdown that has 2 links - /logs/server and /logs/scanner -->
-<!-- Logs Dropdown -->
-<li class="nav-item">
-    <a class="nav-link" data-bs-toggle="collapse" href="#logsDropdown" role="button" aria-expanded="false" aria-controls="logsDropdown">
-        <i class="fas fa-file-alt"></i> לוגים
-        <i class="fas fa-caret-down ms-auto"></i>
-    </a>
-    <div class="collapse" id="logsDropdown">
-        <ul class="navbar-nav ps-4">
-            <li class="nav-item">
-                <a class="nav-link" href="/logs/server"><i class="fas fa-server"></i> לוג שרת</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logs/scanner"><i class="fas fa-barcode"></i> לוג סורק</a>
-            </li>
-        </ul>
-    </div>
-</li>
 
+            <!--            add logs foldable dropdown that has 2 links - /logs/server and /logs/scanner -->
+            <!-- Logs Dropdown -->
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#logsDropdown" role="button" aria-expanded="false"
+                   aria-controls="logsDropdown">
+                    <i class="fas fa-file-alt"></i> לוגים
+                    <i class="fas fa-caret-down ms-auto"></i>
+                </a>
+                <div class="collapse" id="logsDropdown">
+                    <ul class="navbar-nav ps-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logs/server"><i class="fas fa-server"></i> לוג שרת</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logs/scanner"><i class="fas fa-barcode"></i> לוג סורק</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
 
 
         </ul>

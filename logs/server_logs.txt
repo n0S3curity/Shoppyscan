@@ -601,3 +601,91 @@
 2025-06-17 12:12:34,806 - INFO - Successfully retrieved shopping list.
 2025-06-17 12:12:42,198 - INFO - Product 'גבינה צהובה עמק 400 גרם' marked as undone.
 2025-06-17 12:12:42,364 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:17:29,669 - INFO - Accessed products page.
+2025-06-17 12:17:29,845 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:17:29,846 - INFO - Successfully retrieved all categories.
+2025-06-17 12:19:38,046 - INFO - Flask application starting...
+2025-06-17 12:19:38,392 - INFO - Flask application starting...
+2025-06-17 12:19:43,080 - INFO - Accessed receipt scan page.
+2025-06-17 12:28:41,081 - INFO - Flask application shut down.
+2025-06-17 12:28:41,132 - INFO - Flask application shut down.
+2025-06-17 12:28:41,655 - INFO - Flask application starting...
+2025-06-17 12:28:42,068 - INFO - Flask application starting...
+2025-06-17 12:28:53,518 - INFO - Accessed receipt scan page.
+2025-06-17 12:28:53,831 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:32:36,395 - INFO - Accessed receipt scan page.
+2025-06-17 12:32:36,561 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:32:47,381 - INFO - Accessed index page.
+2025-06-17 12:32:47,720 - INFO - Successfully retrieved all categories.
+2025-06-17 12:32:47,721 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:32:47,784 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:32:49,610 - INFO - Accessed receipt scan page.
+2025-06-17 12:32:49,917 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:32:51,395 - INFO - Accessed receipt scan page.
+2025-06-17 12:32:51,951 - INFO - Accessed receipt scan page.
+2025-06-17 12:32:51,965 - INFO - Accessed receipt scan page.
+2025-06-17 12:32:52,492 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:34:44,159 - INFO - Accessed receipt scan page.
+2025-06-17 12:34:44,506 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:34:52,501 - INFO - Product 'בדיקהההה' deleted successfully from master list.
+2025-06-17 12:34:56,045 - INFO - Accessed receipt scan page.
+2025-06-17 12:34:56,471 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:34:58,762 - INFO - Accessed products page.
+2025-06-17 12:34:59,062 - INFO - Successfully retrieved all categories.
+2025-06-17 12:34:59,062 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:35:04,820 - INFO - Product 'פסטה ספגטי 8 אסם' deleted successfully from master list.
+2025-06-17 12:35:04,975 - INFO - Successfully retrieved all categories.
+2025-06-17 12:35:04,986 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:35:11,366 - INFO - Accessed products page.
+2025-06-17 12:35:11,643 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:35:11,653 - INFO - Successfully retrieved all categories.
+2025-06-17 12:35:26,080 - INFO - Accessed receipt scan page.
+2025-06-17 12:35:33,241 - INFO - Accessed products page.
+2025-06-17 12:35:33,558 - INFO - Successfully retrieved all categories.
+2025-06-17 12:35:33,558 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:35:35,559 - INFO - Accessed receipt scan page.
+2025-06-17 12:40:08,141 - INFO - Accessed receipt scan page.
+2025-06-17 12:40:10,596 - INFO - Accessed receipt scan page.
+2025-06-17 12:42:53,772 - INFO - Accessed receipt scan page.
+2025-06-17 12:42:56,868 - INFO - Accessed receipt scan page.
+2025-06-17 12:46:47,593 - INFO - Accessed receipt scan page.
+2025-06-17 12:46:52,757 - INFO - Accessed receipt scan page.
+2025-06-17 12:49:07,426 - INFO - Accessed receipt scan page.
+2025-06-17 12:51:15,485 - INFO - Accessed receipt scan page.
+2025-06-17 12:54:39,848 - INFO - Accessed receipt scan page.
+2025-06-17 12:54:48,311 - INFO - Accessed receipt scan page.
+2025-06-17 12:56:06,380 - INFO - Accessed receipt scan page.
+2025-06-17 12:56:09,658 - INFO - Accessed receipt scan page.
+2025-06-17 12:56:58,529 - INFO - Accessed receipt scan page.
+2025-06-17 12:57:03,168 - INFO - Accessed receipt scan page.
+2025-06-17 12:58:28,137 - INFO - Accessed receipt scan page.
+2025-06-17 12:58:47,178 - INFO - Accessed receipt scan page.
+2025-06-17 13:04:17,938 - INFO - Flask application starting...
+2025-06-17 13:04:41,561 - INFO - Flask application starting...
+2025-06-17 13:05:02,641 - INFO - Flask application starting...
+2025-06-17 13:05:05,605 - INFO - Flask application starting...
+2025-06-17 13:05:59,670 - INFO - Accessed receipt scan page.
+2025-06-17 13:06:12,275 - INFO - Accessed receipt scan page.
+2025-06-17 13:08:54,149 - INFO - Flask application starting...
+2025-06-17 13:11:56,121 - INFO - Flask application starting...
+2025-06-17 13:11:57,295 - INFO - Flask application shut down.
+2025-06-17 13:11:57,377 - INFO - Flask application shut down.
+2025-06-17 13:11:58,169 - INFO - Flask application starting...
+2025-06-17 13:11:58,933 - INFO - Flask application starting...
+2025-06-17 13:12:13,700 - INFO - Accessed receipt scan page.
+2025-06-17 13:12:55,105 - INFO - Flask application shut down.
+2025-06-17 13:12:55,181 - INFO - Flask application shut down.
+2025-06-17 13:12:56,035 - INFO - Flask application starting...
+2025-06-17 13:12:56,743 - INFO - Flask application starting...
+2025-06-17 13:13:15,044 - INFO - Accessed receipt scan page.
+2025-06-17 13:15:49,822 - INFO - Accessed receipt scan page.
+2025-06-17 13:17:01,278 - INFO - Accessed receipt scan page.
+2025-06-17 13:21:44,933 - INFO - Flask application starting...
+2025-06-17 13:21:45,637 - INFO - Flask application starting...
+2025-06-17 13:21:49,539 - INFO - Accessed receipt scan page.
+2025-06-17 13:22:32,003 - INFO - Accessed receipt scan page.
+2025-06-17 13:28:47,921 - INFO - Accessed receipt scan page.
+2025-06-17 13:29:14,053 - INFO - Accessed receipt scan page.
+2025-06-17 13:29:55,618 - INFO - Accessed receipt scan page.
+2025-06-17 13:31:00,585 - INFO - Accessed receipt scan page.
+2025-06-17 16:28:15,462 - INFO - Flask application starting...
