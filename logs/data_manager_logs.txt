@@ -373,3 +373,616 @@
 2025-06-17 09:49:44,192 - INFO - Retrieved all categories.
 2025-06-17 09:49:51,969 - INFO - Successfully loaded data from databases/products_master.json.
 2025-06-17 09:49:51,969 - INFO - Retrieved all products from master list.
+2025-06-17 10:11:08,279 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:11:08,279 - INFO - Retrieved all shopping items.
+2025-06-17 10:11:08,287 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:11:08,287 - INFO - Retrieved all products from master list.
+2025-06-17 10:11:08,290 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:11:08,291 - INFO - Retrieved all categories.
+2025-06-17 10:11:12,314 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:11:12,314 - INFO - Retrieved all shopping items.
+2025-06-17 10:11:12,320 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:11:12,320 - INFO - Retrieved all products from master list.
+2025-06-17 10:11:12,321 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:11:12,321 - INFO - Retrieved all categories.
+2025-06-17 10:11:15,141 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:11:15,141 - INFO - Retrieved all products from master list.
+2025-06-17 10:13:11,360 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:13:11,360 - INFO - Retrieved all products from master list.
+2025-06-17 10:22:34,638 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:22:34,638 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:22:34,639 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:22:34,639 - INFO - Retrieved all categories.
+2025-06-17 10:22:34,639 - INFO - Retrieved all products from master list.
+2025-06-17 10:22:34,639 - INFO - Retrieved all shopping items.
+2025-06-17 10:22:37,516 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:22:37,517 - INFO - Retrieved all products from master list.
+2025-06-17 10:23:22,130 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:23:22,130 - INFO - Product not found by barcode '7290000057118' in master list.
+2025-06-17 10:23:41,167 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:23:41,167 - INFO - Product not found by barcode '7290000057118' in master list.
+2025-06-17 10:23:41,167 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:23:41,289 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:23:41,506 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:23:41,506 - INFO - Retrieved all products from master list.
+2025-06-17 10:24:17,124 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:24:17,125 - INFO - Product not found by barcode '7290013531117' in master list.
+2025-06-17 10:24:34,658 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:24:34,658 - INFO - Product not found by barcode '7290013010025' in master list.
+2025-06-17 10:27:25,572 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:27:25,572 - INFO - Product not found by barcode '7290018500361' in master list.
+2025-06-17 10:47:24,124 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:47:24,124 - INFO - Retrieved all products from master list.
+2025-06-17 10:47:37,586 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:47:37,586 - INFO - Product not found by barcode 'https://ww6.sec.cl/qr/qr.do?a=prod&i=9900000005246' in master list.
+2025-06-17 10:48:05,914 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:05,914 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:06,060 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:06,060 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:07,736 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:07,736 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:07,736 - INFO - Deleted product 'test1' from master list.
+2025-06-17 10:48:07,906 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:07,906 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:09,108 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:09,108 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:09,295 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:09,295 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:10,686 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:10,686 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:10,874 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:10,874 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:12,499 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:12,499 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:12,684 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:12,684 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:14,181 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:14,182 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:48:14,349 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:14,349 - INFO - Retrieved all products from master list.
+2025-06-17 10:48:18,374 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:18,381 - INFO - Successfully loaded data from databases/tracking_data.json.
+2025-06-17 10:48:18,381 - INFO - No tracking history found for barcode '7290000057118'.
+2025-06-17 10:48:24,225 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:24,226 - INFO - Successfully loaded data from databases/tracking_data.json.
+2025-06-17 10:48:24,231 - INFO - Successfully saved data to databases/tracking_data.json.
+2025-06-17 10:48:24,356 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:48:24,363 - INFO - Successfully loaded data from databases/tracking_data.json.
+2025-06-17 10:48:24,366 - INFO - Retrieved tracking history for barcode '7290000057118'.
+2025-06-17 10:51:49,059 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:51:49,059 - INFO - Retrieved all products from master list.
+2025-06-17 10:52:18,642 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:52:18,642 - INFO - Product not found by barcode '7290000208213' in master list.
+2025-06-17 10:52:24,951 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:52:24,952 - INFO - Product not found by barcode '7290000208213' in master list.
+2025-06-17 10:52:52,259 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:52:52,263 - INFO - Successfully loaded data from databases/tracking_data.json.
+2025-06-17 10:52:52,265 - INFO - Retrieved tracking history for barcode '5'.
+2025-06-17 10:53:32,245 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:53:32,245 - INFO - Product not found by barcode '7290000208213' in master list.
+2025-06-17 10:53:42,487 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:53:42,487 - INFO - Product not found by barcode '7290000208213' in master list.
+2025-06-17 10:53:42,488 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:53:42,489 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:53:42,658 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:53:42,658 - INFO - Retrieved all products from master list.
+2025-06-17 10:53:50,052 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:53:50,052 - INFO - Retrieved all products from master list.
+2025-06-17 10:56:54,710 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:56:54,710 - INFO - Retrieved all products from master list.
+2025-06-17 10:57:08,440 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:57:08,440 - INFO - Retrieved all products from master list.
+2025-06-17 10:57:13,226 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:57:53,379 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:57:53,379 - INFO - Retrieved all products from master list.
+2025-06-17 10:58:31,235 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:58:31,236 - INFO - Retrieved all products from master list.
+2025-06-17 10:58:31,236 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:58:31,237 - INFO - Retrieved all categories.
+2025-06-17 10:58:31,237 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:31,237 - INFO - Retrieved all shopping items.
+2025-06-17 10:58:40,634 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:58:40,635 - INFO - Successfully saved data to databases/categories.json.
+2025-06-17 10:58:40,636 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:40,638 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 10:58:40,638 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:58:40,639 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:58:40,843 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:40,843 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:58:40,844 - INFO - Retrieved all shopping items.
+2025-06-17 10:58:40,844 - INFO - Retrieved all products from master list.
+2025-06-17 10:58:40,855 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:58:40,856 - INFO - Retrieved all categories.
+2025-06-17 10:58:46,198 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:46,198 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 10:58:46,374 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:46,374 - INFO - Retrieved all shopping items.
+2025-06-17 10:58:59,794 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:58:59,796 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:59,797 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 10:58:59,798 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:58:59,799 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:58:59,948 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 10:58:59,948 - INFO - Retrieved all categories.
+2025-06-17 10:58:59,954 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 10:58:59,954 - INFO - Retrieved all shopping items.
+2025-06-17 10:59:00,022 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:00,022 - INFO - Retrieved all products from master list.
+2025-06-17 10:59:22,267 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:22,267 - INFO - Retrieved all products from master list.
+2025-06-17 10:59:27,089 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:27,090 - INFO - Product not found by barcode '7290000208428' in master list.
+2025-06-17 10:59:41,138 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:41,138 - INFO - Product not found by barcode '7290000208428' in master list.
+2025-06-17 10:59:41,138 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:41,139 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 10:59:41,306 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 10:59:41,306 - INFO - Retrieved all products from master list.
+2025-06-17 11:00:22,689 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:00:22,690 - INFO - Product not found by barcode '7290113192492' in master list.
+2025-06-17 11:00:39,384 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:00:39,384 - INFO - Product not found by barcode '7290113192492' in master list.
+2025-06-17 11:00:39,384 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:00:39,385 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:00:39,557 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:00:39,557 - INFO - Retrieved all products from master list.
+2025-06-17 11:00:54,874 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:00:54,874 - INFO - Product not found by barcode '7290000111186' in master list.
+2025-06-17 11:01:03,163 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:03,163 - INFO - Product not found by barcode '7290000111186' in master list.
+2025-06-17 11:01:03,163 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:03,164 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:01:03,317 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:03,317 - INFO - Retrieved all products from master list.
+2025-06-17 11:01:17,475 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:17,475 - INFO - Product not found by barcode '7290000111360' in master list.
+2025-06-17 11:01:34,519 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:34,519 - INFO - Product not found by barcode '7290000111360' in master list.
+2025-06-17 11:01:34,519 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:34,520 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:01:34,691 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:34,691 - INFO - Retrieved all products from master list.
+2025-06-17 11:01:49,145 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:01:49,145 - INFO - Product not found by barcode '7290000072623' in master list.
+2025-06-17 11:02:13,992 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:02:13,992 - INFO - Product not found by barcode '7290000072623' in master list.
+2025-06-17 11:02:13,992 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:02:13,993 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:02:14,174 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:02:14,174 - INFO - Retrieved all products from master list.
+2025-06-17 11:05:30,953 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:05:30,953 - INFO - Retrieved all products from master list.
+2025-06-17 11:05:38,979 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:05:38,979 - INFO - Retrieved all categories.
+2025-06-17 11:05:38,981 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:05:38,981 - INFO - Retrieved all products from master list.
+2025-06-17 11:05:38,981 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:05:38,981 - INFO - Retrieved all shopping items.
+2025-06-17 11:05:43,182 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:05:43,182 - INFO - Retrieved all shopping items.
+2025-06-17 11:05:43,183 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:05:43,183 - INFO - Retrieved all categories.
+2025-06-17 11:05:43,245 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:05:43,245 - INFO - Retrieved all products from master list.
+2025-06-17 11:07:33,294 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:07:33,294 - INFO - Retrieved all shopping items.
+2025-06-17 11:07:33,301 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:07:33,301 - INFO - Retrieved all categories.
+2025-06-17 11:07:33,301 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:07:33,301 - INFO - Retrieved all products from master list.
+2025-06-17 11:07:36,813 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:07:36,813 - INFO - Retrieved all categories.
+2025-06-17 11:07:36,813 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:07:36,813 - INFO - Retrieved all shopping items.
+2025-06-17 11:07:36,814 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:07:36,814 - INFO - Retrieved all products from master list.
+2025-06-17 11:08:02,817 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:08:02,817 - INFO - Retrieved all products from master list.
+2025-06-17 11:08:33,741 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:08:33,741 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:08:33,741 - INFO - Retrieved all products from master list.
+2025-06-17 11:08:33,742 - INFO - Retrieved all shopping items.
+2025-06-17 11:08:33,742 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:08:33,742 - INFO - Retrieved all categories.
+2025-06-17 11:08:38,901 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:08:38,901 - INFO - Retrieved all products from master list.
+2025-06-17 11:08:52,048 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:08:52,054 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:08:52,064 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:08:52,064 - INFO - Retrieved all products from master list.
+2025-06-17 11:09:00,521 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:09:00,522 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:09:00,535 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:09:00,536 - INFO - Retrieved all products from master list.
+2025-06-17 11:12:38,735 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:12:38,736 - INFO - Successfully loaded data from databases/tracking_data.json.
+2025-06-17 11:12:38,736 - INFO - No tracking history found for barcode '7290000057118'.
+2025-06-17 11:12:42,795 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:12:42,795 - INFO - Retrieved all products from master list.
+2025-06-17 11:12:49,795 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:12:49,795 - INFO - Retrieved all products from master list.
+2025-06-17 11:12:49,796 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:12:49,796 - INFO - Retrieved all categories.
+2025-06-17 11:12:49,862 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:12:49,862 - INFO - Retrieved all shopping items.
+2025-06-17 11:15:06,417 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:15:06,417 - INFO - Retrieved all products from master list.
+2025-06-17 11:16:13,578 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:16:13,578 - INFO - Retrieved all products from master list.
+2025-06-17 11:16:59,334 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:16:59,342 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:16:59,362 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:16:59,363 - INFO - Retrieved all products from master list.
+2025-06-17 11:23:33,336 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:23:33,336 - INFO - Retrieved all shopping items.
+2025-06-17 11:23:33,337 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:23:33,338 - INFO - Retrieved all products from master list.
+2025-06-17 11:23:33,338 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:23:33,338 - INFO - Retrieved all categories.
+2025-06-17 11:26:16,010 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:26:16,011 - INFO - Retrieved all shopping items.
+2025-06-17 11:26:16,013 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:26:16,013 - INFO - Retrieved all products from master list.
+2025-06-17 11:26:16,014 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:26:16,014 - INFO - Retrieved all categories.
+2025-06-17 11:26:29,005 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:26:29,005 - INFO - Retrieved all products from master list.
+2025-06-17 11:26:32,380 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:26:32,380 - INFO - Retrieved all products from master list.
+2025-06-17 11:30:25,629 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:30:25,629 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:25,629 - INFO - Retrieved all shopping items.
+2025-06-17 11:30:25,629 - INFO - Retrieved all products from master list.
+2025-06-17 11:30:25,630 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:30:25,630 - INFO - Retrieved all categories.
+2025-06-17 11:30:34,728 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:30:34,734 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:30:34,742 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 11:30:34,743 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:34,757 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:30:34,773 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:30:34,773 - INFO - Retrieved all categories.
+2025-06-17 11:30:34,773 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:34,773 - INFO - Retrieved all products from master list.
+2025-06-17 11:30:34,788 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:30:34,789 - INFO - Retrieved all shopping items.
+2025-06-17 11:30:39,604 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:39,604 - INFO - Retrieved all products from master list.
+2025-06-17 11:30:41,758 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:41,758 - INFO - Retrieved all products from master list.
+2025-06-17 11:30:58,008 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:58,009 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:30:58,033 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:30:58,033 - INFO - Retrieved all products from master list.
+2025-06-17 11:31:08,296 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:31:08,298 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:31:08,320 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:31:08,320 - INFO - Retrieved all products from master list.
+2025-06-17 11:33:52,052 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:33:52,052 - INFO - Retrieved all products from master list.
+2025-06-17 11:34:09,457 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:34:09,457 - INFO - Retrieved all products from master list.
+2025-06-17 11:34:35,819 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:34:35,819 - INFO - Retrieved all products from master list.
+2025-06-17 11:34:36,488 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:34:36,488 - INFO - Retrieved all products from master list.
+2025-06-17 11:34:36,890 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:34:36,890 - INFO - Retrieved all products from master list.
+2025-06-17 11:36:14,718 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:36:14,719 - INFO - Retrieved all products from master list.
+2025-06-17 11:36:25,363 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:36:25,363 - INFO - Retrieved all products from master list.
+2025-06-17 11:38:13,578 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:38:13,578 - INFO - Retrieved all products from master list.
+2025-06-17 11:38:44,006 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:38:44,006 - INFO - Retrieved all products from master list.
+2025-06-17 11:41:52,726 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:41:52,726 - INFO - Retrieved all products from master list.
+2025-06-17 11:43:46,932 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:43:46,933 - INFO - Retrieved all products from master list.
+2025-06-17 11:43:46,934 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:43:46,934 - INFO - Retrieved all categories.
+2025-06-17 11:44:12,020 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:12,020 - INFO - Retrieved all products from master list.
+2025-06-17 11:44:12,023 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:44:12,023 - INFO - Retrieved all categories.
+2025-06-17 11:44:30,140 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:30,144 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:44:30,151 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:44:30,151 - INFO - Retrieved all categories.
+2025-06-17 11:44:30,160 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:30,161 - INFO - Retrieved all products from master list.
+2025-06-17 11:44:51,183 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:51,184 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:44:51,190 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:44:51,191 - INFO - Retrieved all categories.
+2025-06-17 11:44:51,199 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:51,199 - INFO - Retrieved all products from master list.
+2025-06-17 11:44:55,416 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:44:55,416 - INFO - Retrieved all products from master list.
+2025-06-17 11:44:55,417 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:44:55,417 - INFO - Retrieved all categories.
+2025-06-17 11:45:08,613 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:08,615 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:45:08,621 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:08,621 - INFO - Retrieved all categories.
+2025-06-17 11:45:08,630 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:08,630 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:12,491 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:12,492 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:45:12,498 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:12,498 - INFO - Retrieved all categories.
+2025-06-17 11:45:12,508 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:12,508 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:15,720 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:15,721 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:45:15,727 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:15,727 - INFO - Retrieved all categories.
+2025-06-17 11:45:15,735 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:15,735 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:31,460 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:31,460 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:31,463 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:31,463 - INFO - Retrieved all categories.
+2025-06-17 11:45:35,206 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:35,208 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:45:35,214 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:35,214 - INFO - Retrieved all categories.
+2025-06-17 11:45:35,214 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:35,214 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:46,713 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:45:46,713 - INFO - Retrieved all products from master list.
+2025-06-17 11:45:46,716 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:45:46,716 - INFO - Retrieved all categories.
+2025-06-17 11:46:00,246 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:46:00,246 - INFO - Retrieved all shopping items.
+2025-06-17 11:46:00,247 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:46:00,247 - INFO - Retrieved all categories.
+2025-06-17 11:46:00,248 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:46:00,248 - INFO - Retrieved all products from master list.
+2025-06-17 11:46:03,250 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:46:03,250 - INFO - Retrieved all categories.
+2025-06-17 11:46:03,250 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:46:03,250 - INFO - Retrieved all products from master list.
+2025-06-17 11:46:28,458 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:46:28,458 - INFO - Product not found by barcode '7290018500361' in master list.
+2025-06-17 11:47:03,796 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:03,796 - INFO - Product not found by barcode '7290018500361' in master list.
+2025-06-17 11:47:03,796 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:03,798 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:47:03,942 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:47:03,942 - INFO - Retrieved all categories.
+2025-06-17 11:47:03,949 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:03,949 - INFO - Retrieved all products from master list.
+2025-06-17 11:47:07,066 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:47:07,066 - INFO - Retrieved all categories.
+2025-06-17 11:47:07,067 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:07,068 - INFO - Retrieved all products from master list.
+2025-06-17 11:47:17,128 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:17,128 - INFO - Product not found by barcode '7613039771174' in master list.
+2025-06-17 11:47:36,476 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:36,476 - INFO - Product not found by barcode '7613039771174' in master list.
+2025-06-17 11:47:36,476 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:36,478 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:47:36,649 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:47:36,649 - INFO - Retrieved all categories.
+2025-06-17 11:47:36,656 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:47:36,656 - INFO - Retrieved all products from master list.
+2025-06-17 11:48:09,817 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:48:09,817 - INFO - Retrieved all products from master list.
+2025-06-17 11:48:09,818 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:48:09,818 - INFO - Retrieved all categories.
+2025-06-17 11:48:15,667 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:48:15,667 - INFO - Product not found by barcode '7290107973809' in master list.
+2025-06-17 11:48:48,806 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:48:48,807 - INFO - Product not found by barcode '7290107973809' in master list.
+2025-06-17 11:48:48,807 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:48:48,808 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:48:48,987 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:48:48,987 - INFO - Retrieved all categories.
+2025-06-17 11:48:48,995 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:48:48,995 - INFO - Retrieved all products from master list.
+2025-06-17 11:49:01,855 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:01,855 - INFO - Product not found by barcode '7290002824183' in master list.
+2025-06-17 11:49:19,941 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:19,941 - INFO - Product not found by barcode '7290002824183' in master list.
+2025-06-17 11:49:19,941 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:19,942 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:49:20,118 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:49:20,118 - INFO - Retrieved all categories.
+2025-06-17 11:49:20,124 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:20,125 - INFO - Retrieved all products from master list.
+2025-06-17 11:49:35,541 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:51,829 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:49:51,829 - INFO - Product not found by barcode '7290004125578' in master list.
+2025-06-17 11:50:32,574 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:50:32,574 - INFO - Product not found by barcode '7290004125578' in master list.
+2025-06-17 11:50:32,574 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:50:32,575 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:50:32,748 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:50:32,748 - INFO - Retrieved all categories.
+2025-06-17 11:50:32,750 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:50:32,750 - INFO - Retrieved all products from master list.
+2025-06-17 11:50:44,598 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:50:44,599 - INFO - Retrieved all categories.
+2025-06-17 11:50:44,599 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:50:44,600 - INFO - Retrieved all products from master list.
+2025-06-17 11:51:54,317 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:51:54,317 - INFO - Product not found by barcode '7290102398065' in master list.
+2025-06-17 11:52:12,666 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:52:12,666 - INFO - Product not found by barcode '7290102398065' in master list.
+2025-06-17 11:52:12,666 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:52:12,668 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:52:12,833 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:52:12,833 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:52:12,833 - INFO - Retrieved all categories.
+2025-06-17 11:52:12,833 - INFO - Retrieved all products from master list.
+2025-06-17 11:52:20,484 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:52:20,484 - INFO - Retrieved all products from master list.
+2025-06-17 11:52:20,484 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:52:20,485 - INFO - Retrieved all categories.
+2025-06-17 11:52:20,490 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:52:20,490 - INFO - Retrieved all shopping items.
+2025-06-17 11:54:06,847 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:54:06,847 - INFO - Retrieved all categories.
+2025-06-17 11:54:06,848 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:54:06,848 - INFO - Retrieved all products from master list.
+2025-06-17 11:54:22,719 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:54:22,719 - INFO - Product not found by barcode '7290000063140' in master list.
+2025-06-17 11:55:23,294 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:23,294 - INFO - Product not found by barcode '7290000063140' in master list.
+2025-06-17 11:55:23,294 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:23,295 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:55:23,453 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:55:23,453 - INFO - Retrieved all categories.
+2025-06-17 11:55:23,463 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:23,463 - INFO - Retrieved all products from master list.
+2025-06-17 11:55:30,048 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:55:30,048 - INFO - Retrieved all shopping items.
+2025-06-17 11:55:30,048 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:30,049 - INFO - Retrieved all products from master list.
+2025-06-17 11:55:30,049 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:55:30,049 - INFO - Retrieved all categories.
+2025-06-17 11:55:40,650 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:55:40,650 - INFO - Successfully saved data to databases/categories.json.
+2025-06-17 11:55:40,651 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:55:40,667 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 11:55:40,667 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:40,668 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:55:40,835 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:55:40,835 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:55:40,835 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:40,835 - INFO - Retrieved all categories.
+2025-06-17 11:55:40,835 - INFO - Retrieved all shopping items.
+2025-06-17 11:55:40,835 - INFO - Retrieved all products from master list.
+2025-06-17 11:55:48,420 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:55:48,420 - INFO - Retrieved all categories.
+2025-06-17 11:55:48,421 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:55:48,421 - INFO - Retrieved all shopping items.
+2025-06-17 11:55:48,421 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:55:48,421 - INFO - Retrieved all products from master list.
+2025-06-17 11:56:00,380 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:56:00,380 - INFO - Retrieved all shopping items.
+2025-06-17 11:56:00,385 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:56:00,385 - INFO - Retrieved all products from master list.
+2025-06-17 11:56:00,386 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:56:00,386 - INFO - Retrieved all categories.
+2025-06-17 11:56:56,605 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:56:56,606 - INFO - Retrieved all products from master list.
+2025-06-17 11:56:56,608 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:56:56,608 - INFO - Retrieved all categories.
+2025-06-17 11:57:03,372 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:57:03,373 - INFO - Retrieved all products from master list.
+2025-06-17 11:57:03,373 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:57:03,374 - INFO - Retrieved all shopping items.
+2025-06-17 11:57:03,374 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:57:03,374 - INFO - Retrieved all categories.
+2025-06-17 11:57:48,882 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:57:48,882 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:57:48,882 - INFO - Retrieved all products from master list.
+2025-06-17 11:57:48,882 - INFO - Retrieved all categories.
+2025-06-17 11:57:48,883 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:57:48,883 - INFO - Retrieved all shopping items.
+2025-06-17 11:57:57,503 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:57:57,503 - INFO - Retrieved all categories.
+2025-06-17 11:57:57,504 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:57:57,504 - INFO - Retrieved all products from master list.
+2025-06-17 11:58:05,676 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:58:05,676 - INFO - Product not found by barcode '7290001060889' in master list.
+2025-06-17 11:58:35,357 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:58:35,357 - INFO - Product not found by barcode '7290001060889' in master list.
+2025-06-17 11:58:35,357 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:58:35,358 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:58:35,583 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:58:35,583 - INFO - Retrieved all categories.
+2025-06-17 11:58:35,589 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:58:35,589 - INFO - Retrieved all products from master list.
+2025-06-17 11:59:17,941 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:59:17,942 - INFO - Retrieved all products from master list.
+2025-06-17 11:59:17,942 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:59:17,942 - INFO - Retrieved all shopping items.
+2025-06-17 11:59:17,942 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:59:17,943 - INFO - Retrieved all categories.
+2025-06-17 11:59:40,951 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:59:40,952 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:59:40,953 - INFO - Successfully saved data to databases/shopping_items.json.
+2025-06-17 11:59:40,953 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:59:40,954 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 11:59:41,171 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 11:59:41,171 - INFO - Retrieved all categories.
+2025-06-17 11:59:41,177 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 11:59:41,177 - INFO - Retrieved all shopping items.
+2025-06-17 11:59:41,178 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 11:59:41,178 - INFO - Retrieved all products from master list.
+2025-06-17 12:01:46,704 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 12:01:46,704 - INFO - Retrieved all shopping items.
+2025-06-17 12:01:46,769 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:01:46,770 - INFO - Retrieved all categories.
+2025-06-17 12:01:46,771 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:01:46,771 - INFO - Retrieved all products from master list.
+2025-06-17 12:02:38,790 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:02:38,790 - INFO - Retrieved all categories.
+2025-06-17 12:02:38,791 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:02:38,791 - INFO - Retrieved all products from master list.
+2025-06-17 12:03:04,594 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:03:04,595 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:03:04,743 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:03:04,743 - INFO - Retrieved all categories.
+2025-06-17 12:03:04,750 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:03:04,750 - INFO - Retrieved all products from master list.
+2025-06-17 12:04:49,290 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:04:49,290 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:05:05,899 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:05,899 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:05:05,900 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:06,016 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:05:06,232 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:05:06,232 - INFO - Retrieved all categories.
+2025-06-17 12:05:06,239 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:06,240 - INFO - Retrieved all products from master list.
+2025-06-17 12:05:43,356 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:43,357 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:05:43,509 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:05:43,509 - INFO - Retrieved all categories.
+2025-06-17 12:05:43,510 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:43,510 - INFO - Retrieved all products from master list.
+2025-06-17 12:05:54,844 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:05:54,844 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:06:13,989 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:06:13,989 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:06:13,989 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:06:13,991 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:06:14,139 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:06:14,140 - INFO - Retrieved all categories.
+2025-06-17 12:06:14,143 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:06:14,143 - INFO - Retrieved all products from master list.
+2025-06-17 12:09:48,388 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:09:48,388 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:09:48,388 - INFO - Retrieved all products from master list.
+2025-06-17 12:09:48,388 - INFO - Retrieved all categories.
+2025-06-17 12:09:51,733 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:09:51,733 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:09:51,939 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:09:51,939 - INFO - Retrieved all categories.
+2025-06-17 12:09:51,940 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:09:51,940 - INFO - Retrieved all products from master list.
+2025-06-17 12:10:35,474 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:10:35,474 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:10:56,031 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:10:56,031 - INFO - Product not found by barcode '111111111111111111' in master list.
+2025-06-17 12:10:56,031 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:10:56,036 - INFO - Successfully saved data to databases/products_master.json.
+2025-06-17 12:10:56,192 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:10:56,192 - INFO - Retrieved all categories.
+2025-06-17 12:10:56,205 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:10:56,205 - INFO - Retrieved all products from master list.
+2025-06-17 12:11:02,285 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:11:02,285 - INFO - Retrieved all products from master list.
+2025-06-17 12:11:02,286 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:11:02,287 - INFO - Retrieved all categories.
+2025-06-17 12:11:04,872 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 12:11:04,872 - INFO - Retrieved all shopping items.
+2025-06-17 12:11:04,874 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 12:11:04,875 - INFO - Retrieved all products from master list.
+2025-06-17 12:11:04,945 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 12:11:04,945 - INFO - Retrieved all categories.

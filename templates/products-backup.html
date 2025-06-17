@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>סורק ברקוד ומוצרים 📸</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
     <style>
         body {
             background-color: #f2f4f8;
@@ -16,11 +17,19 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             line-height: 1.6;
+            min-height: 100vh; /* Ensure body takes full height initially */
+            display: flex; /* Use flexbox for main content */
+            flex-direction: column; /* Stack content vertically */
+            overflow-y: auto; /* Allow scrolling on the body */
         }
         .container {
             max-width: 600px;
             padding: 20px 15px;
             text-align: center;
+            flex-grow: 1; /* Allow container to grow and shrink */
+            display: flex; /* Make container a flex child as well */
+            flex-direction: column; /* Stack its children */
+            margin-bottom: 20px; /* Add some bottom margin to account for keyboard */
         }
         h2 {
             color: #212529;
@@ -30,22 +39,27 @@
         #interactive.viewport {
             position: relative;
             width: 100%;
-            height: 300px; /* Fixed height for video feed */
+            height: 300px; /* Fixed height for video feed - may need adjustment on very small screens */
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             background-color: #000;
             margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        #interactive.viewport canvas,
         #interactive.viewport video {
-            position: absolute;
-            left: 0;
-            top: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures video covers the area */
+            object-fit: cover;
         }
+        #interactive.viewport.scan-success-flash {
+            border: 5px solid #34A853;
+            box-shadow: 0 0 20px rgba(52, 168, 83, 0.7), 0 0 40px rgba(52, 168, 83, 0.5);
+            transition: border 0.1s ease-out, box-shadow 0.1s ease-out;
+        }
+
         .controls {
             margin-bottom: 1.5rem;
         }
@@ -104,7 +118,16 @@
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        /* Product list styles */
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .alert-secondary {
+            background-color: #d1d3d4;
+            color: #383d41;
+            border: 1px solid #c6c8ca;
+        }
         .product-list-container {
             margin-top: 2rem;
             text-align: right;
@@ -140,7 +163,7 @@
         .product-card-actions {
             display: flex;
             gap: 10px;
-            justify-content: flex-end; /* Align buttons to the right */
+            justify-content: flex-end;
             margin-top: 10px;
         }
         .product-card-actions .btn {
@@ -158,20 +181,76 @@
             direction: rtl;
             text-align: right;
         }
+        .scan-success-flash {
+            animation: flash-green 0.3s ease-in-out;
+        }
+
+        @keyframes flash-green {
+            0% { background-color: rgba(0, 255, 0, 0.3); }
+            100% { background-color: transparent; }
+        }
+
+        /* NEW: Styles for highlighting an existing product card */
+        .product-card.highlighted-product {
+            border: 2px solid #4CAF50; /* Green border */
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* Green glow */
+            animation: pulse-highlight 1s ease-out forwards; /* Add a subtle pulse animation */
+        }
+
+        @keyframes pulse-highlight {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Manual barcode input */
+        .manual-input {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* Modals should handle their own scrolling but ensure they are not too tall */
+        .modal-body {
+            overflow-y: auto; /* Enable scrolling within modal body if content is tall */
+            max-height: 70vh; /* Limit height to prevent overflow on small screens */
+        }
+
+        /* Specific mobile keyboard adjustments if needed, though flexbox often handles it */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: env(keyboard-inset-bottom, 0px); /* For iOS PWA keyboard inset */
+            }
+            /* More aggressive height reduction for inputs if needed */
+            .form-control {
+                min-height: auto; /* Allow input height to naturally adjust */
+            }
+        }
     </style>
 </head>
 <body>
-    {% include 'sidebar.html' %}
+{% include 'sidebar.html' %}
+    <audio id="scanSound" src="/static/beep.mp3" preload="auto"></audio>
 
     <div class="container mt-5">
         <h2>סריקת ברקוד ומוצרים 📸</h2>
 
-        <div id="interactive" class="viewport"></div>
+        <div id="interactive" class="viewport">
+            <video id="video" style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
 
         <div class="controls">
-            <!-- Buttons are now primarily for manual control if auto-start fails/is stopped -->
+            <button id="startButton" class="btn btn-primary w-100 mb-3">התחל סריקה</button>
             <button id="stopButton" class="btn btn-secondary w-100" style="display: none;">הפסק סריקה</button>
-            <button id="startButton" class="btn btn-primary w-100 mb-3" style="display: none;">התחל סריקה מחדש</button>
+        </div>
+
+        <div class="manual-input">
+            <h5>הזנת ברקוד ידנית</h5>
+            <div class="input-group">
+                <input type="text" id="manualBarcode" class="form-control" placeholder="הזן ברקוד ידנית...">
+                <button class="btn btn-outline-primary" id="submitManualBarcode">שלח</button>
+            </div>
         </div>
 
         <div id="barcodeResult" style="display: none;"></div>
@@ -188,7 +267,27 @@
         </div>
     </div>
 
-    <!-- Modal for Editing Product -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+          <div class="modal-header">
+            <h5 class="modal-title">הוסף מוצר חדש</h5>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>ברקוד שנסרק: <strong id="scannedBarcodeDisplay"></strong></p>
+            <form id="add-product-form">
+              <div class="mb-3">
+                <label for="newProductName" class="form-label">שם מוצר</label>
+                <input type="text" class="form-control" id="newProductName" required placeholder="הזן שם עבור המוצר החדש">
+              </div>
+              <button type="submit" class="btn btn-success w-100">הוסף מוצר</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="editProductModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-end">
@@ -214,12 +313,11 @@
       </div>
     </div>
 
-    <!-- Custom Confirmation Modal for Deletion of Master Product -->
     <div class="modal fade" id="confirmDeleteMasterProductModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-end">
           <div class="modal-header">
-            <h5 class="modal-title}>אשר מחיקת מוצר</h5>
+            <h5 class="modal-title">אשר מחיקת מוצר</h5>
             <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
@@ -234,321 +332,435 @@
       </div>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- QuaggaJS library for barcode scanning -->
-    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
-    <script>
-        let scannerRunning = false;
-        let allMasterProducts = []; // To store all products from products_master.json for filtering
-        let productToDeleteFromMaster = null; // Stores the name of the product to be deleted from master
 
-        function displayMessage(msg, type) {
-            const messageDiv = $('#message');
-            messageDiv.removeClass('alert-success alert-danger alert-warning alert-info').addClass(`alert-${type}`).text(msg).show();
-            // Clear message after 3 seconds, but only if no new message overrides it
-            clearTimeout(messageDiv.data('timer')); // Clear previous timer
-            messageDiv.data('timer', setTimeout(() => messageDiv.fadeOut(500), 3000));
+    <script>
+    let codeReader = null; // ZXing Code Reader instance
+    let selectedDeviceId = null;
+    let scannerRunning = false;
+    let scannedBarcodeForProcessing = null; // To store the barcode while waiting for user input
+
+    // Product list variables (remains largely the same)
+    let allMasterProducts = [];
+    let productToDeleteFromMaster = null;
+
+    /**
+     * Displays a temporary message in the message area.
+     * @param {string} msg - The message to display.
+     * @param {string} type - The type of message (e.g., 'success', 'danger', 'info', 'warning', 'secondary').
+     */
+    function displayMessage(msg, type) {
+        const messageDiv = $('#message');
+        messageDiv.removeClass('alert-success alert-danger alert-warning alert-info alert-secondary').addClass(`alert-${type}`).text(msg).show();
+        clearTimeout(messageDiv.data('timer'));
+        messageDiv.data('timer', setTimeout(() => messageDiv.fadeOut(500), 3000));
+    }
+
+    /**
+     * Plays the barcode scan sound.
+     * Handles potential autoplay restrictions by using a catch block.
+     */
+    function playScanSound() {
+        const scanSound = document.getElementById('scanSound');
+        if (scanSound) {
+            // Rewind to start in case it played before or was paused
+            scanSound.currentTime = 0;
+            // Attempt to play the sound, catching any errors (e.g., autoplay blocked)
+            scanSound.play().catch(e => {
+                console.warn("Could not play scan sound:", e.message);
+                // Optionally, inform the user if sound playback is critical and blocked
+            });
+        }
+    }
+
+    /**
+     * Initializes and starts the barcode scanner.
+     * Requests camera permission and selects a preferred camera if available.
+     */
+    async function startScanner() {
+        if (scannerRunning) return;
+
+        const videoElement = document.getElementById('video');
+        if (!videoElement) {
+            console.error("Video element not found!");
+            displayMessage('שגיאה: רכיב וידאו לא נמצא.', 'danger');
+            return;
         }
 
-        function startScanner() {
-            if (scannerRunning) return;
+        try {
+            codeReader = new ZXing.BrowserMultiFormatReader();
+            const videoInputDevices = await codeReader.listVideoInputDevices();
 
-            // Request camera permission explicitly before initializing Quagga
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-                .then(function(stream) {
-                    // Permission granted, now initialize Quagga
-                    Quagga.init({
-                        inputStream : {
-                            name : "Live",
-                            type : "LiveStream",
-                            target: document.querySelector('#interactive'),
-                            constraints: {
-                                facingMode: "environment" // Use rear camera if available
-                            }
-                        },
-                        decoder : {
-                            readers : ["ean_reader", "ean_8_reader", "upc_reader", "upc_e_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "interleaved_2_of_5_reader", "code_128_reader"]
-                        }
-                    }, function(err) {
-                        if (err) {
-                            console.error("QuaggaJS Init Error after permission:", err);
-                            displayMessage('שגיאה בהפעלת המצלמה: ' + (err.message || err), 'danger');
-                            $('#startButton').show(); // Show start button if init fails
-                            $('#stopButton').hide();
-                            return
-                        }
-                        console.log("Initialization finished. Ready to start");
-                        Quagga.start();
-                        scannerRunning = true;
-                        $('#startButton').hide();
-                        $('#stopButton').show();
-                        displayMessage('המצלמה פועלת, סורק ברקוד...', 'info');
-                    });
-                })
-                .catch(function(err) {
-                    console.error("Camera permission denied:", err);
-                    let errorMessage = 'גישה למצלמה נדחתה. נא לאשר גישה למצלמה בהגדרות הדפדפן כדי להשתמש בסורק הברקוד.';
-                    if (err.name === 'NotAllowedError') {
-                        errorMessage = 'גישה למצלמה נדחתה. אנא אפשר גישה למצלמה בהגדרות הדפדפן שלך.';
-                    } else if (err.name === 'NotFoundError') {
-                        errorMessage = 'לא נמצאה מצלמה במכשיר זה.';
-                    } else if (err.name === 'NotReadableError') {
-                        errorMessage = 'המצלמה כבר בשימוש על ידי יישום אחר.';
-                    } else if (err.name === 'AbortError') {
-                        errorMessage = 'פעולת המצלמה ננטשה.';
-                    } else if (err.name === 'SecurityError') {
-                        errorMessage = 'פעולת המצלמה נחסמה מטעמי אבטחה (לדוגמה, האתר אינו HTTPS).';
-                    } else if (err.name === 'TypeError') {
-                        errorMessage = 'מכשיר המצלמה אינו נתמך.';
+            if (videoInputDevices.length > 0) {
+                // Prefer back/environment camera if available
+                const preferredDevice = videoInputDevices.find(device => device.label.toLowerCase().includes('back') || device.label.toLowerCase().includes('environment'));
+                selectedDeviceId = preferredDevice ? preferredDevice.deviceId : videoInputDevices[0].deviceId;
+
+                displayMessage('מאתחל סורק...', 'info');
+
+                // Play sound when scanner starts (as per test request)
+                playScanSound();
+
+                codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', async (result, err) => {
+                    if (result) {
+                        playScanSound(); // Play sound on successful barcode detection
+                        const barcode = result.getText();
+                        console.log('Scanned Barcode:', barcode);
+                        $('#barcodeResult').text('ברקוד נסרק: ' + barcode).show();
+
+                        const $viewport = $('#interactive.viewport');
+                        $viewport.addClass('scan-success-flash');
+                        setTimeout(() => $viewport.removeClass('scan-success-flash'), 300);
+
+                        // Stop scanner immediately after detection to prevent multiple reads
+                        stopScanner();
+
+                        // Process the scanned barcode (check for existing product or prompt to add)
+                        await processScannedBarcode(barcode);
+
                     }
-                    displayMessage(errorMessage, 'danger');
-                    $('#startButton').show(); // Show start button if permission is denied
-                    $('#stopButton').hide();
+                    // Handle errors, but suppress NotFoundException which is expected when no barcode is in view
+                    if (err && !(err instanceof ZXing.NotFoundException)) {
+                        console.error("ZXing Scan Error:", err);
+                        // Only display critical errors to the user
+                    }
                 });
 
-            Quagga.onDetected(function(result) {
-                const barcode = result.codeResult.code;
-                console.log("Barcode detected:", barcode);
-                $('#barcodeResult').text('ברקוד נסרק: ' + barcode).show();
-                displayMessage('ברקוד נסרק בהצלחה!', 'success');
+                scannerRunning = true;
+                $('#startButton').hide();
+                $('#stopButton').show();
+                displayMessage('המצלמה פועלת, ממתין לברקוד...', 'info');
 
-                // Stop scanning immediately after detecting a barcode
-                Quagga.stop();
-                scannerRunning = false;
-                $('#startButton').show(); // Allow user to restart scan
+            } else {
+                displayMessage('לא נמצאו התקני וידאו. אנא ודא שהמצלמה מחוברת ומופעלת.', 'danger');
+                $('#startButton').show();
                 $('#stopButton').hide();
-
-                // Send barcode to server for logging
-                sendBarcodeToServer(barcode);
-            });
-
-            Quagga.onProcessed(function(result) {
-                // Optional: draw boxes around detected barcodes
-                // var drawingCtx = Quagga.canvas.ctx.overlay;
-                // var drawingCanvas = Quagga.canvas.dom.overlay;
-                // if (result) {
-                //     if (result.boxes) {
-                //         drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.width), parseInt(drawingCanvas.height));
-                //         result.boxes.filter(function (box) {
-                //             return box !== result.box;
-                //         }).forEach(function (box) {
-                //             Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
-                //         });
-                //     }
-                //     if (result.box) {
-                //         Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: "#00F", lineWidth: 2});
-                //     }
-                //     if (result.codeResult && result.codeResult.code) {
-                //         Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
-                //     }
-                // }
-            });
+            }
+        } catch (err) {
+            console.error("ZXing Init/Start Error:", err);
+            let errorMessage = 'שגיאה בהפעלת המצלמה: ' + (err.message || "שגיאה לא ידועה");
+            if (err.name === 'NotAllowedError') errorMessage = 'גישה למצלמה נדחתה. אנא אשר גישה למצלמה בהגדרות הדפדפן.';
+            else if (err.name === 'NotFoundError') errorMessage = 'לא נמצאה מצלמה. ודא שהמצלמה מחוברת.';
+            else if (err.name === 'NotReadableError') errorMessage = 'המצלמה בשימוש או לא זמינה. אנא סגור יישומים אחרים המשתמשים במצלמה.';
+            else if (err.name === 'SecurityError') errorMessage = 'גישה למצלמה חסומה. ודא שאתה משתמש ב-HTTPS.';
+            displayMessage(errorMessage, 'danger');
+            $('#startButton').show();
+            $('#stopButton').hide();
         }
+    }
 
-        function stopScanner() {
-            if (scannerRunning) {
-                Quagga.stop();
+    /**
+     * Stops the active barcode scanner.
+     */
+    function stopScanner() {
+        if (scannerRunning && codeReader) {
+            try {
+                codeReader.reset();
                 scannerRunning = false;
                 $('#startButton').show();
                 $('#stopButton').hide();
                 displayMessage('הסריקה הופסקה.', 'secondary');
+            } catch (error) {
+                console.error("Error stopping scanner:", error);
             }
         }
+    }
 
-        async function sendBarcodeToServer(barcode) {
-            try {
-                const response = await fetch('/scan', { // Changed to relative path
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ barcode: barcode })
-                });
-                const data = await response.json();
-                if (data.success) {
-                    console.log("Server response:", data.message);
-                    // Optionally, you could direct the user to the tracking page for this barcode
-                    // window.location.href = `/tracking?barcode=${encodeURIComponent(barcode)}`;
+    /**
+     * Processes a scanned barcode: checks if it exists or prompts to add a new product.
+     * @param {string} barcode - The scanned barcode string.
+     */
+    async function processScannedBarcode(barcode) {
+        scannedBarcodeForProcessing = barcode; // Store for modal use
+        try {
+            const response = await fetch('/api/process_scanned_barcode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode: barcode })
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                if (result.exists) {
+                    displayMessage(`ברקוד ${barcode} כבר משויך למוצר: "${result.product_name}"`, 'info');
+                    $('#productSearch').val(result.product_name);
+                    filterProducts(); // Filter to show the existing product
+                    setTimeout(() => { // Highlight the product card
+                        const $productCard = $(`.product-card[data-name="${result.product_name}"]`);
+                        if ($productCard.length) {
+                            $productCard.addClass('highlighted-product');
+                            setTimeout(() => { $productCard.removeClass('highlighted-product'); }, 2000);
+                        }
+                    }, 100);
                 } else {
-                    console.error("Server error:", data.error);
-                    displayMessage('שגיאה מהשרת: ' + data.error, 'danger');
+                    $('#scannedBarcodeDisplay').text(barcode);
+                    $('#newProductName').val(''); // Clear previous input
+                    new bootstrap.Modal(document.getElementById('addProductModal')).show();
+                    displayMessage(`ברקוד חדש נסרק: ${barcode}. אנא הזן שם מוצר.`, 'warning');
                 }
-            } catch (error) {
-                console.error("Error sending barcode to server:", error);
-                displayMessage('שגיאה בשליחת הברקוד לשרת.', 'danger');
-            }
-        }
-
-        // --- Product List Management Functions ---
-
-        async function fetchAndRenderProducts() {
-            try {
-                const response = await fetch('/api/all_products'); // Changed to relative path
-                const data = await response.json();
-                allMasterProducts = data.products; // Store for filtering
-                renderProductsList(allMasterProducts);
-            } catch (error) {
-                console.error("Error fetching all products:", error);
-                displayMessage('שגיאה בטעינת רשימת המוצרים.', 'danger');
-            }
-        }
-
-        function renderProductsList(productsToRender) {
-            const $listContainer = $('#allProductsList');
-            $listContainer.empty(); // Clear existing list
-
-            if (productsToRender.length === 0) {
-                $('#noProductsMessage').show();
-                return;
             } else {
-                $('#noProductsMessage').hide();
+                displayMessage('שגיאה בתהליך הברקוד: ' + result.error, 'danger');
             }
+        } catch (error) {
+            console.error("Error processing barcode with server:", error);
+            displayMessage('שגיאה בתקשורת עם השרת בעת עיבוד ברקוד.', 'danger');
+        }
+    }
 
-            productsToRender.forEach(product => {
-                const $card = $(`
-                    <div class="product-card" data-name="${product.name}" data-barcode="${product.barcode || ''}">
-                        <div class="product-card-name">${product.name}</div>
-                        <div class="product-card-barcode">ברקוד: ${product.barcode || 'אין ברקוד'}</div>
-                        <div class="product-card-actions">
-                            <button class="btn btn-sm btn-info edit-product-btn"><i class="fas fa-edit"></i> ערוך</button>
-                            <button class="btn btn-sm btn-danger delete-product-btn"><i class="fas fa-trash-alt"></i> מחק</button>
-                            <button class="btn btn-sm btn-primary view-tracking-btn"><i class="fas fa-chart-line"></i> מעקב</button>
-                        </div>
+    /**
+     * Adds a new product to the master list after user confirmation.
+     * @param {string} barcode - The barcode for the new product.
+     * @param {string} productName - The name of the new product.
+     */
+    async function addNewProduct(barcode, productName) {
+        try {
+            const response = await fetch('/api/process_scanned_barcode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode: barcode, product_name: productName })
+            });
+            const result = await response.json();
+
+            if (result.success && !result.exists) {
+                displayMessage(`המוצר "${productName}" (ברקוד: ${barcode}) נוסף בהצלחה!`, 'success');
+                bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+                fetchAndRenderProducts(); // Refresh the product list
+            } else if (result.success && result.exists) {
+                displayMessage(`הברקוד ${barcode} כבר קיים ומשויך למוצר "${result.product_name}". לא בוצע שינוי.`, 'info');
+                bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+                fetchAndRenderProducts();
+            }
+            else {
+                displayMessage('שגיאה בהוספת מוצר: ' + (result.error || 'שגיאה לא ידועה'), 'danger');
+            }
+        } catch (error) {
+            console.error("Error adding new product to server:", error);
+            displayMessage('שגיאה בתקשורת עם השרת בעת הוספת מוצר.', 'danger');
+        } finally {
+            scannedBarcodeForProcessing = null;
+        }
+    }
+
+
+    // --- Existing Product List Management Functions ---
+
+    /**
+     * Fetches all master products from the server and renders them.
+     */
+    async function fetchAndRenderProducts() {
+        try {
+            const response = await fetch('/api/all_products');
+            const data = await response.json();
+            allMasterProducts = data.products;
+            renderProductsList(allMasterProducts);
+        } catch (error) {
+            displayMessage('שגיאה בטעינת רשימת המוצרים.', 'danger');
+        }
+    }
+
+    /**
+     * Renders the list of products into the UI.
+     * @param {Array<Object>} productsToRender - The array of product objects to render.
+     */
+    function renderProductsList(productsToRender) {
+        const $listContainer = $('#allProductsList');
+        $listContainer.empty();
+
+        if (productsToRender.length === 0) {
+            $('#noProductsMessage').show();
+            return;
+        } else {
+            $('#noProductsMessage').hide();
+        }
+
+        productsToRender.forEach(product => {
+            const $card = $(`
+                <div class="product-card" data-name="${product.name}" data-barcode="${product.barcode || ''}">
+                    <div class="product-card-name">${product.name}</div>
+                    <div class="product-card-barcode">ברקוד: ${product.barcode || 'אין ברקוד'}</div>
+                    <div class="product-card-actions">
+                        <button class="btn btn-sm btn-info edit-product-btn"><i class="fas fa-edit"></i> ערוך</button>
+                        <button class="btn btn-sm btn-danger delete-product-btn"><i class="fas fa-trash-alt"></i> מחק</button>
+                        <button class="btn btn-sm btn-primary view-tracking-btn"><i class="fas fa-chart-line"></i> מעקב</button>
                     </div>
-                `);
+                </div>
+            `);
 
-                // Event listeners for buttons within the card
-                $card.find('.delete-product-btn').click(function(e) {
-                    e.stopPropagation(); // Prevent card click
-                    showDeleteMasterProductConfirmation(product.name);
-                });
-
-                $card.find('.edit-product-btn').click(function(e) {
-                    e.stopPropagation(); // Prevent card click
-                    showEditProductModal(product.name, product.barcode);
-                });
-
-                $card.find('.view-tracking-btn').click(function(e) {
-                    e.stopPropagation(); // Prevent card click
-                    window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
-                });
-
-                // Card click event (excluding button clicks)
-                $card.click(function() {
-                    // Decide what happens on card click, e.g., view tracking
-                    window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
-                });
-
-
-                $listContainer.append($card);
+            $card.find('.delete-product-btn').click(e => {
+                e.stopPropagation();
+                showDeleteMasterProductConfirmation(product.name);
             });
-        }
 
-        function filterProducts() {
-            const searchTerm = $('#productSearch').val().toLowerCase();
-            const filteredProducts = allMasterProducts.filter(product => {
-                return product.name.toLowerCase().includes(searchTerm) ||
-                       (product.barcode && product.barcode.toLowerCase().includes(searchTerm));
+            $card.find('.edit-product-btn').click(e => {
+                e.stopPropagation();
+                showEditProductModal(product.name, product.barcode);
             });
-            renderProductsList(filteredProducts);
+
+            $card.find('.view-tracking-btn').click(e => {
+                e.stopPropagation();
+                window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
+            });
+
+            $card.click(() => {
+                window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
+            });
+
+            $listContainer.append($card);
+        });
+    }
+
+    /**
+     * Filters the displayed product list based on the search term.
+     */
+    function filterProducts() {
+        const searchTerm = $('#productSearch').val().toLowerCase();
+        const filteredProducts = allMasterProducts.filter(product => {
+            return product.name.toLowerCase().includes(searchTerm) ||
+                (product.barcode && product.barcode.toLowerCase().includes(searchTerm));
+        });
+        renderProductsList(filteredProducts);
+    }
+
+    /**
+     * Displays the modal for editing an existing product.
+     * @param {string} name - The current name of the product.
+     * @param {string} barcode - The current barcode of the product.
+     */
+    function showEditProductModal(name, barcode) {
+        $('#edit-product-old-name').val(name);
+        $('#edit-product-name').val(name);
+        $('#edit-product-barcode').val(barcode || '');
+        new bootstrap.Modal(document.getElementById('editProductModal')).show();
+    }
+
+    /**
+     * Displays the confirmation modal for deleting a master product.
+     * @param {string} productName - The name of the product to be deleted.
+     */
+    function showDeleteMasterProductConfirmation(productName) {
+        productToDeleteFromMaster = productName;
+        $('#masterProductToDeleteName').text(productName);
+        new bootstrap.Modal(document.getElementById('confirmDeleteMasterProductModal')).show();
+    }
+
+    // Event handlers for existing modals/forms
+
+    // Handle submission of the edit product form
+    $('#edit-product-form').submit(async function (e) {
+        e.preventDefault();
+        const oldName = $('#edit-product-old-name').val();
+        const newName = $('#edit-product-name').val().trim();
+        const newBarcode = $('#edit-product-barcode').val().trim();
+
+        if (!newName) {
+            displayMessage('שם מוצר לא יכול להיות ריק.', 'danger');
+            return;
         }
 
-        // --- Modals and Confirmation Dialogs ---
-
-        function showEditProductModal(name, barcode) {
-            $('#edit-product-old-name').val(name); // Store original name for update API
-            $('#edit-product-name').val(name);
-            $('#edit-product-barcode').val(barcode || '');
-            const editModal = new bootstrap.Modal(document.getElementById('editProductModal'));
-            editModal.show();
-        }
-
-        $('#edit-product-form').submit(async function(e) {
-            e.preventDefault();
-            const oldName = $('#edit-product-old-name').val();
-            const newName = $('#edit-product-name').val().trim();
-            const newBarcode = $('#edit-product-barcode').val().trim();
-
-            if (!newName) {
-                displayMessage('שם מוצר לא יכול להיות ריק.', 'danger');
-                return;
+        try {
+            const response = await fetch('/api/update_master_product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ old_name: oldName, new_name: newName, new_barcode: newBarcode })
+            });
+            const result = await response.json();
+            if (result.success) {
+                displayMessage('המוצר עודכן בהצלחה!', 'success');
+                $('#editProductModal').modal('hide');
+                fetchAndRenderProducts();
+            } else {
+                displayMessage('שגיאה בעדכון המוצר: ' + result.error, 'danger');
             }
+        } catch (error) {
+            displayMessage('שגיאה בתקשורת עם השרת בעת עדכון המוצר.', 'danger');
+        }
+    });
 
-            try {
-                const response = await fetch('/api/update_master_product', { // Changed to relative path
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ old_name: oldName, new_name: newName, new_barcode: newBarcode })
-                });
-                const result = await response.json();
-                if (result.success) {
-                    displayMessage('המוצר עודכן בהצלחה!', 'success');
-                    $('#editProductModal').modal('hide');
-                    fetchAndRenderProducts(); // Refresh the list
-                } else {
-                    displayMessage('שגיאה בעדכון המוצר: ' + result.error, 'danger');
-                }
-            } catch (error) {
-                console.error("Error updating product:", error);
-                displayMessage('שגיאה בתקשורת עם השרת בעת עדכון המוצר.', 'danger');
+    // Handle confirmation of master product deletion
+    $('#confirmDeleteMasterProductBtn').click(async function () {
+        if (!productToDeleteFromMaster) return;
+
+        try {
+            const response = await fetch('/api/delete_master_product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: productToDeleteFromMaster })
+            });
+            const result = await response.json();
+            if (result.success) {
+                displayMessage('המוצר נמחק בהצלחה!', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('confirmDeleteMasterProductModal')).hide();
+                fetchAndRenderProducts();
+            } else {
+                displayMessage('שגיאה במחיקת המוצר: ' + result.error, 'danger');
+            }
+        } catch (error) {
+            displayMessage('שגיאה בתקשורת עם השרת בעת מחיקת המוצר.', 'danger');
+        } finally {
+            productToDeleteFromMaster = null;
+        }
+    });
+
+    // Event handler for the new add product form
+    $('#add-product-form').submit(async function(e) {
+        e.preventDefault();
+        const newProductName = $('#newProductName').val().trim();
+        if (!newProductName) {
+            displayMessage('שם המוצר לא יכול להיות ריק.', 'danger');
+            return;
+        }
+        if (scannedBarcodeForProcessing) {
+            await addNewProduct(scannedBarcodeForProcessing, newProductName);
+        } else {
+            displayMessage('שגיאה: לא נסרק ברקוד לעיבוד.', 'danger');
+        }
+    });
+
+    // Manual barcode input submission
+    $('#submitManualBarcode').click(function() {
+        const barcode = $('#manualBarcode').val().trim();
+        if (barcode) {
+            $('#barcodeResult').text('ברקוד הוזן: ' + barcode).show();
+            displayMessage('ברקוד הוזן בהצלחה!', 'success');
+            processScannedBarcode(barcode); // Use the new processing function
+            $('#manualBarcode').val('');
+        }
+    });
+
+    // Listen for Enter key in manual barcode input
+    $('#manualBarcode').keypress(function(e) {
+        if (e.which === 13) { // Enter key
+            $('#submitManualBarcode').click();
+        }
+    });
+
+    // Initialize when document is ready
+    $(document).ready(function () {
+        $('#startButton').click(startScanner);
+        $('#stopButton').click(stopScanner);
+        $('#productSearch').on('input', filterProducts);
+
+        fetchAndRenderProducts(); // Load products on page load
+
+        // Set initial button visibility
+        $('#startButton').show();
+        $('#stopButton').hide();
+
+        // Highlight active navigation link
+        $('.offcanvas .nav-link').each(function () {
+            if (this.href === window.location.href || (window.location.pathname === '/products' && $(this).attr('href') === '/products')) {
+                $(this).addClass('active');
             }
         });
+    });
 
-        function showDeleteMasterProductConfirmation(productName) {
-            productToDeleteFromMaster = productName;
-            $('#masterProductToDeleteName').text(productName);
-            const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteMasterProductModal'));
-            confirmDeleteModal.show();
+    // Cleanup on page unload to ensure camera resources are released
+    $(window).on('beforeunload', function() {
+        if (scannerRunning) {
+            stopScanner();
         }
-
-        $('#confirmDeleteMasterProductBtn').click(async function() {
-            if (productToDeleteFromMaster) {
-                try {
-                    const response = await fetch('/api/delete_master_product', { // Changed to relative path
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: productToDeleteFromMaster })
-                    });
-                    const result = await response.json();
-                    if (result.success) {
-                        displayMessage('המוצר נמחק בהצלחה!', 'success');
-                        const confirmModal = bootstrap.Modal.getInstance(document.getElementById('confirmDeleteMasterProductModal'));
-                        confirmModal.hide();
-                        fetchAndRenderProducts(); // Refresh the list
-                    } else {
-                        displayMessage('שגיאה במחיקת המוצר: ' + result.error, 'danger');
-                    }
-                } catch (error) {
-                    console.error("Error deleting master product:", error);
-                    displayMessage('שגיאה בתקשורת עם השרת בעת מחיקת המוצר.', 'danger');
-                } finally {
-                    productToDeleteFromMaster = null; // Reset
-                }
-            }
-        });
-
-
-        $(document).ready(function() {
-            // Auto-start scanner on page load
-            startScanner();
-            fetchAndRenderProducts(); // Load existing products
-
-            $('#productSearch').on('input', filterProducts);
-
-            // Highlight the current page's link in the sidebar
-            // This needs to be done after the sidebar is included and ready
-            $('.offcanvas .nav-link').each(function() {
-                // Check if the current URL exactly matches the link's href
-                if (this.href === window.location.href) {
-                    $(this).addClass('active');
-                } else if (window.location.pathname === '/products' && $(this).attr('href') === '/products') {
-                    // For the /products page itself
-                    $(this).addClass('active');
-                }
-            });
-        });
+    });
     </script>
 </body>
 </html>

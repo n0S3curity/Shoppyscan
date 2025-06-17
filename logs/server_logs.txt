@@ -146,3 +146,458 @@
 2025-06-17 09:49:44,192 - INFO - Successfully retrieved all categories.
 2025-06-17 09:49:51,420 - INFO - Accessed products page.
 2025-06-17 09:49:51,969 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:02:02,125 - INFO - Flask application shut down.
+2025-06-17 10:02:02,178 - INFO - Flask application shut down.
+2025-06-17 10:10:37,506 - INFO - Flask application starting...
+2025-06-17 10:10:37,843 - INFO - Flask application starting...
+2025-06-17 10:11:08,180 - INFO - Accessed index page.
+2025-06-17 10:11:08,280 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:11:08,287 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:11:08,291 - INFO - Successfully retrieved all categories.
+2025-06-17 10:11:12,268 - INFO - Accessed index page.
+2025-06-17 10:11:12,314 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:11:12,320 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:11:12,321 - INFO - Successfully retrieved all categories.
+2025-06-17 10:11:14,590 - INFO - Accessed products page.
+2025-06-17 10:11:15,141 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:13:04,934 - INFO - Flask application shut down.
+2025-06-17 10:13:04,970 - INFO - Flask application shut down.
+2025-06-17 10:13:05,433 - INFO - Flask application starting...
+2025-06-17 10:13:05,809 - INFO - Flask application starting...
+2025-06-17 10:13:11,206 - INFO - Accessed products page.
+2025-06-17 10:13:11,360 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:15:18,044 - INFO - Flask application shut down.
+2025-06-17 10:15:18,074 - INFO - Flask application shut down.
+2025-06-17 10:15:18,424 - INFO - Flask application starting...
+2025-06-17 10:15:18,754 - INFO - Flask application starting...
+2025-06-17 10:22:25,827 - INFO - Accessed index page.
+2025-06-17 10:22:34,130 - INFO - Accessed index page.
+2025-06-17 10:22:34,639 - INFO - Successfully retrieved all categories.
+2025-06-17 10:22:34,640 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:22:34,641 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:22:37,114 - INFO - Accessed products page.
+2025-06-17 10:22:37,517 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:23:22,130 - INFO - Processed scanned barcode '7290000057118': Barcode is new, product name required to add.
+2025-06-17 10:23:41,289 - INFO - Processed scanned barcode '7290000057118': New product 'גבינה צהובה עמק 400 גרם' added to master.
+2025-06-17 10:23:41,506 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:24:17,125 - INFO - Processed scanned barcode '7290013531117': Barcode is new, product name required to add.
+2025-06-17 10:24:34,658 - INFO - Processed scanned barcode '7290013010025': Barcode is new, product name required to add.
+2025-06-17 10:27:25,572 - INFO - Processed scanned barcode '7290018500361': Barcode is new, product name required to add.
+2025-06-17 10:47:23,528 - INFO - Accessed products page.
+2025-06-17 10:47:24,124 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:47:37,586 - INFO - Processed scanned barcode 'https://ww6.sec.cl/qr/qr.do?a=prod&i=9900000005246': Barcode is new, product name required to add.
+2025-06-17 10:48:05,915 - INFO - Product 'חמישית' deleted successfully from master list.
+2025-06-17 10:48:06,060 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:07,736 - INFO - Product 'test1' deleted successfully from master list.
+2025-06-17 10:48:07,906 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:09,109 - INFO - Product 'שש' deleted successfully from master list.
+2025-06-17 10:48:09,295 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:10,687 - INFO - Product 'בדיקה ללא ברקוד' deleted successfully from master list.
+2025-06-17 10:48:10,874 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:12,500 - INFO - Product 'בדיקת סריקה' deleted successfully from master list.
+2025-06-17 10:48:12,684 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:14,182 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' deleted successfully from master list.
+2025-06-17 10:48:14,349 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:48:18,017 - INFO - Accessed tracking page for product: גבינה צהובה עמק 400 גרם (Barcode: 7290000057118).
+2025-06-17 10:48:18,381 - INFO - Successfully retrieved tracking history for product 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 10:48:24,232 - INFO - Price '32' recorded successfully for product 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 10:48:24,366 - INFO - Successfully retrieved tracking history for product 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 10:51:43,064 - INFO - Flask application starting...
+2025-06-17 10:51:43,618 - INFO - Flask application shut down.
+2025-06-17 10:51:43,649 - INFO - Flask application shut down.
+2025-06-17 10:51:44,916 - INFO - Flask application starting...
+2025-06-17 10:51:45,275 - INFO - Flask application starting...
+2025-06-17 10:51:48,749 - INFO - Accessed products page.
+2025-06-17 10:51:49,059 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:52:18,642 - INFO - Processed scanned barcode '7290000208213': Barcode is new, product name required to add.
+2025-06-17 10:52:24,952 - INFO - Processed scanned barcode '7290000208213': Barcode is new, product name required to add.
+2025-06-17 10:52:51,978 - INFO - Accessed tracking page for product: מרכך כביסה (Barcode: 5).
+2025-06-17 10:52:52,265 - INFO - Successfully retrieved tracking history for product 'מרכך כביסה' (Barcode: 5).
+2025-06-17 10:53:32,245 - INFO - Processed scanned barcode '7290000208213': Barcode is new, product name required to add.
+2025-06-17 10:53:42,489 - INFO - Processed scanned barcode '7290000208213': New product 'שעועית לבנה ברוטב עגבניות' added to master.
+2025-06-17 10:53:42,658 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:53:49,422 - INFO - Accessed products page.
+2025-06-17 10:53:50,052 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:56:49,310 - INFO - Flask application shut down.
+2025-06-17 10:56:49,343 - INFO - Flask application shut down.
+2025-06-17 10:56:49,801 - INFO - Flask application starting...
+2025-06-17 10:56:50,128 - INFO - Flask application starting...
+2025-06-17 10:56:54,394 - INFO - Accessed products page.
+2025-06-17 10:56:54,710 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:57:06,762 - INFO - Flask application starting...
+2025-06-17 10:57:08,206 - INFO - Accessed products page.
+2025-06-17 10:57:08,440 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:57:13,229 - INFO - Processed scanned barcode '7290000208213': Found existing product 'שעועית לבנה ברוטב עגבניות'.
+2025-06-17 10:57:53,151 - INFO - Accessed products page.
+2025-06-17 10:57:53,379 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:58:30,936 - INFO - Accessed index page.
+2025-06-17 10:58:31,236 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:58:31,237 - INFO - Successfully retrieved all categories.
+2025-06-17 10:58:31,237 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:58:40,640 - INFO - Product 'שעועית לבנה ברוטב עגבניות' (Quantity: 1, Category: שימ, Barcode: 7290000208213) added/updated successfully.
+2025-06-17 10:58:40,844 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:58:40,844 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:58:40,856 - INFO - Successfully retrieved all categories.
+2025-06-17 10:58:46,199 - INFO - Product 'שעועית לבנה ברוטב עגבניות' deleted successfully from shopping list.
+2025-06-17 10:58:46,374 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:58:59,800 - INFO - Product 'שעועית לבנה ברוטב עגבניות' (Quantity: 1, Category: שימורים, Barcode: 7290000208213) added/updated successfully.
+2025-06-17 10:58:59,948 - INFO - Successfully retrieved all categories.
+2025-06-17 10:58:59,954 - INFO - Successfully retrieved shopping list.
+2025-06-17 10:59:00,022 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:59:21,574 - INFO - Accessed products page.
+2025-06-17 10:59:22,267 - INFO - Successfully retrieved all products from master list.
+2025-06-17 10:59:27,090 - INFO - Processed scanned barcode '7290000208428': Barcode is new, product name required to add.
+2025-06-17 10:59:41,140 - INFO - Processed scanned barcode '7290000208428': New product 'גרגירי חומוס שימורים' added to master.
+2025-06-17 10:59:41,306 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:00:22,690 - INFO - Processed scanned barcode '7290113192492': Barcode is new, product name required to add.
+2025-06-17 11:00:39,385 - INFO - Processed scanned barcode '7290113192492': New product 'מלפפונים בחומץ בית השיטה' added to master.
+2025-06-17 11:00:39,557 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:00:54,874 - INFO - Processed scanned barcode '7290000111186': Barcode is new, product name required to add.
+2025-06-17 11:01:03,165 - INFO - Processed scanned barcode '7290000111186': New product 'מיונז תלמה 500 גרם' added to master.
+2025-06-17 11:01:03,317 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:01:17,475 - INFO - Processed scanned barcode '7290000111360': Barcode is new, product name required to add.
+2025-06-17 11:01:34,520 - INFO - Processed scanned barcode '7290000111360': New product 'ממרח חרדל תלמה' added to master.
+2025-06-17 11:01:34,691 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:01:49,145 - INFO - Processed scanned barcode '7290000072623': Barcode is new, product name required to add.
+2025-06-17 11:02:13,993 - INFO - Processed scanned barcode '7290000072623': New product 'קטשופ אסם' added to master.
+2025-06-17 11:02:14,174 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:05:27,485 - INFO - Flask application shut down.
+2025-06-17 11:05:27,519 - INFO - Flask application shut down.
+2025-06-17 11:05:27,972 - INFO - Flask application starting...
+2025-06-17 11:05:28,308 - INFO - Flask application starting...
+2025-06-17 11:05:30,341 - INFO - Accessed products page.
+2025-06-17 11:05:30,953 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:05:38,600 - INFO - Accessed index page.
+2025-06-17 11:05:38,979 - INFO - Successfully retrieved all categories.
+2025-06-17 11:05:38,981 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:05:38,981 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:05:42,777 - INFO - Accessed index page.
+2025-06-17 11:05:43,182 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:05:43,183 - INFO - Successfully retrieved all categories.
+2025-06-17 11:05:43,245 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:07:32,874 - INFO - Accessed index page.
+2025-06-17 11:07:33,294 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:07:33,301 - INFO - Successfully retrieved all categories.
+2025-06-17 11:07:33,301 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:07:36,407 - INFO - Accessed index page.
+2025-06-17 11:07:36,813 - INFO - Successfully retrieved all categories.
+2025-06-17 11:07:36,813 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:07:36,814 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:08:02,527 - INFO - Accessed products page.
+2025-06-17 11:08:02,817 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:08:33,259 - INFO - Accessed index page.
+2025-06-17 11:08:33,742 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:08:33,742 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:08:33,743 - INFO - Successfully retrieved all categories.
+2025-06-17 11:08:38,572 - INFO - Accessed products page.
+2025-06-17 11:08:38,901 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:08:52,054 - INFO - Product 'גבינה צהובה עמק 400 גרם' updated in master to 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 11:08:52,064 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:09:00,522 - INFO - Product 'גבינה צהובה עמק 400 גרם' updated in master to 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 11:09:00,536 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:12:38,499 - INFO - Accessed tracking page for product: גבינה צהובה עמק 400 גרם (Barcode: 7290000057118).
+2025-06-17 11:12:38,736 - INFO - Successfully retrieved tracking history for product 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 11:12:42,488 - INFO - Accessed general tracking page (no specific barcode provided).
+2025-06-17 11:12:42,795 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:12:49,429 - INFO - Accessed index page.
+2025-06-17 11:12:49,795 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:12:49,796 - INFO - Successfully retrieved all categories.
+2025-06-17 11:12:49,862 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:14:55,363 - INFO - Flask application shut down.
+2025-06-17 11:14:55,402 - INFO - Flask application shut down.
+2025-06-17 11:14:55,860 - INFO - Flask application starting...
+2025-06-17 11:14:56,184 - INFO - Flask application starting...
+2025-06-17 11:15:06,096 - INFO - Accessed products page.
+2025-06-17 11:15:06,417 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:15:56,171 - INFO - Flask application shut down.
+2025-06-17 11:15:56,199 - INFO - Flask application shut down.
+2025-06-17 11:15:56,563 - INFO - Flask application starting...
+2025-06-17 11:15:56,891 - INFO - Flask application starting...
+2025-06-17 11:16:11,651 - INFO - Flask application shut down.
+2025-06-17 11:16:11,686 - INFO - Flask application shut down.
+2025-06-17 11:16:12,150 - INFO - Flask application starting...
+2025-06-17 11:16:12,535 - INFO - Flask application starting...
+2025-06-17 11:16:13,372 - INFO - Accessed products page.
+2025-06-17 11:16:13,578 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:16:59,342 - INFO - Product 'שעועית לבנה ברוטב עגבניות' updated in master to 'שעועית לבנה ברוטב עגבניות' (Barcode: 7290000208213).
+2025-06-17 11:16:59,363 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:17:39,542 - INFO - Flask application starting...
+2025-06-17 11:18:22,194 - INFO - Flask application starting...
+2025-06-17 11:22:14,385 - INFO - Flask application starting...
+2025-06-17 11:22:14,703 - INFO - Flask application starting...
+2025-06-17 11:23:33,033 - INFO - Accessed index page.
+2025-06-17 11:23:33,337 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:23:33,338 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:23:33,338 - INFO - Successfully retrieved all categories.
+2025-06-17 11:26:02,292 - INFO - Flask application shut down.
+2025-06-17 11:26:02,326 - INFO - Flask application shut down.
+2025-06-17 11:26:02,823 - INFO - Flask application starting...
+2025-06-17 11:26:03,159 - INFO - Flask application starting...
+2025-06-17 11:26:15,775 - INFO - Accessed index page.
+2025-06-17 11:26:16,011 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:26:16,013 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:26:16,014 - INFO - Successfully retrieved all categories.
+2025-06-17 11:26:28,619 - INFO - Accessed general tracking page (no specific barcode provided).
+2025-06-17 11:26:29,005 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:26:32,161 - INFO - Accessed products page.
+2025-06-17 11:26:32,380 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:30:19,772 - INFO - Flask application shut down.
+2025-06-17 11:30:19,829 - INFO - Flask application shut down.
+2025-06-17 11:30:20,324 - INFO - Flask application starting...
+2025-06-17 11:30:20,720 - INFO - Flask application starting...
+2025-06-17 11:30:25,498 - INFO - Accessed index page.
+2025-06-17 11:30:25,629 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:30:25,630 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:30:25,630 - INFO - Successfully retrieved all categories.
+2025-06-17 11:30:34,759 - INFO - Product 'שעועית לבנה ברוטב עגבניות' (Quantity: 1, Category: שימורים, Barcode: 7290000208213) added/updated successfully.
+2025-06-17 11:30:34,773 - INFO - Successfully retrieved all categories.
+2025-06-17 11:30:34,774 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:30:34,789 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:30:39,398 - INFO - Accessed general tracking page (no specific barcode provided).
+2025-06-17 11:30:39,604 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:30:41,337 - INFO - Accessed products page.
+2025-06-17 11:30:41,758 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:30:58,010 - INFO - Product 'גרגירי חומוס שימורים' updated in master to 'גרגירי חומוס שימורים' (Barcode: 7290000208428).
+2025-06-17 11:30:58,033 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:31:08,298 - INFO - Product 'מלפפונים בחומץ בית השיטה' updated in master to 'מלפפונים בחומץ בית השיטה' (Barcode: 7290113192492).
+2025-06-17 11:31:08,320 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:33:49,467 - INFO - Flask application shut down.
+2025-06-17 11:33:49,521 - INFO - Flask application shut down.
+2025-06-17 11:33:50,077 - INFO - Flask application starting...
+2025-06-17 11:33:50,449 - INFO - Flask application starting...
+2025-06-17 11:33:51,429 - INFO - Accessed products page.
+2025-06-17 11:33:52,052 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:34:09,369 - INFO - Accessed products page.
+2025-06-17 11:34:09,457 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:34:32,458 - INFO - Flask application shut down.
+2025-06-17 11:34:32,501 - INFO - Flask application shut down.
+2025-06-17 11:34:33,009 - INFO - Flask application starting...
+2025-06-17 11:34:33,375 - INFO - Flask application starting...
+2025-06-17 11:34:35,726 - INFO - Accessed products page.
+2025-06-17 11:34:35,819 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:34:36,452 - INFO - Accessed products page.
+2025-06-17 11:34:36,488 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:34:36,811 - INFO - Accessed products page.
+2025-06-17 11:34:36,890 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:36:12,503 - INFO - Flask application shut down.
+2025-06-17 11:36:12,563 - INFO - Flask application shut down.
+2025-06-17 11:36:13,134 - INFO - Flask application starting...
+2025-06-17 11:36:13,495 - INFO - Flask application starting...
+2025-06-17 11:36:14,584 - INFO - Accessed products page.
+2025-06-17 11:36:14,719 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:36:25,210 - INFO - Accessed products page.
+2025-06-17 11:36:25,363 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:38:13,434 - INFO - Accessed products page.
+2025-06-17 11:38:13,578 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:38:43,922 - INFO - Accessed products page.
+2025-06-17 11:38:44,006 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:41:38,275 - INFO - Accessed products page.
+2025-06-17 11:41:52,207 - INFO - Accessed products page.
+2025-06-17 11:41:52,726 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:43:44,181 - INFO - Flask application shut down.
+2025-06-17 11:43:44,208 - INFO - Flask application shut down.
+2025-06-17 11:43:44,563 - INFO - Flask application starting...
+2025-06-17 11:43:44,859 - INFO - Flask application starting...
+2025-06-17 11:43:46,801 - INFO - Accessed products page.
+2025-06-17 11:43:46,933 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:43:46,934 - INFO - Successfully retrieved all categories.
+2025-06-17 11:44:11,939 - INFO - Accessed products page.
+2025-06-17 11:44:12,020 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:44:12,023 - INFO - Successfully retrieved all categories.
+2025-06-17 11:44:30,144 - INFO - Product 'גבינה צהובה עמק 400 גרם' updated in master to 'גבינה צהובה עמק 400 גרם' (Barcode: 7290000057118).
+2025-06-17 11:44:30,151 - INFO - Successfully retrieved all categories.
+2025-06-17 11:44:30,161 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:44:51,185 - INFO - Product 'מיונז תלמה 500 גרם' updated in master to 'מיונז תלמה 500 גרם' (Barcode: 7290000111186).
+2025-06-17 11:44:51,191 - INFO - Successfully retrieved all categories.
+2025-06-17 11:44:51,199 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:44:55,266 - INFO - Accessed products page.
+2025-06-17 11:44:55,416 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:44:55,417 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:08,615 - INFO - Product 'ממרח חרדל תלמה' updated in master to 'ממרח חרדל תלמה' (Barcode: 7290000111360).
+2025-06-17 11:45:08,621 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:08,630 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:12,492 - INFO - Product 'קטשופ אסם' updated in master to 'קטשופ אסם' (Barcode: 7290000072623).
+2025-06-17 11:45:12,498 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:12,508 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:15,721 - INFO - Product 'קטשופ אסם' updated in master to 'קטשופ אסם' (Barcode: 7290000072623).
+2025-06-17 11:45:15,727 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:15,735 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:31,371 - INFO - Accessed products page.
+2025-06-17 11:45:31,460 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:31,463 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:35,208 - INFO - Product 'קטשופ אסם' updated in master to 'קטשופ אסם' (Barcode: 7290000072623).
+2025-06-17 11:45:35,214 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:35,214 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:46,631 - INFO - Accessed products page.
+2025-06-17 11:45:46,713 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:45:46,716 - INFO - Successfully retrieved all categories.
+2025-06-17 11:45:59,941 - INFO - Accessed index page.
+2025-06-17 11:46:00,246 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:46:00,247 - INFO - Successfully retrieved all categories.
+2025-06-17 11:46:00,248 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:46:02,729 - INFO - Accessed products page.
+2025-06-17 11:46:03,250 - INFO - Successfully retrieved all categories.
+2025-06-17 11:46:03,250 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:46:28,458 - INFO - Processed scanned barcode '7290018500361': Barcode is new, product name required to add.
+2025-06-17 11:47:03,798 - INFO - Processed scanned barcode '7290018500361': New product 'לחם פרוס אחיד אנג'ל' added to master.
+2025-06-17 11:47:03,942 - INFO - Successfully retrieved all categories.
+2025-06-17 11:47:03,949 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:47:06,472 - INFO - Accessed products page.
+2025-06-17 11:47:07,066 - INFO - Successfully retrieved all categories.
+2025-06-17 11:47:07,068 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:47:17,128 - INFO - Processed scanned barcode '7613039771174': Barcode is new, product name required to add.
+2025-06-17 11:47:36,478 - INFO - Processed scanned barcode '7613039771174': New product 'טחון צמחוני טבעול' added to master.
+2025-06-17 11:47:36,649 - INFO - Successfully retrieved all categories.
+2025-06-17 11:47:36,656 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:48:09,528 - INFO - Accessed products page.
+2025-06-17 11:48:09,817 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:48:09,818 - INFO - Successfully retrieved all categories.
+2025-06-17 11:48:15,667 - INFO - Processed scanned barcode '7290107973809': Barcode is new, product name required to add.
+2025-06-17 11:48:48,808 - INFO - Processed scanned barcode '7290107973809': New product 'פולפה עגבניות - קוביות מאסטר שף' added to master.
+2025-06-17 11:48:48,987 - INFO - Successfully retrieved all categories.
+2025-06-17 11:48:48,995 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:49:01,855 - INFO - Processed scanned barcode '7290002824183': Barcode is new, product name required to add.
+2025-06-17 11:49:19,942 - INFO - Processed scanned barcode '7290002824183': New product 'גבינה לבנה סקי 500 גרם' added to master.
+2025-06-17 11:49:20,118 - INFO - Successfully retrieved all categories.
+2025-06-17 11:49:20,125 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:49:35,542 - INFO - Processed scanned barcode '7290000072623': Found existing product 'קטשופ אסם'.
+2025-06-17 11:49:51,829 - INFO - Processed scanned barcode '7290004125578': Barcode is new, product name required to add.
+2025-06-17 11:50:32,575 - INFO - Processed scanned barcode '7290004125578': New product 'חלב סויה תכלת' added to master.
+2025-06-17 11:50:32,748 - INFO - Successfully retrieved all categories.
+2025-06-17 11:50:32,750 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:50:44,254 - INFO - Accessed products page.
+2025-06-17 11:50:44,599 - INFO - Successfully retrieved all categories.
+2025-06-17 11:50:44,600 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:51:54,317 - INFO - Processed scanned barcode '7290102398065': Barcode is new, product name required to add.
+2025-06-17 11:52:12,668 - INFO - Processed scanned barcode '7290102398065': New product 'חלב 2 ליטר טרה' added to master.
+2025-06-17 11:52:12,833 - INFO - Successfully retrieved all categories.
+2025-06-17 11:52:12,833 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:52:20,152 - INFO - Accessed index page.
+2025-06-17 11:52:20,484 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:52:20,485 - INFO - Successfully retrieved all categories.
+2025-06-17 11:52:20,490 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:54:06,601 - INFO - Accessed products page.
+2025-06-17 11:54:06,847 - INFO - Successfully retrieved all categories.
+2025-06-17 11:54:06,848 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:54:22,719 - INFO - Processed scanned barcode '7290000063140': Barcode is new, product name required to add.
+2025-06-17 11:55:23,295 - INFO - Processed scanned barcode '7290000063140': New product 'שקדי מרק אסם 500 גרם' added to master.
+2025-06-17 11:55:23,453 - INFO - Successfully retrieved all categories.
+2025-06-17 11:55:23,463 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:55:29,693 - INFO - Accessed index page.
+2025-06-17 11:55:30,048 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:55:30,049 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:55:30,049 - INFO - Successfully retrieved all categories.
+2025-06-17 11:55:40,682 - INFO - Product 'שקדי מרק אסם 500 גרם' (Quantity: 1, Category: קטניות, Barcode: 7290000063140) added/updated successfully.
+2025-06-17 11:55:40,835 - INFO - Successfully retrieved all categories.
+2025-06-17 11:55:40,835 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:55:40,835 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:55:48,065 - INFO - Accessed index page.
+2025-06-17 11:55:48,420 - INFO - Successfully retrieved all categories.
+2025-06-17 11:55:48,421 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:55:48,421 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:56:00,087 - INFO - Accessed index page.
+2025-06-17 11:56:00,380 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:56:00,385 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:56:00,386 - INFO - Successfully retrieved all categories.
+2025-06-17 11:56:51,096 - INFO - Accessed index page.
+2025-06-17 11:56:51,097 - INFO - Accessed products page.
+2025-06-17 11:56:51,100 - INFO - Accessed products page.
+2025-06-17 11:56:56,450 - INFO - Accessed products page.
+2025-06-17 11:56:56,606 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:56:56,608 - INFO - Successfully retrieved all categories.
+2025-06-17 11:57:02,817 - INFO - Accessed index page.
+2025-06-17 11:57:03,373 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:57:03,374 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:57:03,374 - INFO - Successfully retrieved all categories.
+2025-06-17 11:57:16,910 - INFO - Accessed index page.
+2025-06-17 11:57:48,016 - INFO - Accessed index page.
+2025-06-17 11:57:48,882 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:57:48,883 - INFO - Successfully retrieved all categories.
+2025-06-17 11:57:48,883 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:57:56,502 - INFO - Accessed products page.
+2025-06-17 11:57:57,503 - INFO - Successfully retrieved all categories.
+2025-06-17 11:57:57,504 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:58:05,676 - INFO - Processed scanned barcode '7290001060889': Barcode is new, product name required to add.
+2025-06-17 11:58:35,358 - INFO - Processed scanned barcode '7290001060889': New product 'פסטה ספגטי 8 אסם' added to master.
+2025-06-17 11:58:35,583 - INFO - Successfully retrieved all categories.
+2025-06-17 11:58:35,589 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:59:17,670 - INFO - Accessed index page.
+2025-06-17 11:59:17,942 - INFO - Successfully retrieved all products from master list.
+2025-06-17 11:59:17,942 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:59:17,943 - INFO - Successfully retrieved all categories.
+2025-06-17 11:59:40,956 - INFO - Product 'פסטה ספגטי 8 אסם' (Quantity: 1, Category: קטניות, Barcode: 7290001060889) added/updated successfully.
+2025-06-17 11:59:41,171 - INFO - Successfully retrieved all categories.
+2025-06-17 11:59:41,177 - INFO - Successfully retrieved shopping list.
+2025-06-17 11:59:41,178 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:01:46,231 - INFO - Accessed index page.
+2025-06-17 12:01:46,704 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:01:46,770 - INFO - Successfully retrieved all categories.
+2025-06-17 12:01:46,771 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:02:38,440 - INFO - Accessed products page.
+2025-06-17 12:02:38,790 - INFO - Successfully retrieved all categories.
+2025-06-17 12:02:38,791 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:03:04,595 - INFO - Product 'גבינה לבנה סקי 500 גרם' updated in master to 'גבינה לבנה סקי 500 גרם' (Barcode: 7290002824183).
+2025-06-17 12:03:04,743 - INFO - Successfully retrieved all categories.
+2025-06-17 12:03:04,750 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:04:49,290 - INFO - Processed scanned barcode '111111111111111111': Barcode is new, product name required to add.
+2025-06-17 12:05:01,517 - INFO - Flask application shut down.
+2025-06-17 12:05:01,585 - INFO - Flask application shut down.
+2025-06-17 12:05:02,267 - INFO - Flask application starting...
+2025-06-17 12:05:02,801 - INFO - Flask application starting...
+2025-06-17 12:05:06,016 - INFO - Processed scanned barcode '111111111111111111': New product 'בדיקה' added to master.
+2025-06-17 12:05:06,232 - INFO - Successfully retrieved all categories.
+2025-06-17 12:05:06,240 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:05:25,281 - INFO - Flask application starting...
+2025-06-17 12:05:35,718 - INFO - Flask application starting...
+2025-06-17 12:05:43,360 - INFO - Product 'בדיקה' deleted successfully from master list.
+2025-06-17 12:05:43,509 - INFO - Successfully retrieved all categories.
+2025-06-17 12:05:43,510 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:05:54,844 - INFO - Processed scanned barcode '111111111111111111': Barcode is new, product name required to add.
+2025-06-17 12:06:13,991 - INFO - Processed scanned barcode '111111111111111111': New product 'בדיקה' added to master.
+2025-06-17 12:06:14,140 - INFO - Successfully retrieved all categories.
+2025-06-17 12:06:14,143 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:07:13,645 - INFO - Flask application starting...
+2025-06-17 12:07:39,174 - INFO - Flask application starting...
+2025-06-17 12:08:55,974 - INFO - Flask application starting...
+2025-06-17 12:09:13,422 - INFO - Flask application starting...
+2025-06-17 12:09:44,760 - INFO - Flask application shut down.
+2025-06-17 12:09:44,801 - INFO - Flask application shut down.
+2025-06-17 12:09:45,285 - INFO - Flask application starting...
+2025-06-17 12:09:45,797 - INFO - Flask application starting...
+2025-06-17 12:09:48,106 - INFO - Accessed products page.
+2025-06-17 12:09:48,388 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:09:48,388 - INFO - Successfully retrieved all categories.
+2025-06-17 12:09:51,737 - INFO - Product 'בדיקה' deleted successfully from master list.
+2025-06-17 12:09:51,939 - INFO - Successfully retrieved all categories.
+2025-06-17 12:09:51,940 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:10:19,041 - INFO - Flask application starting...
+2025-06-17 12:10:19,375 - INFO - Flask application starting...
+2025-06-17 12:10:35,474 - INFO - Processed scanned barcode '111111111111111111': Barcode is new, product name required to add.
+2025-06-17 12:10:56,036 - INFO - Processed scanned barcode '111111111111111111': New product 'בדיקהההה' added to master.
+2025-06-17 12:10:56,192 - INFO - Successfully retrieved all categories.
+2025-06-17 12:10:56,205 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:11:01,955 - INFO - Accessed products page.
+2025-06-17 12:11:02,285 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:11:02,287 - INFO - Successfully retrieved all categories.
+2025-06-17 12:11:04,469 - INFO - Accessed index page.
+2025-06-17 12:11:04,872 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:11:04,875 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:11:04,945 - INFO - Successfully retrieved all categories.
+2025-06-17 12:12:07,076 - INFO - Flask application shut down.
+2025-06-17 12:12:07,110 - INFO - Flask application shut down.
+2025-06-17 12:12:07,478 - INFO - Flask application starting...
+2025-06-17 12:12:07,812 - INFO - Flask application starting...
+2025-06-17 12:12:09,358 - INFO - Accessed index page.
+2025-06-17 12:12:09,927 - INFO - Successfully retrieved all categories.
+2025-06-17 12:12:09,928 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:12:09,928 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:12:24,684 - INFO - Product 'בדיקהההה' (Quantity: 1, Category: חומרי ניקיון, Barcode: 111111111111111111) added/updated successfully.
+2025-06-17 12:12:24,879 - INFO - Successfully retrieved all categories.
+2025-06-17 12:12:24,886 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:12:24,886 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:12:34,624 - INFO - Product 'גבינה צהובה עמק 400 גרם' (Quantity: 1, Category: דברי חלב, Barcode: 7290000057118) added/updated successfully.
+2025-06-17 12:12:34,788 - INFO - Successfully retrieved all products from master list.
+2025-06-17 12:12:34,788 - INFO - Successfully retrieved all categories.
+2025-06-17 12:12:34,806 - INFO - Successfully retrieved shopping list.
+2025-06-17 12:12:42,198 - INFO - Product 'גבינה צהובה עמק 400 גרם' marked as undone.
+2025-06-17 12:12:42,364 - INFO - Successfully retrieved shopping list.

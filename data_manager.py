@@ -400,9 +400,7 @@ def delete_product_from_master(name):
         return False
 
 
-def update_product_in_master(old_name, new_name, new_barcode):
-    # This function is now largely superseded by update_product_name_and_category for comprehensive updates.
-    # It remains for other contexts if needed, but its role for uncategorized items is replaced.
+def update_product_in_master(old_name, new_name, new_category, new_barcode):
     try:
         products_master_data = _load_db(PRODUCTS_MASTER_DB)
 
@@ -410,26 +408,37 @@ def update_product_in_master(old_name, new_name, new_barcode):
             data_manager_logger.error(f"Product '{old_name}' not found in master list for update_product_in_master.")
             return False
 
+        # Get current data for the product before any changes
+        current_product_data = products_master_data['products'][old_name]
+        current_barcode = current_product_data.get('barcode', '')
+        current_category = current_product_data.get('category', '')
+
+        # Determine the barcode to use for the updated product
+        barcode_to_use = new_barcode if new_barcode else current_barcode
+
+        # Determine the category to use for the updated product
+        # If new_category is provided, use it; otherwise, retain the current category
+        category_to_use = new_category if new_category is not None else current_category
+
+
         if old_name != new_name:
             if new_name in products_master_data['products']:
                 data_manager_logger.error(
                     f"New product name '{new_name}' already exists in master list. Cannot update '{old_name}'.")
                 return False
 
-            current_barcode = products_master_data['products'][old_name].get('barcode', '')
-            current_category = products_master_data['products'][old_name].get('category', '')
-
-            if not new_barcode:
-                new_barcode = current_barcode
-
+            # Delete the old entry and add the new one with updated details
             del products_master_data['products'][old_name]
-            products_master_data['products'][new_name] = {'barcode': new_barcode, 'category': current_category}
+            products_master_data['products'][new_name] = {'barcode': barcode_to_use, 'category': category_to_use}
             data_manager_logger.info(
-                f"Renamed master product from '{old_name}' to '{new_name}' and updated barcode if provided.")
+                f"Renamed master product from '{old_name}' to '{new_name}', updated barcode to '{barcode_to_use}', and category to '{category_to_use}'.")
         else:
-            if new_barcode:
-                products_master_data['products'][new_name]['barcode'] = new_barcode
-                data_manager_logger.info(f"Updated barcode for master product '{new_name}'.")
+            # If the name hasn't changed, just update barcode and category in place
+            products_master_data['products'][new_name]['barcode'] = barcode_to_use
+            products_master_data['products'][new_name]['category'] = category_to_use
+            data_manager_logger.info(
+                f"Updated barcode to '{barcode_to_use}' and category to '{category_to_use}' for master product '{new_name}'.")
+
 
         if _save_db(PRODUCTS_MASTER_DB, products_master_data):
             return True

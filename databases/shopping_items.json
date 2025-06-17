@@ -1,45 +1,33 @@
 {
     "products": {
-        "בדיקה שלישית": {
-            "quantity": 4,
-            "category": "קוסמטיקה",
-            "barcode": "",
-            "done": false
-        },
-        "רביעית": {
-            "quantity": 4,
-            "category": "לחמים",
-            "barcode": "122222222",
-            "done": false
-        },
-        "חמישית": {
-            "quantity": 1,
-            "category": "תינוקות",
-            "barcode": "312222222",
-            "done": false
-        },
-        "test1": {
-            "quantity": 1,
-            "category": "תינוקות",
-            "barcode": "123",
-            "done": false
-        },
-        "שש": {
-            "quantity": 1,
-            "category": "קפואים",
-            "barcode": "5555",
-            "done": false
-        },
-        "בדיקת סריקה": {
+        "שעועית לבנה ברוטב עגבניות": {
             "quantity": 2,
-            "category": "פירות וירקות",
-            "barcode": "4444",
+            "category": "שימורים",
+            "barcode": "7290000208213",
             "done": false
         },
-        "מוצר חדש נסרק באמצעות ברקוד: 787878787": {
-            "quantity": 65,
-            "category": "לא מקוטלג",
-            "barcode": "787878787",
+        "שקדי מרק אסם 500 גרם": {
+            "quantity": 1,
+            "category": "קטניות",
+            "barcode": "7290000063140",
+            "done": false
+        },
+        "פסטה ספגטי 8 אסם": {
+            "quantity": 1,
+            "category": "קטניות",
+            "barcode": "7290001060889",
+            "done": false
+        },
+        "בדיקהההה": {
+            "quantity": 1,
+            "category": "חומרי ניקיון",
+            "barcode": "111111111111111111",
+            "done": false
+        },
+        "גבינה צהובה עמק 400 גרם": {
+            "quantity": 1,
+            "category": "דברי חלב",
+            "barcode": "7290000057118",
             "done": false
         }
     }

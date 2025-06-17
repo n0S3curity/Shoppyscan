@@ -468,14 +468,15 @@ def update_master_product():
     payload = request.json
     old_name = payload.get('old_name')
     new_name = payload.get('new_name')
+    new_category = payload.get('new_category', '').strip()
     new_barcode = payload.get('new_barcode', '').strip()
 
-    if not old_name or not new_name:
-        server_logger.error(f"Failed to update master product: Missing old name ({old_name}) or new name ({new_name}).")
+    if not old_name or not new_name or not new_category:
+        server_logger.error(f"Failed to update master product: Missing old name ({old_name}) or new name ({new_name}) or new category ({new_category}).")
         return jsonify({"error": "Missing old or new product name"}), 400
 
     try:
-        success = data_manager.update_product_in_master(old_name, new_name, new_barcode)
+        success = data_manager.update_product_in_master(old_name, new_name,new_category, new_barcode)
         if success:
             server_logger.info(f"Product '{old_name}' updated in master to '{new_name}' (Barcode: {new_barcode}).")
             return jsonify({"success": True, "message": "Product updated in master successfully"})
@@ -491,7 +492,9 @@ def update_master_product():
 @app.route('/api/process_scanned_barcode', methods=['POST'])
 def process_scanned_barcode():
     payload = request.json
+    print("Received payload for scanned barcode processing:", payload)
     scanned_barcode = payload.get('barcode')
+    category = payload.get('category', '').strip()
     product_name = payload.get('product_name')
 
     if not scanned_barcode:
@@ -507,6 +510,7 @@ def process_scanned_barcode():
                 "success": True,
                 "exists": True,
                 "product_name": existing_product_name,
+                "category": existing_product_details.get('category', 'לא מקוטלג'),
                 "barcode": scanned_barcode,
                 "message": "Barcode already associated with an existing product."
             }
@@ -521,10 +525,11 @@ def process_scanned_barcode():
                     "success": True,
                     "exists": False,
                     "barcode": scanned_barcode,
+                    "category": category,
                     "message": "Barcode is new. A product name is required to add it."
                 })
             else:
-                success = data_manager.add_product_to_master(product_name, scanned_barcode)
+                success = data_manager.add_product_to_master(product_name, scanned_barcode,category=category)
                 if success:
                     server_logger.info(
                         f"Processed scanned barcode '{scanned_barcode}': New product '{product_name}' added to master.")
@@ -532,6 +537,7 @@ def process_scanned_barcode():
                         "success": True,
                         "exists": False,
                         "product_name": product_name,
+                        "category": category,
                         "barcode": scanned_barcode,
                         "message": "New product added successfully."
                     })

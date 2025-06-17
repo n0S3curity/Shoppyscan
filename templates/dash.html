@@ -100,7 +100,7 @@
             /* justify-content: flex-start; /* REMOVED: Adjust for RTL content flow */
             gap: 8px; /* Space between name and icon */
             min-width: 120px; /* Ensure enough space for name */
-            max-width: calc(100% - 140px); /* Adjust max-width based on other elements (checkbox + quantity controls) */
+            max-width: calc(100% - 80px); /* Adjusted max-width to allow more space for name */
             /* NEW: Set direction to RTL for proper internal flow */
             direction: rtl;
             justify-content: flex-end; /* Align content to the right (end) within wrapper for RTL */
@@ -110,9 +110,9 @@
             user-select: none; /* Prevent text selection on click */
             direction: rtl; /* Force RTL direction for the Hebrew text itself */
             text-align: right; /* Align text to the right within its span */
-            white-space: nowrap; /* Prevent text wrapping */
-            overflow: hidden; /* Hide overflow text */
-            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            white-space: normal; /* Changed from nowrap to normal to allow text wrapping */
+            overflow: visible; /* Changed from hidden to visible */
+            text-overflow: clip; /* Changed from ellipsis to clip */
             flex-shrink: 1; /* Allow text to shrink */
             min-width: 0; /* Allow text to shrink below content size if necessary */
         }
@@ -130,64 +130,64 @@
             visibility: visible;
             opacity: 1;
         }
-/* Styling for the overall uncategorized category card */
-.uncategorized-category-card {
-    background-color: #ffe0b2; /* A light orange/peach color */
-    border: 1px solid #ffcc80;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-.uncategorized-category-card:hover {
-     box-shadow: 0 8px 16px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.08);
-     transform: translateY(-2px);
-}
-/* Styling for the header of the uncategorized category card */
-.uncategorized-category-card .card-header {
-    background-color: #ff9800 !important; /* A darker orange for the header */
-    color: #fff;
-}
-/* Styling for uncategorized items inside the list */
-.uncategorized-product-list .product-item {
-    background-color: #fff3e0; /* Lighter background for individual items */
-    color: #424242;
-    border: 1px solid #ffcc80;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.uncategorized-product-list .product-item:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
-}
-.uncategorized-product-list .product-item .product-name-text {
-    flex-grow: 1;
-    cursor: pointer; /* Indicate clickability */
-    font-weight: 500;
-    text-align: right;
-    direction: rtl;
-    padding-left: 10px; /* Space from edit button */
-}
-/* Style for the edit button within uncategorized items */
-.update-uncategorized-btn {
-    background-color: #2196F3; /* Material Blue for edit */
-    border-color: #2196F3;
-    color: #fff;
-    width: 40px; /* Smaller button */
-    height: 40px;
-    font-size: 18px; /* Smaller icon */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.update-uncategorized-btn:hover {
-    background-color: #1976D2;
-    border-color: #1976D2;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+    /* Styling for the overall uncategorized category card */
+    .uncategorized-category-card {
+        background-color: #ffe0b2; /* A light orange/peach color */
+        border: 1px solid #ffcc80;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .uncategorized-category-card:hover {
+         box-shadow: 0 8px 16px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.08);
+         transform: translateY(-2px);
+    }
+    /* Styling for the header of the uncategorized category card */
+    .uncategorized-category-card .card-header {
+        background-color: #ff9800 !important; /* A darker orange for the header */
+        color: #fff;
+    }
+    /* Styling for uncategorized items inside the list */
+    .uncategorized-product-list .product-item {
+        background-color: #fff3e0; /* Lighter background for individual items */
+        color: #424242;
+        border: 1px solid #ffcc80;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .uncategorized-product-list .product-item:hover {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transform: translateY(-2px);
+    }
+    .uncategorized-product-list .product-item .product-name-text {
+        flex-grow: 1;
+        cursor: pointer; /* Indicate clickability */
+        font-weight: 500;
+        text-align: right;
+        direction: rtl;
+        padding-left: 10px; /* Space from edit button */
+    }
+    /* Style for the edit button within uncategorized items */
+    .update-uncategorized-btn {
+        background-color: #2196F3; /* Material Blue for edit */
+        border-color: #2196F3;
+        color: #fff;
+        width: 40px; /* Smaller button */
+        height: 40px;
+        font-size: 18px; /* Smaller icon */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .update-uncategorized-btn:hover {
+        background-color: #1976D2;
+        border-color: #1976D2;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
         /* New wrapper for quantity and buttons */
         .quantity-controls {
             display: flex;
@@ -491,7 +491,7 @@
             .product-item .product-name-wrapper {
                 margin-right: 0.8rem;
                 font-size: 0.95rem;
-                max-width: calc(100% - 100px); /* Adjusted for smaller screens */
+                max-width: calc(100% - 60px); /* Adjusted for smaller screens to give more room for name */
             }
             .product-item .quantity {
                 font-size: 1.05rem;
@@ -532,6 +532,7 @@
             }
         }
     </style>
+
 </head>
 <body>
 
@@ -611,7 +612,7 @@
         <div class="modal-content text-end">
             <div class="modal-header">
                 <h5 class="modal-title}>אשר מחיקה</h5>
-        <button type=" button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <p>האם אתה בטוח שברצונך למחוק את <span id="productToDeleteName" class="fw-bold"></span> מרשימת הקניות?
@@ -631,7 +632,7 @@
         <div class="modal-content text-end">
             <div class="modal-header">
                 <h5 class="modal-title}>אשר מחיקה</h5>
-        <button type=" button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <p>האם אתה בטוח שברצונך למחוק את כל <span class="fw-bold">הפריטים שסומנו כבוצעו</span> מרשימת הקניות?
@@ -685,7 +686,7 @@
         $.getJSON('/api/shoppinglist', renderList);
     }
 
-    // Function to fetch all products for suggestions
+    // Function to fetch all products for suggestions (including barcode and category for autofill)
     function fetchAllProductsForSuggestions() {
         $.getJSON('/api/all_products', function(data) {
             allProductsData = data.products; // Store the fetched product data
@@ -694,8 +695,8 @@
             allProductsData.forEach(product => {
                 // Ensure unique options, if a product name appears multiple times with different barcodes,
                 // the first one encountered will be used for the datalist option.
-                // The data-barcode attribute is crucial for autofill.
-                $datalist.append(`<option value="${product.name}" data-barcode="${product.barcode || ''}"></option>`);
+                // The data-barcode and data-category attributes are crucial for autofill.
+                $datalist.append(`<option value="${product.name}" data-barcode="${product.barcode || ''}" data-category="${product.category || ''}"></option>`);
             });
         });
     }
@@ -1150,7 +1151,8 @@
         const barcode = currentProductBarcode; // Use the stored barcode
 
         if (!newName || !newCategory) {
-            alert('שם מוצר וקטגוריה לא יכולים להיות ריקים.'); // Use custom modal later
+            // Using Bootstrap's alert component instead of window.alert()
+            alert('שם מוצר וקטגוריה לא יכולים להיות ריקים.');
             return;
         }
 
@@ -1172,7 +1174,8 @@
             },
             error: function(xhr, status, error) {
                 console.error("Error updating product details:", error);
-                alert('שגיאה בעדכון פרטי המוצר.'); // Use custom modal later
+                // Using Bootstrap's alert component instead of window.alert()
+                alert('שגיאה בעדכון פרטי המוצר.');
             }
         });
     });
@@ -1192,16 +1195,20 @@
             }
         });
 
-        // Event listener for product name input to autofill barcode
+        // Event listener for product name input to autofill barcode AND CATEGORY
         $('#product-name').on('input', function() {
             const selectedProductName = $(this).val();
             // Find the matching product in allProductsData
             const matchingProduct = allProductsData.find(product => product.name === selectedProductName);
             if (matchingProduct) {
                 $('#product-barcode').val(matchingProduct.barcode || '');
+                // NEW: Autofill category
+                $('#product-category').val(matchingProduct.category || '');
             } else {
-                // If text input doesn't exactly match a suggested product, clear barcode
+                // If text input doesn't exactly match a suggested product, clear barcode and category
                 $('#product-barcode').val('');
+                // NEW: Clear category if no match
+                $('#product-category').val('');
             }
         });
 
@@ -1237,8 +1244,6 @@
         });
     });
 </script>
-
-
 
 </body>
 </html>
