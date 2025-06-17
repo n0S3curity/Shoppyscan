@@ -1,4 +1,3 @@
-import pytesseract
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import data_manager  # Import the new data_manager module
 import json
