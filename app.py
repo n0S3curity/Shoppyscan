@@ -5,10 +5,7 @@ import json
 import logging
 import os  # Import os module to create directories
 from datetime import datetime, timedelta  # Import datetime and timedelta for log parsing and initial log generation
-from PIL import Image
-import pytesseract
-import re
-import io
+
 
 app = Flask(__name__)
 

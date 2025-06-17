@@ -1062,3 +1062,9 @@
 2025-06-17 12:35:33,558 - INFO - Retrieved all categories.
 2025-06-17 12:35:33,558 - INFO - Successfully loaded data from databases/products_master.json.
 2025-06-17 12:35:33,558 - INFO - Retrieved all products from master list.
+2025-06-17 16:34:46,350 - INFO - Successfully loaded data from databases/products_master.json.
+2025-06-17 16:34:46,350 - INFO - Retrieved all products from master list.
+2025-06-17 16:34:46,360 - INFO - Successfully loaded data from databases/shopping_items.json.
+2025-06-17 16:34:46,361 - INFO - Retrieved all shopping items.
+2025-06-17 16:34:46,362 - INFO - Successfully loaded data from databases/categories.json.
+2025-06-17 16:34:46,362 - INFO - Retrieved all categories.
