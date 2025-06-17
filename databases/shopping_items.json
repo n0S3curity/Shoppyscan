@@ -1,0 +1,46 @@
+{
+    "products": {
+        "בדיקה שלישית": {
+            "quantity": 4,
+            "category": "קוסמטיקה",
+            "barcode": "",
+            "done": false
+        },
+        "רביעית": {
+            "quantity": 4,
+            "category": "לחמים",
+            "barcode": "122222222",
+            "done": false
+        },
+        "חמישית": {
+            "quantity": 1,
+            "category": "תינוקות",
+            "barcode": "312222222",
+            "done": false
+        },
+        "test1": {
+            "quantity": 1,
+            "category": "תינוקות",
+            "barcode": "123",
+            "done": false
+        },
+        "שש": {
+            "quantity": 1,
+            "category": "קפואים",
+            "barcode": "5555",
+            "done": false
+        },
+        "בדיקת סריקה": {
+            "quantity": 2,
+            "category": "פירות וירקות",
+            "barcode": "4444",
+            "done": false
+        },
+        "מוצר חדש נסרק באמצעות ברקוד: 787878787": {
+            "quantity": 65,
+            "category": "לא מקוטלג",
+            "barcode": "787878787",
+            "done": false
+        }
+    }
+}

@@ -1,0 +1,13 @@
+
+
+
+add tracking product price by date
+      the date should be updated when it marked as done
+add to db last price functionality
+
+fix that the deletion is deleting the whole product with the tracking by creating tracking db
+manage prodcts db that will be used for re-adding products to list
+add collapsible menu
+
+
+

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מעקב מחיר 📊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f4f8;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            padding-top: 20px; /* Space for the top bar/hamburger */
+        }
+        .container {
+            max-width: 700px; /* Slightly wider container for tracking chart */
+            padding: 20px 15px;
+        }
+        h2 {
+            color: #212529;
+            margin-bottom: 1.5rem !important;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .product-info-header {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px 16px 0 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card {
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+            margin-bottom: 2rem;
+        }
+        .card-body {
+            padding: 1.5rem;
+            text-align: right; /* RTL alignment */
+        }
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-item {
+            background-color: #e3f2fd; /* Light blue background for stats */
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .stat-label {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .stat-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #212529;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            text-align: right;
+            width: 100%;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 0.85rem 1.2rem;
+            border: 1px solid #cccccc;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            text-align: right;
+            direction: rtl;
+        }
+        .form-control:focus {
+            border-color: #4285F4;
+            box-shadow: 0 0 0 0.25rem rgba(66, 133, 244, 0.25);
+            outline: none;
+        }
+        .btn-primary {
+            background-color: #4285F4;
+            border-color: #4285F4;
+            border-radius: 10px;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover {
+            background-color: #3a79d9;
+            border-color: #3a79d9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        /* Chart specific styling */
+        #priceChart {
+            max-height: 400px; /* Limit chart height */
+            margin-top: 1.5rem;
+        }
+
+        /* Styles for the new product list display */
+        .product-list-container {
+            margin-top: 2rem;
+            text-align: right;
+        }
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            direction: rtl; /* Ensure card content is RTL */
+            text-align: right; /* Ensure card content is right-aligned */
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .product-card-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 0.25rem;
+        }
+        .product-card-barcode {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        .search-controls {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .search-controls .form-control {
+            direction: rtl; /* Ensure search input is RTL */
+            text-align: right; /* Ensure search input is right-aligned */
+        }
+        /* Styles for the offcanvas menu */
+        .offcanvas {
+            background-color: #2c3e50; /* Dark background for sidebar */
+            color: #ecf0f1; /* Light text color */
+            width: 250px; /* Fixed width for sidebar */
+            border-left: none; /* Remove default border */
+        }
+        .offcanvas-header {
+            border-bottom: 1px solid #34495e;
+            padding: 1.5rem 1rem;
+        }
+        .offcanvas-title {
+            color: #ecf0f1;
+            font-weight: 700;
+        }
+        .offcanvas-body {
+            padding: 0;
+        }
+        .offcanvas .nav-link {
+            color: #ecf0f1;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between icon and text */
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator */
+        }
+        .offcanvas .nav-link:hover,
+        .offcanvas .nav-link.active {
+            background-color: #34495e; /* Slightly lighter on hover/active */
+            color: #7bed9a; /* Highlight color */
+        }
+        .offcanvas .nav-link i {
+            font-size: 1.3em;
+        }
+        .offcanvas-backdrop.show {
+            opacity: 0.5;
+        }
+        /* Hamburger menu button */
+        .navbar-toggler {
+            position: fixed;
+            top: 15px;
+            right: 15px; /* Position on the right for RTL layout */
+            z-index: 1040; /* Above most content, below offcanvas */
+            background-color: rgba(255,255,255,0.8);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.2s ease;
+        }
+        .navbar-toggler:hover {
+            background-color: rgba(255,255,255,1);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px 10px;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .product-info-header {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+            .statistics-grid {
+                grid-template-columns: 1fr; /* Stack stats on small screens */
+            }
+            .stat-value {
+                font-size: 1.2em;
+            }
+            .card-body {
+                padding: 1rem;
+            }
+            .form-control {
+                padding: 0.7rem 1rem;
+            }
+            .btn-primary {
+                padding: 0.7rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+{% include 'sidebar.html' %}
+
+
+<div class="container text-center mt-5">
+
+    {% if show_details %}
+    <h2 class="mb-4 fw-bold">מעקב מחיר עבור <span id="productNameDisplay"></span> <span id="productBarcodeDisplay" class="text-muted small"></span></h2>
+
+    <div class="card">
+        <div class="product-info-header">
+            <span>היסטוריית מחירים</span>
+            <span id="latestPriceDisplay" class="me-2"></span>
+        </div>
+        <div class="card-body">
+            <canvas id="priceChart"></canvas>
+
+            <div class="statistics-grid">
+                <div class="stat-item">
+                    <div class="stat-label">מחיר נוכחי/אחרון</div>
+                    <div class="stat-value" id="currentPrice">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">מחיר נמוך ביותר</div>
+                    <div class="stat-value" id="lowestPrice">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">מחיר גבוה ביותר</div>
+                    <div class="stat-value" id="highestPrice">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">מחיר ממוצע</div>
+                    <div class="stat-value" id="averagePrice">--</div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <h5 class="mb-3">הוסף מחיר חדש</h5>
+            <form id="record-price-form">
+                <div class="mb-3">
+                    <label for="new-price" class="form-label">מחיר</label>
+                    <input type="number" step="0.01" class="form-control" id="new-price" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">הוסף מחיר</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <h2 class="mb-4 fw-bold">כל המוצרים שלי 📊</h2>
+
+    <div class="search-controls">
+        <input type="text" id="productSearch" class="form-control" placeholder="חפש מוצר לפי שם או ברקוד...">
+    </div>
+
+    <div id="allProductsList" class="product-list-container">
+        <!-- Products will be loaded here by JavaScript -->
+        <p class="text-center text-muted" id="noProductsMessage" style="display: none;">לא נמצאו מוצרים.</p>
+    </div>
+    {% endif %}
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let priceChart = null; // Variable to hold the Chart.js instance
+    let allMasterProducts = []; // To store all products from products_master.json for filtering
+
+    // Function to calculate and display statistics
+    function displayStatistics(prices) {
+        if (prices.length === 0) {
+            $('#currentPrice').text('--');
+            $('#lowestPrice').text('--');
+            $('#highestPrice').text('--');
+            $('#averagePrice').text('--');
+            $('#latestPriceDisplay').text('');
+            return;
+        }
+
+        const numericPrices = prices.map(p => p.price);
+        const latestPrice = prices[prices.length - 1].price;
+        const lowestPrice = Math.min(...numericPrices);
+        const highestPrice = Math.max(...numericPrices);
+        const averagePrice = (numericPrices.reduce((sum, p) => sum + p, 0) / numericPrices.length).toFixed(2);
+
+        $('#currentPrice').text(`₪ ${latestPrice}`);
+        $('#lowestPrice').text(`₪ ${lowestPrice}`);
+        $('#highestPrice').text(`₪ ${highestPrice}`);
+        $('#averagePrice').text(`₪ ${averagePrice}`);
+        $('#latestPriceDisplay').text(`מחיר אחרון: ₪ ${latestPrice}`);
+    }
+
+    // Function to fetch and render tracking data (for a specific product)
+    async function fetchAndRenderTrackingDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = decodeURIComponent(urlParams.get('name') || ''); // For display only
+        const productBarcode = decodeURIComponent(urlParams.get('barcode') || ''); // Primary for logic
+
+        $('#productNameDisplay').text(productName);
+        $('#productBarcodeDisplay').text(productBarcode ? `(${productBarcode})` : '');
+
+        if (!productBarcode) { // Logic now primarily based on barcode
+            console.error("Product barcode not found in URL parameters.");
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/product_tracking?barcode=${encodeURIComponent(productBarcode)}`); // Use barcode
+            const data = await response.json();
+
+            if (data.error) {
+                console.error("Error fetching tracking data:", data.error);
+                return;
+            }
+
+            // Update product name display from fetched data (might be more accurate)
+            $('#productNameDisplay').text(data.name || productName);
+
+            const trackingData = data.tracking || [];
+
+            // Prepare data for Chart.js
+            const labels = trackingData.map(item => item[0]); // Dates
+            const prices = trackingData.map(item => item[1].price); // Prices
+
+            // Destroy existing chart if it exists
+            if (priceChart) {
+                priceChart.destroy();
+            }
+
+            const ctx = document.getElementById('priceChart').getContext('2d');
+            priceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'מחיר (₪)', // Updated label with Shekel sign
+                        data: prices,
+                        borderColor: '#4285F4', // Google Blue
+                        backgroundColor: 'rgba(66, 133, 244, 0.2)', // Light blue fill
+                        tension: 0.3, // Smooth curve
+                        pointRadius: 5,
+                        pointBackgroundColor: '#4285F4',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 7,
+                        pointHoverBackgroundColor: '#4285F4',
+                        pointHoverBorderColor: '#fff',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            rtl: true, // Enable RTL for tooltips
+                            callbacks: {
+                                title: function(context) {
+                                    return `תאריך: ${context[0].label}`;
+                                },
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.raw;
+                                    return label + ' ₪'; // Added Shekel sign
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'מחיר',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                callback: function(value, index, ticks) {
+                                    return `₪ ${value}`; // Added Shekel sign
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'תאריך',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                reverse: false // Dates should flow left to right, even in RTL context
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Display statistics
+            displayStatistics(trackingData.map(item => ({ date: item[0], price: item[1].price })));
+
+        } catch (error) {
+            console.error("Failed to fetch tracking data:", error);
+        }
+    }
+
+    // Function to render all products for the list view
+    function renderAllProductsList(productsToRender) {
+        const $listContainer = $('#allProductsList');
+        $listContainer.empty(); // Clear existing list
+
+        if (productsToRender.length === 0) {
+            $('#noProductsMessage').show();
+            return;
+        } else {
+            $('#noProductsMessage').hide();
+        }
+
+        productsToRender.forEach(product => {
+            const $card = $(`
+                <div class="product-card" data-name="${product.name}" data-barcode="${product.barcode || ''}">
+                    <div class="product-card-name">${product.name}</div>
+                    <div class="product-card-barcode">ברקוד: ${product.barcode || 'אין ברקוד'}</div>
+                </div>
+            `);
+            $card.click(function() {
+                const name = $(this).data('name');
+                const barcode = $(this).data('barcode');
+                window.location.href = `/tracking?name=${encodeURIComponent(name)}&barcode=${encodeURIComponent(barcode)}`;
+            });
+            $listContainer.append($card);
+        });
+    }
+
+    // Function to filter products based on search input
+    function filterProducts() {
+        const searchTerm = $('#productSearch').val().toLowerCase();
+        const filteredProducts = allMasterProducts.filter(product => {
+            return product.name.toLowerCase().includes(searchTerm) ||
+                   (product.barcode && product.barcode.toLowerCase().includes(searchTerm));
+        });
+        renderAllProductsList(filteredProducts);
+    }
+
+
+    $(document).ready(function() {
+        // Check if we are on the detailed tracking page or the general products list page
+        const showDetails = {{ show_details | tojson }}; // Passed from Flask
+
+        if (showDetails) {
+            fetchAndRenderTrackingDetails(); // Load specific product tracking data
+            // Event listener for new price recording form submission
+            $('#record-price-form').submit(async function(e) {
+                e.preventDefault();
+                const urlParams = new URLSearchParams(window.location.search);
+                const productBarcode = decodeURIComponent(urlParams.get('barcode') || ''); // Primary for logic
+                const newPrice = parseFloat($('#new-price').val());
+
+                if (isNaN(newPrice)) {
+                    console.error("Invalid price entered.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/record_product_price', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            barcode: productBarcode, // Use barcode only
+                            price: newPrice
+                        })
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        $('#new-price').val(''); // Clear input
+                        fetchAndRenderTrackingDetails(); // Re-render chart with new data
+                    } else {
+                        console.error("Failed to record price:", result.error);
+                    }
+                } catch (error) {
+                    console.error("Error recording price:", error);
+                }
+            });
+
+        } else {
+            // Load all products for the list view
+            $.getJSON('/api/all_products', function(data) {
+                allMasterProducts = data.products;
+                renderAllProductsList(allMasterProducts);
+            });
+
+            // Event listener for search input
+            $('#productSearch').on('input', filterProducts);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+2025-06-16 22:38:33,493 - INFO - Flask application starting...
+2025-06-16 22:38:33,831 - INFO - Flask application starting...
+2025-06-16 22:50:56,754 - INFO - Accessed test endpoint.
+2025-06-16 22:51:24,812 - INFO - Accessed test endpoint.
+2025-06-16 22:51:54,918 - INFO - Accessed test endpoint.
+2025-06-16 22:52:25,025 - INFO - Accessed test endpoint.
+2025-06-16 22:52:32,717 - INFO - Flask application starting...
+2025-06-16 22:52:55,132 - INFO - Accessed test endpoint.
+2025-06-16 22:55:24,043 - INFO - Flask application starting...
+2025-06-16 22:56:24,656 - INFO - Accessed test endpoint.
+2025-06-16 22:56:41,782 - INFO - Flask application starting...
+2025-06-16 22:56:54,755 - INFO - Accessed test endpoint.
+2025-06-16 22:57:24,867 - INFO - Accessed test endpoint.
+2025-06-16 22:57:52,921 - INFO - Accessed test endpoint.
+2025-06-16 23:00:38,302 - INFO - Accessed test endpoint.
+2025-06-16 23:01:19,981 - INFO - Accessed test endpoint.
+2025-06-16 23:01:50,402 - INFO - Accessed test endpoint.
+2025-06-16 23:09:35,168 - INFO - Flask application shut down.
+2025-06-16 23:09:35,204 - INFO - Flask application shut down.
+2025-06-16 23:09:35,604 - INFO - Flask application starting...
+2025-06-16 23:09:35,886 - INFO - Flask application starting...
+2025-06-16 23:09:55,607 - INFO - Accessed index page.
+2025-06-16 23:09:56,019 - INFO - Successfully retrieved shopping list.
+2025-06-16 23:09:56,023 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:09:56,029 - INFO - Successfully retrieved all categories.
+2025-06-16 23:10:08,508 - INFO - Accessed general tracking page (no specific barcode provided).
+2025-06-16 23:10:08,714 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:10:11,191 - INFO - Accessed products page.
+2025-06-16 23:10:11,848 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:10:22,172 - INFO - Accessed general tracking page (no specific barcode provided).
+2025-06-16 23:10:22,206 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:12:13,814 - INFO - Flask application shut down.
+2025-06-16 23:12:13,842 - INFO - Flask application shut down.
+2025-06-16 23:12:14,156 - INFO - Flask application starting...
+2025-06-16 23:12:14,446 - INFO - Flask application starting...
+2025-06-16 23:16:52,069 - INFO - Accessed test endpoint.
+2025-06-16 23:17:22,378 - INFO - Accessed test endpoint.
+2025-06-16 23:17:52,587 - INFO - Accessed test endpoint.
+2025-06-16 23:18:20,850 - INFO - Accessed test endpoint.
+2025-06-16 23:18:51,060 - INFO - Accessed test endpoint.
+2025-06-16 23:19:21,281 - INFO - Accessed test endpoint.
+2025-06-16 23:19:49,532 - INFO - Accessed test endpoint.
+2025-06-16 23:19:55,799 - INFO - Flask application starting...
+2025-06-16 23:20:01,858 - INFO - Accessed test endpoint.
+2025-06-16 23:20:04,890 - INFO - Accessed index page.
+2025-06-16 23:20:05,033 - INFO - Successfully retrieved all categories.
+2025-06-16 23:20:05,033 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:20:05,043 - INFO - Successfully retrieved shopping list.
+2025-06-16 23:20:19,741 - INFO - Accessed test endpoint.
+2025-06-16 23:20:53,944 - INFO - Accessed test endpoint.
+2025-06-16 23:21:24,154 - INFO - Accessed test endpoint.
+2025-06-16 23:21:54,463 - INFO - Accessed test endpoint.
+2025-06-16 23:22:24,673 - INFO - Accessed test endpoint.
+2025-06-16 23:22:54,986 - INFO - Accessed test endpoint.
+2025-06-16 23:23:25,195 - INFO - Accessed test endpoint.
+2025-06-16 23:23:55,505 - INFO - Accessed test endpoint.
+2025-06-16 23:24:25,715 - INFO - Accessed test endpoint.
+2025-06-16 23:24:54,431 - INFO - Flask application starting...
+2025-06-16 23:24:56,277 - INFO - Accessed test endpoint.
+2025-06-16 23:25:01,782 - INFO - Flask application starting...
+2025-06-16 23:25:26,452 - INFO - Accessed test endpoint.
+2025-06-16 23:25:56,686 - INFO - Accessed test endpoint.
+2025-06-16 23:26:05,589 - INFO - Flask application shut down.
+2025-06-16 23:26:05,628 - INFO - Flask application shut down.
+2025-06-16 23:26:06,029 - INFO - Flask application starting...
+2025-06-16 23:26:06,324 - INFO - Flask application starting...
+2025-06-16 23:26:26,961 - INFO - Accessed test endpoint.
+2025-06-16 23:26:57,184 - INFO - Accessed test endpoint.
+2025-06-16 23:27:27,381 - INFO - Accessed test endpoint.
+2025-06-16 23:27:57,589 - INFO - Accessed test endpoint.
+2025-06-16 23:28:31,791 - INFO - Accessed test endpoint.
+2025-06-16 23:29:02,001 - INFO - Accessed test endpoint.
+2025-06-16 23:29:36,204 - INFO - Accessed test endpoint.
+2025-06-16 23:30:06,414 - INFO - Accessed test endpoint.
+2025-06-16 23:30:36,622 - INFO - Accessed test endpoint.
+2025-06-16 23:31:06,832 - INFO - Accessed test endpoint.
+2025-06-16 23:31:37,041 - INFO - Accessed test endpoint.
+2025-06-16 23:32:07,251 - INFO - Accessed test endpoint.
+2025-06-16 23:32:37,437 - INFO - Accessed test endpoint.
+2025-06-16 23:33:07,592 - INFO - Accessed test endpoint.
+2025-06-16 23:33:37,778 - INFO - Accessed test endpoint.
+2025-06-16 23:34:08,885 - INFO - Accessed test endpoint.
+2025-06-16 23:34:39,115 - INFO - Accessed test endpoint.
+2025-06-16 23:35:09,327 - INFO - Accessed test endpoint.
+2025-06-16 23:35:39,534 - INFO - Accessed test endpoint.
+2025-06-16 23:36:13,840 - INFO - Accessed test endpoint.
+2025-06-16 23:36:44,048 - INFO - Accessed test endpoint.
+2025-06-16 23:37:14,258 - INFO - Accessed test endpoint.
+2025-06-16 23:37:14,665 - INFO - Flask application starting...
+2025-06-16 23:37:44,466 - INFO - Accessed test endpoint.
+2025-06-16 23:38:14,787 - INFO - Accessed test endpoint.
+2025-06-16 23:38:44,987 - INFO - Accessed test endpoint.
+2025-06-16 23:39:15,200 - INFO - Accessed test endpoint.
+2025-06-16 23:39:45,409 - INFO - Accessed test endpoint.
+2025-06-16 23:40:15,615 - INFO - Accessed test endpoint.
+2025-06-16 23:40:49,817 - INFO - Accessed test endpoint.
+2025-06-16 23:41:20,028 - INFO - Accessed test endpoint.
+2025-06-16 23:41:50,338 - INFO - Accessed test endpoint.
+2025-06-16 23:42:14,320 - INFO - Flask application starting...
+2025-06-16 23:42:17,756 - INFO - Flask application starting...
+2025-06-16 23:42:20,406 - INFO - Flask application shut down.
+2025-06-16 23:42:20,435 - INFO - Flask application shut down.
+2025-06-16 23:42:20,864 - INFO - Flask application starting...
+2025-06-16 23:42:21,188 - INFO - Flask application starting...
+2025-06-16 23:42:49,630 - INFO - Accessed test endpoint.
+2025-06-16 23:43:19,843 - INFO - Accessed test endpoint.
+2025-06-16 23:43:50,049 - INFO - Accessed test endpoint.
+2025-06-16 23:44:00,075 - INFO - Flask application starting...
+2025-06-16 23:44:02,405 - INFO - Flask application starting...
+2025-06-16 23:44:03,229 - INFO - Flask application shut down.
+2025-06-16 23:44:03,261 - INFO - Flask application shut down.
+2025-06-16 23:44:03,589 - INFO - Flask application starting...
+2025-06-16 23:44:03,884 - INFO - Flask application starting...
+2025-06-16 23:44:20,268 - INFO - Accessed test endpoint.
+2025-06-16 23:44:50,467 - INFO - Accessed test endpoint.
+2025-06-16 23:45:13,545 - INFO - Flask application starting...
+2025-06-16 23:45:18,651 - INFO - Accessed test endpoint.
+2025-06-16 23:45:35,007 - INFO - Flask application starting...
+2025-06-16 23:45:48,839 - INFO - Accessed test endpoint.
+2025-06-16 23:46:19,047 - INFO - Accessed test endpoint.
+2025-06-16 23:46:49,257 - INFO - Accessed test endpoint.
+2025-06-16 23:47:17,830 - INFO - Flask application starting...
+2025-06-16 23:47:18,722 - INFO - Flask application shut down.
+2025-06-16 23:47:18,758 - INFO - Flask application shut down.
+2025-06-16 23:47:19,164 - INFO - Flask application starting...
+2025-06-16 23:47:19,527 - INFO - Flask application starting...
+2025-06-16 23:47:19,676 - INFO - Accessed test endpoint.
+2025-06-16 23:47:49,880 - INFO - Accessed test endpoint.
+2025-06-16 23:48:20,093 - INFO - Accessed test endpoint.
+2025-06-16 23:48:50,311 - INFO - Accessed test endpoint.
+2025-06-16 23:48:54,437 - INFO - Flask application shut down.
+2025-06-16 23:48:54,466 - INFO - Flask application shut down.
+2025-06-16 23:50:56,421 - INFO - Flask application starting...
+2025-06-16 23:50:56,747 - INFO - Flask application starting...
+2025-06-16 23:51:04,064 - INFO - Accessed index page.
+2025-06-16 23:51:04,179 - INFO - Successfully retrieved shopping list.
+2025-06-16 23:51:04,185 - INFO - Successfully retrieved all categories.
+2025-06-16 23:51:04,186 - INFO - Successfully retrieved all products from master list.
+2025-06-16 23:51:19,368 - INFO - Flask application shut down.
+2025-06-16 23:51:19,395 - INFO - Flask application shut down.
+2025-06-17 09:49:26,584 - INFO - Flask application starting...
+2025-06-17 09:49:26,934 - INFO - Flask application starting...
+2025-06-17 09:49:43,784 - INFO - Accessed index page.
+2025-06-17 09:49:44,190 - INFO - Successfully retrieved shopping list.
+2025-06-17 09:49:44,191 - INFO - Successfully retrieved all products from master list.
+2025-06-17 09:49:44,192 - INFO - Successfully retrieved all categories.
+2025-06-17 09:49:51,420 - INFO - Accessed products page.
+2025-06-17 09:49:51,969 - INFO - Successfully retrieved all products from master list.

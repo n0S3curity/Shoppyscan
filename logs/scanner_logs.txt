@@ -1,0 +1,253 @@
+2025-06-16 22:50:54,922 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:51:22,981 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:51:53,087 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:52:23,194 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:52:53,300 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:56:22,825 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:56:24,730 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 22:56:52,928 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:56:54,809 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 22:57:23,036 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:57:24,911 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 22:57:51,094 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 22:57:53,007 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 23:00:36,475 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:00:38,348 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 23:01:18,156 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:01:20,036 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 23:01:21,811 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Response: {
+  "message": "New product '\u05de\u05d5\u05e6\u05e8 \u05d7\u05d3\u05e9 \u05e0\u05e1\u05e8\u05e7 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d1\u05e8\u05e7\u05d5\u05d3: 787878787' added to master and shopping list.",
+  "success": true
+}
+
+2025-06-16 23:01:48,568 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:01:50,494 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Response: {
+  "response": "success!"
+}
+
+2025-06-16 23:01:52,159 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Response: {
+  "message": "Product '\u05de\u05d5\u05e6\u05e8 \u05d7\u05d3\u05e9 \u05e0\u05e1\u05e8\u05e7 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d1\u05e8\u05e7\u05d5\u05d3: 787878787' added/updated in shopping list.",
+  "success": true
+}
+
+2025-06-16 23:16:50,244 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:16:52,144 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:16:53,785 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:17:20,550 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:17:22,417 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:17:24,048 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:17:50,761 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:17:52,641 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:17:54,331 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:18:19,024 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:18:20,896 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:18:22,522 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:18:49,232 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:18:51,101 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:18:52,721 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:19:19,442 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:19:21,348 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:19:22,999 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:19:47,705 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:19:49,578 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:19:51,189 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:20:17,914 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:20:19,782 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:20:21,402 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:20:52,118 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:20:53,989 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:20:55,618 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:21:22,329 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:21:24,206 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:21:25,873 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:21:52,640 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:21:54,512 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:21:56,142 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:22:22,849 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:22:24,727 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:22:26,411 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:22:53,159 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:22:55,034 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:22:56,659 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:23:23,368 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:23:25,247 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:23:26,928 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:23:53,680 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:23:55,552 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:23:57,184 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:24:23,889 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:24:25,767 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:24:27,438 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:24:54,455 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:24:56,335 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:24:57,951 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:25:24,615 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:25:26,520 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:25:28,129 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:25:54,824 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:25:56,753 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:25:58,372 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:26:25,136 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:26:27,013 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:26:28,639 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:26:55,345 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:26:57,249 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:26:58,884 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:27:25,554 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:27:27,426 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:27:29,068 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:27:55,765 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:27:57,637 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:27:59,263 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:28:29,967 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:28:31,834 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:28:33,469 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:29:00,176 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:29:02,050 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:29:03,676 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:29:34,381 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:29:36,254 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:29:37,887 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:30:04,590 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:30:06,457 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:30:08,089 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:30:34,798 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:30:36,667 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:30:38,296 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:31:05,008 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:31:06,875 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:31:08,506 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:31:35,221 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:31:37,087 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:31:38,712 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:32:05,426 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:32:07,298 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:32:08,923 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:32:35,597 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:32:37,485 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:32:39,111 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:33:05,772 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:33:07,647 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:33:09,290 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:33:35,955 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:33:37,825 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:33:39,452 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:34:07,065 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:34:08,929 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:34:10,560 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:34:37,293 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:34:39,162 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:34:40,800 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:35:07,509 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:35:09,378 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:35:11,044 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:35:37,710 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:35:39,587 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:35:41,248 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:36:12,014 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:36:13,883 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:36:15,512 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:36:42,224 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:36:44,087 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:36:45,730 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:37:12,436 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:37:14,299 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:37:15,908 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:37:42,645 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:37:44,540 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:37:46,200 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:38:12,958 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:38:14,836 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:38:16,463 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:38:43,165 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:38:45,041 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:38:46,675 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:39:13,373 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:39:15,248 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:39:16,886 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:39:43,583 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:39:45,460 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:39:47,084 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:40:13,793 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:40:15,668 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:40:17,274 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:40:47,995 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:40:49,860 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:40:51,470 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:41:18,204 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:41:20,080 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:41:21,762 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:41:48,515 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:41:50,381 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:41:52,009 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:42:18,734 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:42:47,807 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:42:49,682 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:42:51,223 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:42:51,303 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:43:18,018 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:43:19,889 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:43:21,459 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:43:21,524 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:43:48,228 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:43:50,103 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:43:51,692 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:43:51,766 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:44:18,436 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:44:20,307 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:44:21,860 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:44:21,918 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:44:48,646 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:44:50,514 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:44:52,057 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:44:52,121 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:45:16,832 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:45:18,713 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:45:20,262 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:45:20,340 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:45:47,016 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:45:48,892 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:45:50,476 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:45:50,550 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:46:17,226 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:46:19,093 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:46:20,644 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:46:20,705 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:46:47,434 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:46:49,297 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:46:50,851 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:46:50,910 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:47:17,857 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:47:19,726 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:47:21,285 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:47:21,356 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:47:48,057 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:47:49,935 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:47:51,509 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:47:51,567 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:48:18,270 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:48:20,145 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:48:21,715 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:48:21,774 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.
+2025-06-16 23:48:48,481 - INFO - Scanner custom log: WiFi Connected successfully. Local IP: 192.168.68.60
+2025-06-16 23:48:50,372 - INFO - Scanner custom log: HTTP GET to http://192.168.68.63:5000/test successful. Server responded OK.
+2025-06-16 23:48:51,923 - INFO - Product 'מוצר חדש נסרק באמצעות ברקוד: 787878787' (barcode: 787878787) added/updated in shopping list by scanner.
+2025-06-16 23:48:51,989 - INFO - Scanner custom log: Product with barcode 787878787 added successfully. Server responded OK.

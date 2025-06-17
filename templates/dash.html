@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>רשימת קניות 🛒</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts - Inter for clean, modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+            rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f4f8; /* A very light, subtle grey background for depth */
+            font-family: 'Inter', sans-serif; /* Applied Inter font for modern look */
+            -webkit-font-smoothing: antialiased; /* Better font rendering for iOS */
+            -moz-osx-font-smoothing: grayscale; /* Better font rendering for macOS */
+            line-height: 1.6; /* Improved readability */
+            padding-top: 20px; /* Space for the top bar/hamburger */
+        }
+        .container {
+            max-width: 650px; /* Slightly wider container */
+            padding: 20px 15px; /* More generous padding for content */
+        }
+        h2 {
+            color: #212529; /* Darker heading for better visibility */
+            margin-bottom: 2.5rem !important; /* More space below heading */
+            font-weight: 700; /* Bolder heading */
+            letter-spacing: -0.5px; /* Slightly tighter letter spacing */
+        }
+        .card-category {
+            margin-bottom: 1.5rem; /* Increased space between cards */
+            cursor: pointer;
+            border-radius: 16px; /* Larger, softer border-radius for cards */
+            transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.1s ease-out; /* Material-like shadow transition */
+            overflow: hidden; /* Ensures rounded corners clip content */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Initial subtle elevation */
+            border: none; /* Remove default bootstrap card border */
+        }
+        .card-category:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.1); /* More prominent shadow on hover */
+            transform: translateY(-4px); /* Subtle lift effect */
+        }
+        .card-header {
+            padding: 1.2rem 1.5rem; /* More padding in header */
+            font-size: 1.25rem; /* Slightly larger font */
+            background-color: #4285F4; /* Google Blue as primary color */
+            color: #fff;
+            border-bottom: none; /* Remove default border */
+            border-radius: 16px 16px 0 0; /* Match card border-radius */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600; /* Medium bold */
+        }
+        .product-list {
+            display: none; /* Controlled by JS slideToggle */
+            padding: 10px 0; /* Reduced vertical padding, item handles internal padding */
+            border-top: 1px solid #e0e0e0; /* Subtle separator */
+        }
+        .product-item {
+            background-color: #ffffff;
+            border-radius: 12px; /* Slightly smaller border-radius for list items */
+            padding: 0.85rem 1.2rem; /* Increased padding for better touch targets */
+            margin: 0.6rem 1.2rem; /* Added horizontal margin */
+            display: flex;
+            flex-direction: row; /* Force LTR visual order within the item as per image */
+            justify-content: space-between; /* Push left and right groups apart */
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for items */
+            transition: all 0.2s ease-in-out; /* Smooth transitions for quantity/done changes */
+            border: 1px solid #e5e5e5; /* Subtle border */
+            direction: ltr; /* Ensure elements within this item flow LTR */
+            text-align: left; /* Default text alignment within this item */
+        }
+        .product-item:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Enhance shadow on hover */
+            transform: translateY(-2px);
+        }
+        .product-item input[type="checkbox"] {
+            margin-right: 0; /* Reset default Bootstrap RTL margin */
+            margin-left: 1.2rem; /* Space AFTER checkbox in LTR flow */
+            transform: scale(1.4); /* Slightly larger checkbox */
+            accent-color: #4285F4; /* Google Blue accent color */
+            cursor: pointer;
+            flex-shrink: 0; /* Prevent checkbox from shrinking */
+        }
+    .product-item .product-name-wrapper { /* New wrapper for name and tracking icon */
+            flex-grow: 1; /* Allow name to take available space */
+            /* text-align: left; /* REMOVED: This conflicts with internal RTL text alignment */
+            margin-right: 0; /* Reset default */
+            margin-left: 0; /* Reset default */
+            font-size: 1.05rem; /* Slightly larger font for readability */
+            color: #343a40;
+            font-weight: 500; /* Medium weight for text */
+            display: flex; /* Enable flex for inner alignment */
+            align-items: center;
+            /* justify-content: flex-start; /* REMOVED: Adjust for RTL content flow */
+            gap: 8px; /* Space between name and icon */
+            min-width: 120px; /* Ensure enough space for name */
+            max-width: calc(100% - 140px); /* Adjust max-width based on other elements (checkbox + quantity controls) */
+            /* NEW: Set direction to RTL for proper internal flow */
+            direction: rtl;
+            justify-content: flex-end; /* Align content to the right (end) within wrapper for RTL */
+        }
+        .product-item .product-name-text {
+            cursor: pointer; /* Indicate it's clickable */
+            user-select: none; /* Prevent text selection on click */
+            direction: rtl; /* Force RTL direction for the Hebrew text itself */
+            text-align: right; /* Align text to the right within its span */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflow text */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            flex-shrink: 1; /* Allow text to shrink */
+            min-width: 0; /* Allow text to shrink below content size if necessary */
+        }
+        .product-item .tracking-icon {
+            font-size: 1.2em; /* Size of the icon */
+            color: #4285F4; /* Color of the icon */
+            cursor: pointer;
+            visibility: hidden; /* Hidden by default */
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s ease-in-out;
+            margin-right: 0; /* Reset margin */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .product-item .product-name-wrapper.show-icon .tracking-icon {
+            visibility: visible;
+            opacity: 1;
+        }
+/* Styling for the overall uncategorized category card */
+.uncategorized-category-card {
+    background-color: #ffe0b2; /* A light orange/peach color */
+    border: 1px solid #ffcc80;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+.uncategorized-category-card:hover {
+     box-shadow: 0 8px 16px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.08);
+     transform: translateY(-2px);
+}
+/* Styling for the header of the uncategorized category card */
+.uncategorized-category-card .card-header {
+    background-color: #ff9800 !important; /* A darker orange for the header */
+    color: #fff;
+}
+/* Styling for uncategorized items inside the list */
+.uncategorized-product-list .product-item {
+    background-color: #fff3e0; /* Lighter background for individual items */
+    color: #424242;
+    border: 1px solid #ffcc80;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.uncategorized-product-list .product-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+.uncategorized-product-list .product-item .product-name-text {
+    flex-grow: 1;
+    cursor: pointer; /* Indicate clickability */
+    font-weight: 500;
+    text-align: right;
+    direction: rtl;
+    padding-left: 10px; /* Space from edit button */
+}
+/* Style for the edit button within uncategorized items */
+.update-uncategorized-btn {
+    background-color: #2196F3; /* Material Blue for edit */
+    border-color: #2196F3;
+    color: #fff;
+    width: 40px; /* Smaller button */
+    height: 40px;
+    font-size: 18px; /* Smaller icon */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.update-uncategorized-btn:hover {
+    background-color: #1976D2;
+    border-color: #1976D2;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+        /* New wrapper for quantity and buttons */
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between quantity and buttons */
+            flex-shrink: 0; /* Prevent controls from shrinking */
+        }
+
+        .product-item .quantity {
+            min-width: 35px; /* Ensure quantity has minimum width */
+            text-align: center;
+            font-weight: 600; /* Bolder quantity */
+            font-size: 1.15rem;
+            color: #212529;
+            margin: 0; /* Reset margin, gap handles it */
+        }
+        .product-item .btn-outline-danger { /* - button */
+            margin-left: 0; /* Reset margin */
+            margin-right: 0; /* Reset margin */
+        }
+        .product-item .btn-outline-success { /* + button */
+            margin-left: 0; /* Reset margin */
+            margin-right: 0; /* Reset margin */
+        }
+        .btn-sm {
+            width: 44px; /* Larger buttons for better touch target */
+            height: 44px;
+            border-radius: 50%;
+            font-size: 22px; /* Larger font size for icon/text */
+            font-weight: bold;
+            display: flex; /* Use flex to center content */
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition for hover/active */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Add shadow to buttons */
+            border-width: 2px; /* Thicker border for outline buttons */
+        }
+        .btn-outline-success {
+            border-color: #34A853; /* Google Green */
+            color: #34A853;
+        }
+        .btn-outline-success:hover, .btn-outline-success:active {
+            background-color: #34A853;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(52,168,83,0.3);
+            transform: scale(1.08); /* More pronounced scale effect */
+        }
+        .btn-outline-danger {
+            border-color: #EA4335; /* Google Red */
+            color: #EA4335;
+        }
+        .btn-outline-danger:hover, .btn-outline-danger:active {
+            background-color: #EA4335;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(234,67,53,0.3);
+            transform: scale(1.08); /* More pronounced scale effect */
+        }
+        .floating-btn {
+            position: fixed; /* Ensures it stays in viewport */
+            bottom: 30px; /* More padding from bottom */
+            right: 30px; /* More padding from right */
+            width: 70px; /* Larger FAB */
+            height: 70px;
+            font-size: 38px; /* Larger plus sign */
+            background-color: #7bed9a; /* Updated FAB color */
+            border-color: #7bed9a; /* Updated FAB border color */
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2), 0 1px 18px rgba(0,0,0,0.12), 0 3px 5px rgba(0,0,0,0.14); /* Material Design shadow */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Material-like transition */
+            z-index: 1050; /* Ensure it's above modals */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .floating-btn:hover {
+            background-color: #6ed18c; /* Slightly darker shade for hover effect */
+            border-color: #6ed18c;
+            transform: translateY(-5px); /* Lift on hover */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.2); /* More prominent shadow */
+        }
+
+        /* Styling for the overall done category card */
+        .done-category-card {
+            background-color: #7ba3ed; /* User-provided lighter blue background for the entire card */
+            border: 1px solid #7ba3ed; /* Match border to background */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Keep elevation for done card */
+        }
+        .done-category-card:hover {
+             box-shadow: 0 8px 16px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.08); /* Subtle hover shadow */
+             transform: translateY(-2px); /* Less prominent lift */
+        }
+        /* Styling for done items inside the list */
+        .done-product-list .product-item {
+            background-color: #f0fbfc; /* User-provided slightly lighter blue for individual items */
+            text-decoration: line-through; /* Strikethrough text */
+            color: #8c9096; /* Slightly darker gray for better readability on light blue */
+            border: 1px solid #e0e0e0; /* Lighter border for done items */
+            box-shadow: none; /* Remove shadow for done items */
+            font-weight: 400; /* Lighter font weight for done items */
+        }
+        .done-product-list .product-item:hover {
+            box-shadow: none; /* Ensure no shadow on hover */
+            transform: none; /* No lift on hover */
+        }
+        /* Styling for the header of the done category card */
+        .done-category-card .card-header {
+            background-color: #7ba3ed !important; /* User-provided shade of blue for the header */
+            border-radius: 16px 16px 0 0; /* Ensure header corner radius matches card */
+        }
+
+        /* New style for the clear done text button */
+        .clear-done-text-btn {
+            text-align: center;
+            padding: 0.75rem 1.2rem;
+            margin: 0.8rem 1.2rem; /* Consistent with product item margins */
+            background-color: #f8f9fa; /* A subtle background */
+            color: #EA4335; /* Red color for a clear/delete action */
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Similar subtle shadow to product items */
+            display: block; /* Ensures it takes full width */
+            text-decoration: none; /* Ensure no underline */
+        }
+        .clear-done-text-btn:hover {
+            background-color: #fcebeb; /* Lighter red on hover */
+            color: #c0392b;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        /* Modal specific styling for improved visibility and Material feel */
+        .modal-content {
+            border-radius: 16px; /* Larger border radius */
+            box-shadow: 0 12px 24px rgba(0,0,0,0.25); /* More prominent shadow for dialog */
+            border: none;
+            direction: rtl; /* Explicitly set RTL for modal content */
+            text-align: right; /* Ensure text aligns to the right */
+        }
+        .modal-header {
+            border-bottom: none;
+            padding: 1.5rem 2rem; /* More padding */
+            background-color: #f8f9fa; /* Light background for header */
+            border-radius: 16px 16px 0 0;
+            text-align: right; /* Ensure header text aligns right */
+        }
+        .modal-title {
+            font-weight: 700; /* Bolder title */
+            color: #343a40;
+            font-size: 1.5rem;
+        }
+        /* Ensure close button is positioned correctly for RTL.
+           Bootstrap's ms-0 (margin-inline-start) works for RTL,
+           placing it on the logical right (physical left for RTL)
+        */
+        .modal-header .btn-close {
+             margin-left: 0; /* Override Bootstrap's default margin on the left for RTL, if any */
+             margin-right: auto; /* Push to the left in RTL flexbox */
+             order: -1; /* Place it before the title in visual order for RTL */
+        }
+
+        .modal-body {
+            padding: 0 2rem 1.5rem; /* Consistent padding */
+            text-align: right; /* Ensure body text aligns right */
+        }
+        .modal-footer {
+            border-top: 1px solid #eee; /* Subtle separator */
+            padding: 1rem 2rem 1.5rem; /* Consistent padding */
+            text-align: right; /* Ensure footer content (buttons) aligns right */
+        }
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            text-align: right;
+            width: 100%;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 0.85rem 1.2rem;
+            border: 1px solid #cccccc;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            text-align: right;
+            direction: rtl;
+        }
+        .form-control:focus {
+            border-color: #4285F4;
+            box-shadow: 0 0 0 0.25rem rgba(66, 133, 244, 0.25);
+            outline: none;
+        }
+        .btn-success, .btn-primary, .btn-danger, .btn-secondary {
+            border-radius: 10px;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-success:hover, .btn-primary:hover, .btn-danger:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .btn-success { background-color: #34A853; border-color: #34A853; }
+        .btn-success:hover { background-color: #2e9b49; border-color: #2e9b49; }
+        .btn-primary { background-color: #4285F4; border-color: #4285F4; }
+        .btn-primary:hover { background-color: #3a79d9; border-color: #3a79d9; }
+        .btn-danger { background-color: #EA4335; border-color: #EA4335; }
+        .btn-danger:hover { background-color: #d13a2c; border-color: #d13a2c; }
+        .btn-secondary { background-color: #6c757d; border-color: #6c757d; }
+        .btn-secondary:hover { background-color: #5a6268; border-color: #5a6268; }
+
+        /* Styles for the offcanvas menu */
+        .offcanvas {
+            background-color: #2c3e50; /* Dark background for sidebar */
+            color: #ecf0f1; /* Light text color */
+            width: 250px; /* Fixed width for sidebar */
+            border-left: none; /* Remove default border */
+        }
+        .offcanvas-header {
+            border-bottom: 1px solid #34495e;
+            padding: 1.5rem 1rem;
+        }
+        .offcanvas-title {
+            color: #ecf0f1;
+            font-weight: 700;
+        }
+        .offcanvas-body {
+            padding: 0;
+        }
+        .offcanvas .nav-link {
+            color: #ecf0f1;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between icon and text */
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator */
+        }
+        .offcanvas .nav-link:hover,
+        .offcanvas .nav-link.active {
+            background-color: #34495e; /* Slightly lighter on hover/active */
+            color: #7bed9a; /* Highlight color */
+        }
+        .offcanvas .nav-link i {
+            font-size: 1.3em;
+        }
+        .offcanvas-backdrop.show {
+            opacity: 0.5;
+        }
+        /* Hamburger menu button */
+        .navbar-toggler {
+            position: fixed;
+            top: 15px;
+            right: 15px; /* Position on the right for RTL layout */
+            z-index: 1040; /* Above most content, below offcanvas */
+            background-color: rgba(255,255,255,0.8);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.2s ease;
+        }
+        .navbar-toggler:hover {
+            background-color: rgba(255,255,255,1);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+
+        /* Responsive Adjustments for smaller screens (mobile) */
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px 10px;
+            }
+            h2 {
+                margin-bottom: 2rem !important;
+                font-size: 1.8rem;
+            }
+            .card-category {
+                margin-bottom: 1rem;
+                border-radius: 12px;
+            }
+            .card-header {
+                padding: 1rem 1.2rem;
+                font-size: 1.1rem;
+                border-radius: 12px 12px 0 0;
+            }
+            .product-item {
+                margin: 0.5rem 0.8rem;
+                padding: 0.7rem 1rem;
+                border-radius: 10px;
+            }
+            .product-item input[type="checkbox"] {
+                margin-left: 0.8rem;
+                transform: scale(1.2);
+            }
+            .product-item .product-name-wrapper {
+                margin-right: 0.8rem;
+                font-size: 0.95rem;
+                max-width: calc(100% - 100px); /* Adjusted for smaller screens */
+            }
+            .product-item .quantity {
+                font-size: 1.05rem;
+                min-width: 28px;
+            }
+            .btn-sm {
+                width: 38px;
+                height: 38px;
+                font-size: 20px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 4px rgba(0,0,0,0.14); /* Adjust shadow for mobile FAB */
+            }
+            .modal-content {
+                border-radius: 12px;
+            }
+            .modal-header, .modal-body, .modal-footer {
+                padding: 1.2rem 1.5rem;
+            }
+            .modal-title {
+                font-size: 1.3rem;
+            }
+            .form-control {
+                padding: 0.7rem 1rem;
+            }
+            .btn-success, .btn-primary, .btn-danger, .btn-secondary {
+                padding: 0.7rem 1.2rem;
+            }
+            .clear-done-text-btn {
+                margin: 0.5rem 0.8rem;
+                padding: 0.7rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'sidebar.html' %}
+
+<div class="container text-center mt-5">
+    <h2 class="mb-4 fw-bold">רשימת קניות 🛒</h2>
+    <div id="shopping-list" class="text-end"></div>
+</div>
+
+<!-- Floating Add Button -->
+<button class="btn btn-primary floating-btn" data-bs-toggle="modal" data-bs-target="#addProductModal">+</button>
+
+<!-- Modal for Adding Product -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+            <div class="modal-header">
+                <h5 class="modal-title">הוסף מוצר</h5>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-product-form">
+                    <div class="mb-3">
+                        <label for="product-name" class="form-label">שם מוצר</label>
+                        <input type="text" class="form-control" id="product-name" list="product-suggestions" required>
+                        <datalist id="product-suggestions"></datalist>
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-qty" class="form-label">כמות</label>
+                        <input type="number" class="form-control" id="product-qty" value="1" min="1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-category" class="form-label">קטגוריה</label>
+                        <input list="categories" class="form-control" id="product-category" required>
+                        <datalist id="categories"></datalist>
+                    </div>
+                    <div class="mb-3">
+                        <label for="product-barcode" class="form-label">ברקוד (אופציונלי)</label>
+                        <input type="text" class="form-control" id="product-barcode">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">הוסף</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New Modal for Updating Uncategorized Product Name and Category -->
+<div class="modal fade" id="updateProductModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+            <div class="modal-header">
+                <h5 class="modal-title">עדכן פרטי מוצר: <span id="update-product-old-name" class="fw-bold"></span></h5>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="update-product-form">
+                    <div class="mb-3">
+                        <label for="update-product-name" class="form-label">שם מוצר חדש</label>
+                        <input type="text" class="form-control" id="update-product-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="update-product-category" class="form-label">קטגוריה חדשה</label>
+                        <input type="text" class="form-control" id="update-product-category"
+                               list="update-product-category-suggestions" required>
+                        <datalist id="update-product-category-suggestions"></datalist>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">שמור שינויים</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Custom Confirmation Modal for Deletion -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+            <div class="modal-header">
+                <h5 class="modal-title}>אשר מחיקה</h5>
+        <button type=" button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>האם אתה בטוח שברצונך למחוק את <span id="productToDeleteName" class="fw-bold"></span> מרשימת הקניות?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ביטול</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">מחק</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Confirmation Modal for Clearing Done Products -->
+<div class="modal fade" id="confirmClearDoneModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+            <div class="modal-header">
+                <h5 class="modal-title}>אשר מחיקה</h5>
+        <button type=" button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>האם אתה בטוח שברצונך למחוק את כל <span class="fw-bold">הפריטים שסומנו כבוצעו</span> מרשימת הקניות?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ביטול</button>
+                <button type="button" class="btn btn-danger" id="confirmClearDoneBtn">נקה הכל</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- New Modal for Recording Price on Done -->
+<div class="modal fade" id="recordPriceOnDoneModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+            <div class="modal-header">
+                <h5 class="modal-title">הזן מחיר עבור <span id="productNameForPrice"></span></h5>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="record-price-on-done-form">
+                    <div class="mb-3">
+                        <label for="item-price-on-done" class="form-label">מחיר (₪)</label>
+                        <input type="number" step="0.01" class="form-control" id="item-price-on-done">
+                    </div>
+                    <input type="hidden" id="productNameForPriceInput">
+                    <input type="hidden" id="productBarcodeForPriceInput">
+                    <button type="submit" class="btn btn-success w-100 mb-2">שמור מחיר וסמן כבוצע</button>
+                    <button type="button" class="btn btn-secondary w-100" id="skipPriceBtn" data-bs-dismiss="modal">דלג
+                        וסמן כבוצע
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    let categories = new Set();
+    let productToDelete = null; // Stores the name of the product to be deleted
+    let currentActiveProductNameWrapper = null; // To keep track of which product name wrapper is showing the icon
+    let allProductsData = []; // To store all products from products_master.json for suggestions
+    const UNTAGGED_CATEGORY = "לא מקוטלג"; // Define the constant for untagged category
+
+    // Function to fetch and render the shopping list
+    function fetchAndRenderList() {
+        $.getJSON('/api/shoppinglist', renderList);
+    }
+
+    // Function to fetch all products for suggestions
+    function fetchAllProductsForSuggestions() {
+        $.getJSON('/api/all_products', function(data) {
+            allProductsData = data.products; // Store the fetched product data
+            const $datalist = $('#product-suggestions');
+            $datalist.empty(); // Clear existing options
+            allProductsData.forEach(product => {
+                // Ensure unique options, if a product name appears multiple times with different barcodes,
+                // the first one encountered will be used for the datalist option.
+                // The data-barcode attribute is crucial for autofill.
+                $datalist.append(`<option value="${product.name}" data-barcode="${product.barcode || ''}"></option>`);
+            });
+        });
+    }
+
+    // Function to fetch and populate category suggestions
+    function fetchAndRenderCategories() {
+        $.getJSON('/api/categories', function(data) {
+            const $datalist = $('#categories');
+            $datalist.empty(); // Clear existing options
+            data.categories.forEach(category => {
+                $datalist.append(`<option value="${category}">`);
+            });
+            // Also populate the datalist for the update modal
+            const $updateCategoryDatalist = $('#update-product-category-suggestions');
+            $updateCategoryDatalist.empty();
+            data.categories.forEach(category => {
+                $updateCategoryDatalist.append(`<option value="${category}">`);
+            });
+
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.error("Error fetching categories:", textStatus, errorThrown);
+        });
+    }
+
+
+    // Function to render the shopping list based on fetched data
+    function renderList(data) {
+        const catMap = {}; // Map for regular categories
+        const doneItems = []; // Array for done items
+        const uncategorizedItems = []; // Array for uncategorized items
+        categories.clear(); // Clear existing categories for datalist
+
+        // Capture currently open categories before clearing and re-rendering the list
+        const openCategories = [];
+        $('#shopping-list .product-list:visible').each(function() {
+            // Get the text content of the header (which is the category name)
+            openCategories.push($(this).prev('.card-header').text());
+        });
+
+        // Separate products into regular categories, done items, and uncategorized items
+        for (let [name, details] of Object.entries(data.products)) {
+            // Add all categories to the set for the datalist, excluding "פריטים שבוצעו (Done)" if it somehow gets there
+            if (details.category !== 'פריטים שבוצעו (Done)') {
+                categories.add(details.category);
+            }
+
+            if (details.done) {
+                doneItems.push({ name, ...details });
+            } else if (details.category === UNTAGGED_CATEGORY) {
+                uncategorizedItems.push({ name, ...details });
+            }
+            else {
+                if (!catMap[details.category]) catMap[details.category] = [];
+                catMap[details.category].push({ name, ...details });
+            }
+        }
+
+        const $list = $('#shopping-list').empty(); // Clear the current list display
+
+        // Render regular categories first
+        for (let [category, items] of Object.entries(catMap)) {
+            const $card = $(`
+                <div class="card card-category shadow-sm">
+                    <div class="card-header bg-primary text-white fw-bold">${category}</div>
+                    <div class="card-body product-list"></div>
+                </div>
+            `);
+            const $body = $card.find('.product-list');
+
+            items.forEach(item => {
+                const $item = $(`
+                    <div class="product-item shadow-sm">
+                        <input type="checkbox" class="form-check-input" data-product-name="${item.name}" data-product-barcode="${item.barcode || ''}" ${item.done ? 'checked' : ''}>
+                        <span class="product-name-wrapper" data-product-name="${item.name}" data-product-barcode="${item.barcode || ''}">
+                            <span class="product-name-text">${item.name}</span>
+                            <span class="tracking-icon" title="View Price Tracking">📊</span>
+                        </span>
+                        <div class="quantity-controls">
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="btn btn-outline-danger btn-sm" data-product-name="${item.name}">-</button>
+                            <button class="btn btn-outline-success btn-sm" data-product-name="${item.name}">+</button>
+                        </div>
+                    </div>
+                `);
+
+                // Event listener for increment button
+                $item.find('.btn-outline-success').click(function() {
+                    const productName = $(this).data('product-name');
+                    let currentQty = parseInt($(this).siblings('.quantity').text());
+                    const newQty = currentQty + 1;
+                    updateProductQuantity(productName, newQty);
+                });
+
+                // Event listener for decrement button
+                $item.find('.btn-outline-danger').click(function() {
+                    const productName = $(this).data('product-name');
+                    let currentQty = parseInt($(this).siblings('.quantity').text());
+                    if (currentQty > 1) { // If quantity is greater than 1, just decrement
+                        const newQty = currentQty - 1;
+                        updateProductQuantity(productName, newQty);
+                    } else if (currentQty === 1) { // If quantity is 1, show confirmation for deletion
+                        showDeleteConfirmation(productName);
+                    }
+                });
+
+                // Event listener for checkbox to mark as done/undone
+                $item.find('input[type="checkbox"]').change(function() {
+                    const productName = $(this).data('product-name');
+                    const productBarcode = $(this).data('product-barcode');
+                    const isDone = $(this).is(':checked');
+
+                    if (isDone) {
+                        // If marking as done, show price input modal
+                        showRecordPriceOnDoneModal(productName, productBarcode);
+                    } else {
+                        // If unmarking as done, directly update status without price
+                        updateProductStatus(productName, productBarcode, isDone);
+                    }
+                });
+
+                // Event listener for product name text to show/hide tracking icon
+                $item.find('.product-name-text').click(function(e) {
+                    e.stopPropagation(); // Prevent card header from toggling if clicked on name
+                    const $wrapper = $(this).parent('.product-name-wrapper');
+
+                    // If a different wrapper was active, hide its icon
+                    if (currentActiveProductNameWrapper && currentActiveProductNameWrapper[0] !== $wrapper[0]) {
+                        currentActiveProductNameWrapper.removeClass('show-icon');
+                    }
+
+                    // Toggle icon on the current wrapper
+                    $wrapper.toggleClass('show-icon');
+                    currentActiveProductNameWrapper = $wrapper.hasClass('show-icon') ? $wrapper : null;
+                });
+
+                // Event listener for tracking icon click
+                $item.find('.tracking-icon').click(function(e) {
+                    e.stopPropagation(); // Prevent product name wrapper from toggling again
+                    const productName = $(this).parent().data('product-name');
+                    const productBarcode = $(this).parent().data('product-barcode');
+                    window.location.href = `/tracking?name=${encodeURIComponent(productName)}&barcode=${encodeURIComponent(productBarcode)}`;
+                });
+
+
+                $body.append($item);
+            });
+
+            // Toggle category visibility on header click
+            $card.find('.card-header').click(() => $body.slideToggle());
+            $list.append($card);
+        }
+
+        // Render "Uncategorized" category if there are any uncategorized items
+        if (uncategorizedItems.length > 0) {
+            const $uncategorizedCard = $(`
+                <div class="card card-category shadow-sm mt-4 uncategorized-category-card">
+                    <div class="card-header bg-warning text-dark fw-bold">
+                        <span>פריטים ללא שם (${UNTAGGED_CATEGORY})</span>
+                    </div>
+                    <div class="card-body product-list uncategorized-product-list"></div>
+                </div>
+            `);
+            const $uncategorizedBody = $uncategorizedCard.find('.uncategorized-product-list');
+
+            uncategorizedItems.forEach(item => {
+                const $item = $(`
+                    <div class="product-item shadow-sm uncategorized-item"
+                         data-old-name="${item.name}"
+                         data-old-category="${item.category}"
+                         data-barcode="${item.barcode || ''}">
+                        <span class="product-name-text editable-name">${item.name}</span>
+                        <button class="btn btn-info btn-sm update-uncategorized-btn"
+                                data-product-name="${item.name}"
+                                data-product-category="${item.category}"
+                                data-product-barcode="${item.barcode || ''}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                `);
+
+                // Event listener for the edit button for uncategorized items
+                $item.find('.update-uncategorized-btn').click(function() {
+                    const oldName = $(this).data('product-name');
+                    const currentCategory = $(this).data('product-category');
+                    const barcode = $(this).data('product-barcode');
+                    showUpdateProductModal(oldName, currentCategory, barcode);
+                });
+
+                $uncategorizedBody.append($item);
+            });
+
+            // Toggle uncategorized category visibility on header click
+            $uncategorizedCard.find('.card-header').click(function(e) {
+                $uncategorizedBody.slideToggle();
+            });
+
+            $list.append($uncategorizedCard);
+        }
+
+
+        // Render "Done" category if there are any done items
+        if (doneItems.length > 0) {
+            const $doneCard = $(`
+                <div class="card card-category shadow-sm mt-4 done-category-card">
+                    <div class="card-header text-white fw-bold">
+                        <span>פריטים שבוצעו (Done)</span>
+                    </div>
+                    <div class="card-body product-list done-product-list"></div>
+                </div>
+            `);
+            const $doneBody = $doneCard.find('.done-product-list');
+
+            doneItems.forEach(item => {
+                const $item = $(`
+                    <div class="product-item shadow-sm">
+                        <input type="checkbox" class="form-check-input" data-product-name="${item.name}" data-product-barcode="${item.barcode || ''}" ${item.done ? 'checked' : ''}>
+                        <span class="product-name-wrapper" data-product-name="${item.name}" data-product-barcode="${item.barcode || ''}">
+                            <span class="product-name-text">${item.name}</span>
+                            <span class="tracking-icon" title="View Price Tracking">📊</span>
+                        </span>
+                        <div class="quantity-controls">
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="btn btn-outline-danger btn-sm" data-product-name="${item.name}" disabled>-</button>
+                            <button class="btn btn-outline-success btn-sm" data-product-name="${item.name}" disabled>+</button>
+                        </div>
+                    </div>
+                `);
+
+                // Checkbox for done items allows unchecking to move back to regular list
+                $item.find('input[type="checkbox"]').change(function() {
+                    const productName = $(this).data('product-name');
+                    const productBarcode = $(this).data('product-barcode');
+                    const isDone = $(this).is(':checked');
+                    updateProductStatus(productName, productBarcode, isDone);
+                });
+
+                // Disable quantity change buttons for done items for visual clarity
+                $item.find('.btn-outline-success, .btn-outline-danger').prop('disabled', true);
+
+                // Event listener for product name text to show/hide tracking icon (even for done items)
+                $item.find('.product-name-text').click(function(e) {
+                    e.stopPropagation();
+                    const $wrapper = $(this).parent('.product-name-wrapper');
+                    if (currentActiveProductNameWrapper && currentActiveProductNameWrapper[0] !== $wrapper[0]) {
+                        currentActiveProductNameWrapper.removeClass('show-icon');
+                    }
+                    $wrapper.toggleClass('show-icon');
+                    currentActiveProductNameWrapper = $wrapper.hasClass('show-icon') ? $wrapper : null;
+                });
+
+                // Event listener for tracking icon click (even for done items)
+                $item.find('.tracking-icon').click(function(e) {
+                    e.stopPropagation();
+                    const productName = $(this).parent().data('product-name');
+                    const productBarcode = $(this).parent().data('product-barcode');
+                    window.location.href = `/tracking?name=${encodeURIComponent(productName)}&barcode=${encodeURIComponent(productBarcode)}`;
+                });
+
+                $doneBody.append($item);
+            });
+
+            // Add the clear done button inside the dropdown body (at the bottom)
+            const $clearBtn = $(`
+                <div class="clear-done-text-btn">נקה פריטים שבוצעו</div>
+            `);
+
+            $clearBtn.click(function() {
+                showClearDoneConfirmation();
+            });
+
+            $doneBody.append($clearBtn);
+
+            // Toggle done category visibility on header click
+            $doneCard.find('.card-header').click(function(e) {
+                $doneBody.slideToggle();
+            });
+
+            $list.append($doneCard);
+        }
+
+        // Restore the open state of categories that were open before re-rendering
+        openCategories.forEach(catName => {
+            // Find the header by text content and then its corresponding product list body
+            const $targetBody = $list.find(`.card-header:contains('${catName}')`).next('.product-list');
+            if ($targetBody.length && !$targetBody.is(':visible')) {
+                $targetBody.slideDown();
+            }
+        });
+    }
+
+    // Function to show the custom deletion confirmation modal
+    function showDeleteConfirmation(productName) {
+        productToDelete = productName; // Store the product name for deletion
+        $('#productToDeleteName').text(productName); // Display product name in the modal
+        const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+        confirmDeleteModal.show(); // Show the modal
+    }
+
+    // Event listener for the "מחק" (Delete) button inside the single product confirmation modal
+    $('#confirmDeleteBtn').click(function() {
+        if (productToDelete) {
+            deleteProduct(productToDelete); // Call the delete function
+            productToDelete = null; // Reset the stored product name
+            // Hide the confirmation modal
+            const confirmDeleteModal = bootstrap.Modal.getInstance(document.getElementById('confirmDeleteModal'));
+            confirmDeleteModal.hide();
+        }
+    });
+
+    // Function to show the custom confirmation modal for clearing all done products
+    function showClearDoneConfirmation() {
+        const confirmClearDoneModal = new bootstrap.Modal(document.getElementById('confirmClearDoneModal'));
+        confirmClearDoneModal.show();
+    }
+
+    // Event listener for the "נקה הכל" (Clear All) button inside the clear done products confirmation modal
+    $('#confirmClearDoneBtn').click(function() {
+        clearAllDoneProducts();
+        const confirmClearDoneModal = bootstrap.Modal.getInstance(document.getElementById('confirmClearDoneModal'));
+        confirmClearDoneModal.hide();
+    });
+
+    // New function to show the record price on done modal
+    function showRecordPriceOnDoneModal(productName, productBarcode) {
+        $('#productNameForPrice').text(productName);
+        $('#productNameForPriceInput').val(productName); // Store for form submission
+        $('#productBarcodeForPriceInput').val(productBarcode); // Store for form submission
+        $('#item-price-on-done').val(''); // Clear previous price
+        const recordPriceOnDoneModal = new bootstrap.Modal(document.getElementById('recordPriceOnDoneModal'));
+        recordPriceOnDoneModal.show();
+    }
+
+    // Handle form submission for recording price when marking as done
+    $('#record-price-on-done-form').submit(function(e) {
+        e.preventDefault();
+        const productName = $('#productNameForPriceInput').val();
+        const productBarcode = $('#productBarcodeForPriceInput').val();
+        const price = $('#item-price-on-done').val(); // Can be empty if optional
+
+        // Call updateProductStatus with done=true and the price
+        updateProductStatus(productName, productBarcode, true, price);
+
+        const recordPriceOnDoneModal = bootstrap.Modal.getInstance(document.getElementById('recordPriceOnDoneModal'));
+        recordPriceOnDoneModal.hide();
+    });
+
+    // Handle "Skip and mark as done" button click
+    $('#skipPriceBtn').click(function() {
+        const productName = $('#productNameForPriceInput').val();
+        const productBarcode = $('#productBarcodeForPriceInput').val();
+        // Call updateProductStatus with done=true and no price
+        updateProductStatus(productName, productBarcode, true, ""); // Pass empty string for price
+    });
+
+
+    // Function to update product quantity via API
+    function updateProductQuantity(name, quantity) {
+        $.ajax({
+            url: '/api/update_product',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ name, quantity }),
+            success: function() {
+                // Find the specific item's quantity span and update its text directly
+                // This prevents a full re-render for simple quantity changes
+                const $quantitySpan = $(`button[data-product-name="${name}"]`).siblings('.quantity');
+                if ($quantitySpan.length) {
+                    $quantitySpan.text(quantity);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error updating product quantity:", error);
+                // Revert checkbox if API call fails
+                // No checkbox to revert for quantity update
+            }
+        });
+    }
+
+    // Function to update product done status via API (now accepts price)
+    function updateProductStatus(name, barcode, done, price = "") { // Default price to empty string
+        let payload = { name: name, done: done };
+        // Only include price if it's explicitly provided and not empty
+        if (price !== "" && price !== null) {
+            payload.price = parseFloat(price);
+        }
+
+        $.ajax({
+            url: '/api/update_product',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(payload),
+            success: function() {
+                fetchAndRenderList(); // Reload the list to re-categorize the item (structure changed)
+            },
+            error: function(xhr, status, error) {
+                console.error("Error updating product status:", error);
+                // If the API call fails, revert the checkbox state
+                $(`input[type="checkbox"][data-product-name="${name}"]`).prop('checked', !done);
+            }
+        });
+    }
+
+    // Function to delete product via API
+    function deleteProduct(name) {
+        $.ajax({
+            url: '/api/delete_product',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ name }),
+            success: function() {
+                fetchAndRenderList(); // Reload the list after successful deletion (structure changed)
+            },
+            error: function(xhr, status, error) {
+                console.error("Error deleting product:", error);
+            }
+        });
+    }
+
+    // Function to clear all done products via API
+    function clearAllDoneProducts() {
+        $.ajax({
+            url: '/api/clear_done_products',
+            method: 'POST',
+            contentType: 'application/json',
+            success: function() {
+                fetchAndRenderList(); // Reload the list after successful clearing
+            },
+            error: function(xhr, status, error) {
+                console.error("Error clearing done products:", error);
+            }
+        });
+    }
+
+    // NEW: Function to show the update product modal for uncategorized items
+    let currentOldProductName = null; // Store old name for update
+    let currentProductBarcode = null; // Store barcode for update
+
+    function showUpdateProductModal(oldName, currentCategory, barcode) {
+        currentOldProductName = oldName;
+        currentProductBarcode = barcode;
+        $('#update-product-old-name').text(oldName);
+        $('#update-product-name').val(oldName);
+        $('#update-product-category').val(currentCategory === UNTAGGED_CATEGORY ? '' : currentCategory); // Clear if uncategorized for user to re-enter
+        $('#updateProductModal').modal('show');
+    }
+
+    // Handle form submission for updating uncategorized product
+    $('#update-product-form').submit(function(e) {
+        e.preventDefault();
+        const newName = $('#update-product-name').val().trim();
+        const newCategory = $('#update-product-category').val().trim();
+        const barcode = currentProductBarcode; // Use the stored barcode
+
+        if (!newName || !newCategory) {
+            alert('שם מוצר וקטגוריה לא יכולים להיות ריקים.'); // Use custom modal later
+            return;
+        }
+
+        $.ajax({
+            url: '/api/update_product_name_category', // New endpoint for this
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                old_name: currentOldProductName,
+                new_name: newName,
+                new_category: newCategory,
+                barcode: barcode
+            }),
+            success: function() {
+                $('#updateProductModal').modal('hide');
+                fetchAndRenderList(); // Re-render to reflect changes
+                fetchAllProductsForSuggestions(); // Refresh suggestions as product name might change
+                fetchAndRenderCategories(); // Refresh categories as category might change
+            },
+            error: function(xhr, status, error) {
+                console.error("Error updating product details:", error);
+                alert('שגיאה בעדכון פרטי המוצר.'); // Use custom modal later
+            }
+        });
+    });
+
+
+    $(document).ready(function () {
+        fetchAndRenderList(); // Initial load of the shopping list when the page is ready
+        fetchAllProductsForSuggestions(); // Fetch all products for suggestions
+        fetchAndRenderCategories(); // NEW: Fetch and render categories for suggestions
+
+        // Global click handler to hide tracking icon if clicked outside
+        $(document).click(function(e) {
+            // Check if there's an active wrapper and the click was not inside it
+            if (currentActiveProductNameWrapper && !$(e.target).closest('.product-name-wrapper').length) {
+                currentActiveProductNameWrapper.removeClass('show-icon');
+                currentActiveProductNameWrapper = null;
+            }
+        });
+
+        // Event listener for product name input to autofill barcode
+        $('#product-name').on('input', function() {
+            const selectedProductName = $(this).val();
+            // Find the matching product in allProductsData
+            const matchingProduct = allProductsData.find(product => product.name === selectedProductName);
+            if (matchingProduct) {
+                $('#product-barcode').val(matchingProduct.barcode || '');
+            } else {
+                // If text input doesn't exactly match a suggested product, clear barcode
+                $('#product-barcode').val('');
+            }
+        });
+
+
+        // Handle the form submission for adding a new product
+        $('#add-product-form').submit(function (e) {
+            e.preventDefault(); // Prevent default form submission
+            const name = $('#product-name').val().trim();
+            const quantity = parseInt($('#product-qty').val());
+            const category = $('#product-category').val().trim();
+            const barcode = $('#product-barcode').val().trim(); // Barcode is now collected
+
+            $.ajax({
+                url: '/api/add_product',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ name, quantity, category, barcode }), // Barcode included in payload
+                success: function () {
+                    $('#addProductModal').modal('hide'); // Hide the modal after success
+                    // Clear the form fields
+                    $('#product-name').val('');
+                    $('#product-qty').val(1);
+                    $('#product-category').val('');
+                    $('#product-barcode').val(''); // Clear barcode field too
+                    fetchAndRenderList(); // Reload the list after adding a new product (structure changed)
+                    fetchAllProductsForSuggestions(); // Refresh product suggestions
+                    fetchAndRenderCategories(); // NEW: Refresh category suggestions after adding product
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error adding product:", error);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

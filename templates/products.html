@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>סורק ברקוד ומוצרים 📸</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ZXing-JS Library -->
+    <script src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f2f4f8;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            min-height: 100vh; /* Ensure body takes full height initially */
+            display: flex; /* Use flexbox for main content */
+            flex-direction: column; /* Stack content vertically */
+            overflow-y: auto; /* Allow scrolling on the body */
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px 15px;
+            text-align: center;
+            flex-grow: 1; /* Allow container to grow and shrink */
+            display: flex; /* Make container a flex child as well */
+            flex-direction: column; /* Stack its children */
+            margin-bottom: 20px; /* Add some bottom margin to account for keyboard */
+        }
+        h2 {
+            color: #212529;
+            margin-bottom: 2rem !important;
+            font-weight: 700;
+        }
+        #interactive.viewport {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Fixed height for video feed - may need adjustment on very small screens */
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #000;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #interactive.viewport video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #interactive.viewport.scan-success-flash {
+            border: 5px solid #34A853;
+            box-shadow: 0 0 20px rgba(52, 168, 83, 0.7), 0 0 40px rgba(52, 168, 83, 0.5);
+            transition: border 0.1s ease-out, box-shadow 0.1s ease-out;
+        }
+
+        .controls {
+            margin-bottom: 1.5rem;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 0.85rem 1.2rem;
+            border: 1px solid #cccccc;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            text-align: right;
+            direction: rtl;
+        }
+        .form-control:focus {
+            border-color: #4285F4;
+            box-shadow: 0 0 0 0.25rem rgba(66, 133, 244, 0.25);
+            outline: none;
+        }
+        .btn-primary {
+            background-color: #4285F4;
+            border-color: #4285F4;
+            border-radius: 10px;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover {
+            background-color: #3a79d9;
+            border-color: #3a79d9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        #barcodeResult {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #34495e;
+            text-align: center;
+            background-color: #e3f2fd;
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+        .alert-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .alert-secondary {
+            background-color: #d1d3d4;
+            color: #383d41;
+            border: 1px solid #c6c8ca;
+        }
+        .product-list-container {
+            margin-top: 2rem;
+            text-align: right;
+        }
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            direction: rtl;
+            text-align: right;
+            gap: 5px;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .product-card-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 0.25rem;
+        }
+        .product-card-barcode {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        .product-card-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+        .product-card-actions .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 8px;
+        }
+        .search-controls {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .search-controls .form-control {
+            direction: rtl;
+            text-align: right;
+        }
+        .scan-success-flash {
+            animation: flash-green 0.3s ease-in-out;
+        }
+
+        @keyframes flash-green {
+            0% { background-color: rgba(0, 255, 0, 0.3); }
+            100% { background-color: transparent; }
+        }
+
+        /* NEW: Styles for highlighting an existing product card */
+        .product-card.highlighted-product {
+            border: 2px solid #4CAF50; /* Green border */
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* Green glow */
+            animation: pulse-highlight 1s ease-out forwards; /* Add a subtle pulse animation */
+        }
+
+        @keyframes pulse-highlight {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Manual barcode input */
+        .manual-input {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* Modals should handle their own scrolling but ensure they are not too tall */
+        .modal-body {
+            overflow-y: auto; /* Enable scrolling within modal body if content is tall */
+            max-height: 70vh; /* Limit height to prevent overflow on small screens */
+        }
+
+        /* Specific mobile keyboard adjustments if needed, though flexbox often handles it */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: env(keyboard-inset-bottom, 0px); /* For iOS PWA keyboard inset */
+            }
+            /* More aggressive height reduction for inputs if needed */
+            .form-control {
+                min-height: auto; /* Allow input height to naturally adjust */
+            }
+        }
+    </style>
+</head>
+<body>
+{% include 'sidebar.html' %}
+    <div class="container mt-5">
+        <h2>סריקת ברקוד ומוצרים 📸</h2>
+
+        <div id="interactive" class="viewport">
+            <video id="video" style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
+
+        <div class="controls">
+            <button id="startButton" class="btn btn-primary w-100 mb-3">התחל סריקה</button>
+            <button id="stopButton" class="btn btn-secondary w-100" style="display: none;">הפסק סריקה</button>
+        </div>
+
+        <!-- Manual barcode input -->
+        <div class="manual-input">
+            <h5>הזנת ברקוד ידנית</h5>
+            <div class="input-group">
+                <input type="text" id="manualBarcode" class="form-control" placeholder="הזן ברקוד ידנית...">
+                <button class="btn btn-outline-primary" id="submitManualBarcode">שלח</button>
+            </div>
+        </div>
+
+        <div id="barcodeResult" style="display: none;"></div>
+        <div id="message" class="alert-message" style="display: none;"></div>
+
+        <hr class="my-5">
+
+        <h3 class="mb-4">כל המוצרים הקיימים</h3>
+        <div class="search-controls">
+            <input type="text" id="productSearch" class="form-control" placeholder="חפש מוצר לפי שם או ברקוד...">
+        </div>
+        <div id="allProductsList" class="product-list-container">
+            <p class="text-center text-muted" id="noProductsMessage" style="display: none;">לא נמצאו מוצרים.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Confirming New Product -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+          <div class="modal-header">
+            <h5 class="modal-title">הוסף מוצר חדש</h5>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>ברקוד שנסרק: <strong id="scannedBarcodeDisplay"></strong></p>
+            <form id="add-product-form">
+              <div class="mb-3">
+                <label for="newProductName" class="form-label">שם מוצר</label>
+                <input type="text" class="form-control" id="newProductName" required placeholder="הזן שם עבור המוצר החדש">
+              </div>
+              <button type="submit" class="btn btn-success w-100">הוסף מוצר</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Editing Product (Existing) -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+          <div class="modal-header">
+            <h5 class="modal-title">ערוך מוצר</h5>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="edit-product-form">
+              <input type="hidden" id="edit-product-old-name">
+              <div class="mb-3">
+                <label for="edit-product-name" class="form-label">שם מוצר</label>
+                <input type="text" class="form-control" id="edit-product-name" required>
+              </div>
+              <div class="mb-3">
+                <label for="edit-product-barcode" class="form-label">ברקוד</label>
+                <input type="text" class="form-control" id="edit-product-barcode">
+              </div>
+              <button type="submit" class="btn btn-success w-100">שמור שינויים</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Confirmation Modal for Deletion of Master Product -->
+    <div class="modal fade" id="confirmDeleteMasterProductModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-end">
+          <div class="modal-header">
+            <h5 class="modal-title">אשר מחיקת מוצר</h5>
+            <button type="button" class="btn-close ms-0" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>האם אתה בטוח שברצונך למחוק את המוצר <span id="masterProductToDeleteName" class="fw-bold"></span>?</p>
+            <p class="text-danger small">פעולה זו תמחק את המוצר לצמיתות מרשימת המוצרים שלך. נתוני מעקב המחיר יישמרו אך לא יוצגו בממשק.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ביטול</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteMasterProductBtn">מחק</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    let codeReader = null; // ZXing Code Reader instance
+    let selectedDeviceId = null;
+    let scannerRunning = false;
+    let scannedBarcodeForProcessing = null; // To store the barcode while waiting for user input
+
+    // Product list variables (remains largely the same)
+    let allMasterProducts = [];
+    let productToDeleteFromMaster = null;
+
+    function displayMessage(msg, type) {
+        const messageDiv = $('#message');
+        messageDiv.removeClass('alert-success alert-danger alert-warning alert-info alert-secondary').addClass(`alert-${type}`).text(msg).show();
+        clearTimeout(messageDiv.data('timer'));
+        messageDiv.data('timer', setTimeout(() => messageDiv.fadeOut(500), 3000));
+    }
+
+    async function startScanner() {
+        if (scannerRunning) return;
+
+        const videoElement = document.getElementById('video');
+        if (!videoElement) {
+            console.error("Video element not found!");
+            displayMessage('שגיאה: רכיב וידאו לא נמצא.', 'danger');
+            return;
+        }
+
+        try {
+            codeReader = new ZXing.BrowserMultiFormatReader();
+            const videoInputDevices = await codeReader.listVideoInputDevices();
+
+            if (videoInputDevices.length > 0) {
+                const preferredDevice = videoInputDevices.find(device => device.label.toLowerCase().includes('back') || device.label.toLowerCase().includes('environment'));
+                selectedDeviceId = preferredDevice ? preferredDevice.deviceId : videoInputDevices[0].deviceId;
+
+                displayMessage('מאתחל סורק...', 'info');
+
+                codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', async (result, err) => {
+                    if (result) {
+                        const barcode = result.getText();
+                        console.log('Scanned Barcode:', barcode);
+                        $('#barcodeResult').text('ברקוד נסרק: ' + barcode).show();
+
+                        const $viewport = $('#interactive.viewport');
+                        $viewport.addClass('scan-success-flash');
+                        setTimeout(() => $viewport.removeClass('scan-success-flash'), 300);
+
+                        // Stop scanner immediately after detection to prevent multiple reads
+                        stopScanner();
+
+                        // Process the scanned barcode (check for existing product or prompt to add)
+                        await processScannedBarcode(barcode);
+
+                    }
+                    if (err && !(err instanceof ZXing.NotFoundException)) {
+                        console.error("ZXing Scan Error:", err);
+                        // Only display errors not related to "no barcode found"
+                    }
+                });
+
+                scannerRunning = true;
+                $('#startButton').hide();
+                $('#stopButton').show();
+                displayMessage('המצלמה פועלת, ממתין לברקוד...', 'info');
+
+            } else {
+                displayMessage('לא נמצאו התקני וידאו. אנא ודא שהמצלמה מחוברת ומופעלת.', 'danger');
+                $('#startButton').show();
+                $('#stopButton').hide();
+            }
+        } catch (err) {
+            console.error("ZXing Init/Start Error:", err);
+            let errorMessage = 'שגיאה בהפעלת המצלמה: ' + (err.message || "שגיאה לא ידועה");
+            if (err.name === 'NotAllowedError') errorMessage = 'גישה למצלמה נדחתה. אנא אשר גישה למצלמה בהגדרות הדפדפן.';
+            else if (err.name === 'NotFoundError') errorMessage = 'לא נמצאה מצלמה. ודא שהמצלמה מחוברת.';
+            else if (err.name === 'NotReadableError') errorMessage = 'המצלמה בשימוש או לא זמינה. אנא סגור יישומים אחרים המשתמשים במצלמה.';
+            else if (err.name === 'SecurityError') errorMessage = 'גישה למצלמה חסומה. ודא שאתה משתמש ב-HTTPS.';
+            displayMessage(errorMessage, 'danger');
+            $('#startButton').show();
+            $('#stopButton').hide();
+        }
+    }
+
+    function stopScanner() {
+        if (scannerRunning && codeReader) {
+            try {
+                codeReader.reset();
+                scannerRunning = false;
+                $('#startButton').show();
+                $('#stopButton').hide();
+                displayMessage('הסריקה הופסקה.', 'secondary');
+            } catch (error) {
+                console.error("Error stopping scanner:", error);
+            }
+        }
+    }
+
+    // New function to process the scanned barcode: check existence or prompt for new product
+    async function processScannedBarcode(barcode) {
+        scannedBarcodeForProcessing = barcode; // Store for modal use
+        try {
+            const response = await fetch('/api/process_scanned_barcode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode: barcode })
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                if (result.exists) {
+                    // Barcode exists, display existing product
+                    displayMessage(`ברקוד ${barcode} כבר משויך למוצר: "${result.product_name}"`, 'info');
+
+                    // Set the search input value to the product name
+                    $('#productSearch').val(result.product_name);
+
+                    // Trigger the filter function to show only this product
+                    filterProducts();
+
+                    // Highlight the specific product card
+                    // Use a small timeout to ensure DOM update from filterProducts completes
+                    setTimeout(() => {
+                        const $productCard = $(`.product-card[data-name="${result.product_name}"]`);
+                        if ($productCard.length) {
+                            $productCard.addClass('highlighted-product');
+                            // Remove highlight after a short delay
+                            setTimeout(() => {
+                                $productCard.removeClass('highlighted-product');
+                            }, 2000); // Highlight for 2 seconds
+                        }
+                    }, 100); // Adjust delay if needed
+
+                } else {
+                    // Barcode is new, prompt for product name
+                    $('#scannedBarcodeDisplay').text(barcode);
+                    $('#newProductName').val(''); // Clear previous input
+                    new bootstrap.Modal(document.getElementById('addProductModal')).show();
+                    displayMessage(`ברקוד חדש נסרק: ${barcode}. אנא הזן שם מוצר.`, 'warning');
+                }
+            } else {
+                displayMessage('שגיאה בתהליך הברקוד: ' + result.error, 'danger');
+            }
+        } catch (error) {
+            console.error("Error processing barcode with server:", error);
+            displayMessage('שגיאה בתקשורת עם השרת בעת עיבוד ברקוד.', 'danger');
+        }
+    }
+
+    // Function to add a new product after user confirmation
+    async function addNewProduct(barcode, productName) {
+        try {
+            const response = await fetch('/api/process_scanned_barcode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode: barcode, product_name: productName })
+            });
+            const result = await response.json();
+
+            if (result.success && !result.exists) {
+                displayMessage(`המוצר "${productName}" (ברקוד: ${barcode}) נוסף בהצלחה!`, 'success');
+                bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+                fetchAndRenderProducts(); // Refresh the product list
+            } else if (result.success && result.exists) {
+                // This case should ideally not happen if logic is tight, but handle gracefully
+                displayMessage(`הברקוד ${barcode} כבר קיים ומשויך למוצר "${result.product_name}". לא בוצע שינוי.`, 'info');
+                bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+                fetchAndRenderProducts();
+            }
+            else {
+                displayMessage('שגיאה בהוספת מוצר: ' + (result.error || 'שגיאה לא ידועה'), 'danger');
+            }
+        } catch (error) {
+            console.error("Error adding new product to server:", error);
+            displayMessage('שגיאה בתקשורת עם השרת בעת הוספת מוצר.', 'danger');
+        } finally {
+            scannedBarcodeForProcessing = null;
+        }
+    }
+
+
+    // --- Existing Product List Management Functions ---
+    async function fetchAndRenderProducts() {
+        try {
+            const response = await fetch('/api/all_products');
+            const data = await response.json();
+            allMasterProducts = data.products;
+            renderProductsList(allMasterProducts);
+        } catch (error) {
+            displayMessage('שגיאה בטעינת רשימת המוצרים.', 'danger');
+        }
+    }
+
+    function renderProductsList(productsToRender) {
+        const $listContainer = $('#allProductsList');
+        $listContainer.empty();
+
+        if (productsToRender.length === 0) {
+            $('#noProductsMessage').show();
+            return;
+        } else {
+            $('#noProductsMessage').hide();
+        }
+
+        productsToRender.forEach(product => {
+            const $card = $(`
+                <div class="product-card" data-name="${product.name}" data-barcode="${product.barcode || ''}">
+                    <div class="product-card-name">${product.name}</div>
+                    <div class="product-card-barcode">ברקוד: ${product.barcode || 'אין ברקוד'}</div>
+                    <div class="product-card-actions">
+                        <button class="btn btn-sm btn-info edit-product-btn"><i class="fas fa-edit"></i> ערוך</button>
+                        <button class="btn btn-sm btn-danger delete-product-btn"><i class="fas fa-trash-alt"></i> מחק</button>
+                        <button class="btn btn-sm btn-primary view-tracking-btn"><i class="fas fa-chart-line"></i> מעקב</button>
+                    </div>
+                </div>
+            `);
+
+            $card.find('.delete-product-btn').click(e => {
+                e.stopPropagation();
+                showDeleteMasterProductConfirmation(product.name);
+            });
+
+            $card.find('.edit-product-btn').click(e => {
+                e.stopPropagation();
+                showEditProductModal(product.name, product.barcode);
+            });
+
+            $card.find('.view-tracking-btn').click(e => {
+                e.stopPropagation();
+                window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
+            });
+
+            $card.click(() => {
+                window.location.href = `/tracking?name=${encodeURIComponent(product.name)}&barcode=${encodeURIComponent(product.barcode || '')}`;
+            });
+
+            $listContainer.append($card);
+        });
+    }
+
+    function filterProducts() {
+        const searchTerm = $('#productSearch').val().toLowerCase();
+        const filteredProducts = allMasterProducts.filter(product => {
+            return product.name.toLowerCase().includes(searchTerm) ||
+                (product.barcode && product.barcode.toLowerCase().includes(searchTerm));
+        });
+        renderProductsList(filteredProducts);
+    }
+
+    function showEditProductModal(name, barcode) {
+        $('#edit-product-old-name').val(name);
+        $('#edit-product-name').val(name);
+        $('#edit-product-barcode').val(barcode || '');
+        new bootstrap.Modal(document.getElementById('editProductModal')).show();
+    }
+
+    function showDeleteMasterProductConfirmation(productName) {
+        productToDeleteFromMaster = productName;
+        $('#masterProductToDeleteName').text(productName);
+        new bootstrap.Modal(document.getElementById('confirmDeleteMasterProductModal')).show();
+    }
+
+    // Event handlers for existing modals/forms
+    $('#edit-product-form').submit(async function (e) {
+        e.preventDefault();
+        const oldName = $('#edit-product-old-name').val();
+        const newName = $('#edit-product-name').val().trim();
+        const newBarcode = $('#edit-product-barcode').val().trim();
+
+        if (!newName) {
+            displayMessage('שם מוצר לא יכול להיות ריק.', 'danger');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/update_master_product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ old_name: oldName, new_name: newName, new_barcode: newBarcode })
+            });
+            const result = await response.json();
+            if (result.success) {
+                displayMessage('המוצר עודכן בהצלחה!', 'success');
+                $('#editProductModal').modal('hide');
+                fetchAndRenderProducts();
+            } else {
+                displayMessage('שגיאה בעדכון המוצר: ' + result.error, 'danger');
+            }
+        } catch (error) {
+            displayMessage('שגיאה בתקשורת עם השרת בעת עדכון המוצר.', 'danger');
+        }
+    });
+
+    $('#confirmDeleteMasterProductBtn').click(async function () {
+        if (!productToDeleteFromMaster) return;
+
+        try {
+            const response = await fetch('/api/delete_master_product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: productToDeleteFromMaster })
+            });
+            const result = await response.json();
+            if (result.success) {
+                displayMessage('המוצר נמחק בהצלחה!', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('confirmDeleteMasterProductModal')).hide();
+                fetchAndRenderProducts();
+            } else {
+                displayMessage('שגיאה במחיקת המוצר: ' + result.error, 'danger');
+            }
+        } catch (error) {
+            displayMessage('שגיאה בתקשורת עם השרת בעת מחיקת המוצר.', 'danger');
+        } finally {
+            productToDeleteFromMaster = null;
+        }
+    });
+
+    // Event handler for the new add product form
+    $('#add-product-form').submit(async function(e) {
+        e.preventDefault();
+        const newProductName = $('#newProductName').val().trim();
+        if (!newProductName) {
+            displayMessage('שם המוצר לא יכול להיות ריק.', 'danger');
+            return;
+        }
+        if (scannedBarcodeForProcessing) {
+            await addNewProduct(scannedBarcodeForProcessing, newProductName);
+        } else {
+            displayMessage('שגיאה: לא נסרק ברקוד לעיבוד.', 'danger');
+        }
+    });
+
+    // Manual barcode input (remains largely the same, but now uses processScannedBarcode)
+    $('#submitManualBarcode').click(function() {
+        const barcode = $('#manualBarcode').val().trim();
+        if (barcode) {
+            $('#barcodeResult').text('ברקוד הוזן: ' + barcode).show();
+            displayMessage('ברקוד הוזן בהצלחה!', 'success');
+            processScannedBarcode(barcode); // Use the new processing function
+            $('#manualBarcode').val('');
+        }
+    });
+
+    $('#manualBarcode').keypress(function(e) {
+        if (e.which === 13) { // Enter key
+            $('#submitManualBarcode').click();
+        }
+    });
+
+    // Initialize when document is ready
+    $(document).ready(function () {
+        $('#startButton').click(startScanner);
+        $('#stopButton').click(stopScanner);
+        $('#productSearch').on('input', filterProducts);
+
+        fetchAndRenderProducts();
+
+        $('#startButton').show();
+        $('#stopButton').hide();
+
+        $('.offcanvas .nav-link').each(function () {
+            if (this.href === window.location.href || (window.location.pathname === '/products' && $(this).attr('href') === '/products')) {
+                $(this).addClass('active');
+            }
+        });
+    });
+
+    // Cleanup on page unload
+    $(window).on('beforeunload', function() {
+        if (scannerRunning) {
+            stopScanner();
+        }
+    });
+    </script>
+</body>
+</html>
